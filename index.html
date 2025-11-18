@@ -3,780 +3,1289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhiyanthriki '25 - RSET Tech Fest</title>
+    <title>INCEPTA 2026 - AI Agents & Generative AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #9b59b6;
+            --accent: #e74c3c;
+            --light: #f5f5f5;
+            --dark: #2c3e50;
+            --purple-dark: #2c003e;
+            --purple-mid: #4a0080;
+            --purple-light: #6a00ff;
+            --pink: #e84a8f;
+            --gold: #f39c12;
+            --silver: #bdc3c7;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Orbitron', monospace; /* Cyberpunk font */
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-
-        :root {
-            --primary: #e52d27;
-            --secondary: #000;
-            --accent: #ff4757;
-            --text: #fff;
-            --grid: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: var(--secondary);
-            color: var(--text);
+            background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid), var(--purple-light));
+            color: white;
             overflow-x: hidden;
-            cursor: none; /* Hide default cursor */
+            position: relative;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        /* Animated Wave Background - Enhanced to match the surreal purple landscape theme with wavy hills and floating orbs */
+        .wave-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%; /* Extended for seamless looping */
+            height: 60%; /* Adjusted for hill-like waves */
+            background: linear-gradient(135deg, var(--purple-dark), var(--purple-mid), var(--purple-light));
+            clip-path: polygon(0 80%, 20% 60%, 40% 90%, 60% 50%, 80% 70%, 100% 40%, 120% 80%, 140% 60%, 160% 90%, 180% 50%, 200% 70%);
+            animation: waveAnimation 20s linear infinite; /* Slower for surreal effect */
+            opacity: 0.8;
+        }
+
+        .wave:nth-child(2) {
+            background: linear-gradient(135deg, var(--purple-mid), var(--purple-light), var(--pink));
+            animation-delay: -10s;
+            opacity: 0.6;
+            height: 70%;
+            clip-path: polygon(0 85%, 25% 65%, 50% 75%, 75% 55%, 100% 80%, 125% 65%, 150% 75%, 175% 55%, 200% 80%);
+        }
+
+        .wave:nth-child(3) {
+            background: linear-gradient(135deg, var(--purple-light), var(--pink), var(--primary));
+            animation-delay: -5s;
+            opacity: 0.4;
+            height: 50%;
+            clip-path: polygon(0 90%, 30% 70%, 60% 60%, 90% 80%, 120% 70%, 150% 60%, 180% 80%, 200% 70%);
+        }
+
+        @keyframes waveAnimation {
+            0% {
+                transform: translateX(0px) translateY(0px);
+            }
+            50% {
+                transform: translateX(-50px) translateY(-20px);
+            }
+            100% {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+
+        /* Floating Orbs (to match the surreal orbs in the theme image) */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.3;
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg) scale(1.2);
+                opacity: 0.6;
+            }
+            66% {
+                transform: translateY(-10px) rotate(240deg) scale(0.8);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(0px) rotate(360deg) scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Silhouette Figure (static, positioned in lower area to mimic the image) */
+        .silhouette {
+            position: fixed;
+            bottom: 10%;
+            right: 10%;
+            width: 60px;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.6);
+            clip-path: polygon(50% 0%, 0% 70%, 30% 100%, 70% 100%, 100% 70%);
+            z-index: -1;
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
         }
 
         /* Custom Cursor */
         .cursor {
             position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
+            width: 12px;
+            height: 12px;
+            border: 2px solid white;
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
+            transition: all 0.3s ease;
             mix-blend-mode: difference;
-            transition: transform 0.1s ease;
-        }
-        .cursor::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 4px;
-            height: 4px;
-            background: var(--text);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .cursor.hover {
-            transform: scale(2);
-        }
-        .cursor.click {
-            transform: scale(0);
-            transition: transform 0.1s ease;
+            left: -100px;
+            top: -100px;
         }
 
-        /* Grid Pattern Background */
-        .grid-pattern {
+        .cursor-follower {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(229, 45, 39, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(229, 45, 39, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            animation: gridFloat 20s linear infinite;
-        }
-        @keyframes gridFloat {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            left: -100px;
+            top: -100px;
         }
 
+        /* Header */
         header {
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            z-index: 10;
-            animation: slideInDown 1s ease-out;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
-        @keyframes slideInDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
+
         .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--primary), var(--text));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+            display: flex;
+            align-items: center;
         }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--pink);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px #fff;
+            }
+        }
+
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
         }
+
+        nav li {
+            margin-left: 30px;
+        }
+
         nav a {
-            color: var(--text);
+            color: white;
             text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 500;
             position: relative;
+            padding: 5px 10px;
             transition: all 0.3s ease;
-            cursor: none;
+            font-size: 1.1rem;
         }
+
         nav a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 10px var(--primary);
+            color: var(--pink);
+            transform: scale(1.1);
         }
+
         nav a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: var(--pink);
             transition: width 0.3s ease;
         }
+
         nav a:hover::after {
             width: 100%;
         }
 
-        /* Hero Section with Countdown */
+        /* Hero Section - Enhanced with Coming Soon overlay inspired by the image */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
+            align-items: center;
             text-align: center;
-            animation: fadeIn 2s ease-in;
+            padding: 0 20px;
+            padding-top: 80px;
+            position: relative;
+            z-index: 5;
+            overflow: hidden;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .hero h1 {
-            font-size: 6rem;
+
+        .hero-title {
+            font-size: 5rem;
             font-weight: 900;
-            background: linear-gradient(45deg, var(--primary), var(--text));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px var(--primary);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 5px var(--primary)); }
-            to { filter: drop-shadow(0 0 20px var(--primary)); }
-        }
-        .hero .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            animation: slideUp 1s ease-out 0.5s both;
-        }
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .countdown {
-            display: flex;
-            gap: 30px;
-            margin: 40px 0;
-            animation: slideUp 1s ease-out 1s both;
-        }
-        .countdown-item {
-            text-align: center;
-            background: rgba(229, 45, 39, 0.1);
-            padding: 20px;
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        .countdown-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px var(--primary);
-        }
-        .countdown-value {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--primary);
-            display: block;
-        }
-        .countdown-label {
-            font-size: 0.9rem;
-            opacity: 0.7;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: transparent;
-            color: var(--primary);
-            text-decoration: none;
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            cursor: none;
-            position: relative;
-            overflow: hidden;
-            animation: slideUp 1s ease-out 1.5s both;
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        .btn:hover::before {
-            left: 100%;
-        }
-        .btn:hover {
-            background: var(--primary);
-            color: var(--text);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(229, 45, 39, 0.4);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: titleGlow 3s ease-in-out infinite;
+            background: linear-gradient(45deg, white, var(--pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        /* Sections */
-        .section {
-            padding: 100px 5%;
-            min-height: 100vh;
-            position: relative;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 60px;
-            position: relative;
-            animation: slideInUp 1s ease-out;
-        }
-        @keyframes slideInUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px #fff;
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            animation: slideInLeft 1s ease-out;
-        }
-        @keyframes slideInLeft {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        .about-text p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .hero-subtitle {
+            font-size: 1.5rem;
             margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .stat-card {
-            background: rgba(229, 45, 39, 0.1);
-            border: 1px solid var(--primary);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: none;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-        @keyframes fadeInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .stat-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(229, 45, 39, 0.3);
-        }
-        .stat-number {
-            font-size: 2.5rem;
-            color: var(--primary);
-            font-weight: 900;
-            display: block;
-        }
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .college-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        .college-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 800px;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Events Section */
-        .event-cards {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 60px;
+        .date {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--pink);
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-        .event-card {
-            width: 320px;
-            height: 450px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(229,45,39,0.1));
-            border: 2px solid var(--primary);
-            border-radius: 20px;
-            overflow: hidden;
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, var(--pink), #ff8e8e);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            letter-spacing: 1px;
             position: relative;
-            transition: all 0.4s ease;
-            cursor: none;
-            animation: slideInUp 1s ease-out;
+            overflow: hidden;
         }
-        .event-card:hover {
-            transform: translateY(-15px) rotate(1deg);
-            box-shadow: 0 25px 50px rgba(229, 45, 39, 0.4);
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff8e8e, #ffb3b3);
         }
-        .event-card::before {
+
+        .cta-button::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -50%;
+            left: -100%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transform: rotate(45deg);
-            transition: all 0.5s;
-            opacity: 0;
+            transition: all 0.6s;
         }
-        .event-card:hover::before {
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 5%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            position: relative;
+        }
+
+        .section.visible {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, white, var(--pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(45deg, var(--pink), var(--primary));
+            border-radius: 3px;
+        }
+
+        /* About Content */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--pink);
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
-            animation: shine 0.5s ease;
-        }
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        .event-content {
-            position: relative;
-            z-index: 2;
-            padding: 30px;
+            width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+            z-index: 1;
         }
-        .event-type {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--primary);
-            letter-spacing: 2px;
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink), var(--primary));
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .event-card:hover::before {
+            height: 10px;
+        }
+
+        .event-icon {
+            font-size: 3rem;
             margin-bottom: 20px;
+            color: var(--pink);
         }
+
         .event-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 20px 0;
-            text-shadow: 0 0 10px var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--pink);
         }
+
         .event-description {
-            opacity: 0.8;
             line-height: 1.6;
         }
 
-        /* Gallery Section */
-        .gallery {
+        /* Statistics Section */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
-        .gallery-item {
-            height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Sponsorship Tiers */
+        .sponsorship-tiers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+            justify-content: center;
+        }
+
+        .tier-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            width: 300px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
-            border: 2px solid transparent;
-            transition: all 0.4s ease;
-            cursor: none;
+            overflow: hidden;
         }
-        .gallery-item:hover {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(229, 45, 39, 0.3);
+
+        .tier-card.platinum {
+            border-color: var(--gold);
         }
-        .gallery-item img {
+
+        .tier-card.gold {
+            border-color: var(--gold);
+        }
+
+        .tier-card.silver {
+            border-color: var(--silver);
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink), var(--primary));
+            transition: all 0.3s ease;
         }
-        .gallery-item:hover img {
-            transform: scale(1.2) rotate(2deg);
+
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .tier-card:hover::before {
+            height: 10px;
+        }
+
+        .tier-header {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--pink);
+        }
+
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            color: var(--pink);
+        }
+
+        .tier-benefits {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .tier-benefits li {
+            margin: 10px 0;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .tier-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-benefits li i {
+            color: var(--pink);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .highlight {
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+
+        /* Stall Section */
+        .stall-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stall-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stall-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .stall-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--pink);
+            margin: 10px 0;
         }
 
         /* Contact Section */
-        .contact-content {
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-            animation: slideInRight 1s ease-out;
+            gap: 50px;
+            margin-top: 50px;
         }
-        @keyframes slideInRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        .quick-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .quick-links a {
-            color: var(--text);
-            text-decoration: none;
-            padding: 10px;
-            transition: color 0.3s ease;
-            cursor: none;
-        }
-        .quick-links a:hover {
-            color: var(--primary);
-        }
-        .contact-form {
-            background: rgba(0,0,0,0.5);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid var(--primary);
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
+
+        .contact-info h3 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid var(--primary);
-            border-radius: 10px;
-            color: var(--text);
-            font-family: inherit;
-            transition: all 0.3s ease;
+            color: var(--pink);
         }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            box-shadow: 0 0 10px var(--primary);
+
+        .contact-info p {
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
-        .contact-form button {
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 107, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--pink);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
             width: 100%;
             padding: 15px;
-            background: var(--primary);
-            color: var(--text);
-            border: none;
             border-radius: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
-        .contact-form button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(229,45,39,0.4);
-        }
-        .map-container {
-            height: 300px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid var(--primary);
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--pink);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
         }
 
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
         footer {
-            background: var(--secondary);
-            padding: 40px 5%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 5%;
             text-align: center;
-            border-top: 1px solid var(--primary);
-            animation: fadeIn 1s ease-out 0.5s both;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer-logo {
-            font-size: 1.5rem;
-            color: var(--primary);
-            font-weight: 900;
-        }
-        .developed-by {
-            opacity: 0.6;
-            margin-top: 20px;
-            font-size: 0.9rem;
+            margin-top: 50px;
         }
 
-        /* Responsive */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            color: var(--pink);
+            transform: scale(1.2);
+            background: rgba(255, 107, 107, 0.2);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .countdown { gap: 15px; }
-            .countdown-value { font-size: 2rem; }
-            .about-content, .contact-content { grid-template-columns: 1fr; gap: 30px; }
-            nav ul { gap: 15px; }
-            .event-cards { flex-direction: column; align-items: center; }
-            .gallery { grid-template-columns: 1fr; }
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 5%;
+            }
+            
+            nav ul {
+                display: none;
+            }
+
+            .sponsorship-tiers {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tier-card {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats-grid, .stall-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .silhouette {
+                width: 40px;
+                height: 80px;
+                bottom: 5%;
+                right: 5%;
+            }
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--pink), var(--primary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, var(--primary), var(--pink));
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
+    <!-- Wave Background - Integrated with surreal wavy hills and purple gradients matching the image theme -->
+    <div class="wave-background">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    
+    <!-- Floating Particles/Orbs -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Silhouette Figure -->
+    <div class="silhouette"></div>
+    
     <!-- Custom Cursor -->
     <div class="cursor"></div>
-
-    <div class="grid-pattern"></div>
-
+    <div class="cursor-follower"></div>
+    
+    <!-- Header -->
     <header>
-        <div class="logo">ABK '25</div>
+        <div class="logo">
+            <i class="fas fa-robot"></i>INCEPTA 2026
+        </div>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#sponsorship">Sponsorship</a></li>
+                <li><a href="#stall">Stalls</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
+    
+    <!-- Hero Section - With Coming Soon overlay inspired by the provided image -->
     <section class="hero">
-        <h1>Abhiyanthriki</h1>
-        <p class="subtitle">The Future Unfolds In...</p>
-        <div class="countdown">
-            <div class="countdown-item">
-                <span class="countdown-value" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="minutes">00</span>
-                <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-value" id="seconds">00</span>
-                <span class="countdown-label">Seconds</span>
-            </div>
-        </div>
-        <a href="#registration" class="btn">Register Now</a>
+        <h1 class="hero-title">INCEPTA 2026</h1>
+        <p class="hero-subtitle">A premier technical festival focused on AI Agents & Generative AI</p>
+        <p class="date">January 29-30, 2026</p>
+        <button class="cta-button">Register Now</button>
     </section>
-
+    
+    <!-- About Section -->
     <section id="about" class="section">
-        <h2 class="section-title">About Abhiyanthriki</h2>
+        <h2 class="section-title">About INCEPTA 2026</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>Abhiyanthriki, the annual technical festival of Rajagiri School of Engineering & Technology (RSET), is a premier platform celebrating academic brilliance, cutting-edge technology, and creative innovation. Spanning two dynamic days, it showcases vibrant workshops, technical and non-technical contests, exhibitions, and stalls, drawing participation from across the region.</p>
-                <div class="stats">
-                    <div class="stat-card">
-                        <span class="stat-number">1.2K+</span>
-                        <span class="stat-label">Followers</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">6000+</span>
-                        <span class="stat-label">Expected</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">15.4K+</span>
-                        <span class="stat-label">Account Reach</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">28K+</span>
-                        <span class="stat-label">Interactions</span>
-                    </div>
-                </div>
+                <h3>About CET</h3>
+                <p>The College of Engineering, Trivandrum (CET), is a pioneering institution of technical education in Kerala. For 85 illustrious years since its foundation in 1939, CET has remained steadfast in upholding a legacy of excellence in both technical and cultural domains.</p>
+                <p>We proudly stand as a beacon of knowledge and innovation. CET consistently ranks among the foremost institutions in the country for the quality of its graduates and their significant contributions to top-tier jobs.</p>
+                <button class="btn btn-primary">Learn More</button>
             </div>
-            <img src="https://via.placeholder.com/600x400/1a1a1a/e52d27?text=RSET+Campus" alt="RSET Campus" class="college-image">
+            <div class="about-text">
+                <h3>About ASCA</h3>
+                <p>The Association of Students of Computer Applications (ASCA) is the official student body of the Department of Computer Applications at College of Engineering Trivandrum (CET). Serving as a dynamic platform for MCA students, ASCA strives to enhance academic excellence, technical competence, and professional growth.</p>
+                <p>It plays a vital role in organizing various technical and cultural initiatives that foster innovation and collaboration among students.</p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="about-text">
+                <h3>About INCEPTA</h3>
+                <p>INCEPTA is the premier technical festival organized by the Association of Computer Applications (ASCA) of the MCA Department at the prestigious College of Engineering, Trivandrum (CET). Scheduled for January 29th and 30th, 2026, INCEPTA serves as a highly focused platform centered on the disruptive fields of AI Agents and Generative AI.</p>
+                <p>INCEPTA leverages the strong academic backing of CET and a comprehensive network across the KTU MCA student community throughout Kerala. Its core mission is to bridge the gap between academic theory and industry reality, providing sponsors with direct access to a specialized, future-ready talent pool and maximum visibility within Kerala's technical education ecosystem.</p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1677442135724-6f04c8b66f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="AI Technology">
+            </div>
         </div>
     </section>
-
+    
+    <!-- Events Section -->
     <section id="events" class="section">
-        <h2 class="section-title">Events</h2>
-        <div class="event-cards">
-            <div class="event-card">
-                <div class="event-content">
-                    <div class="event-type">PRE-EVENTS</div>
-                    <h3 class="event-title">Keyboard Challenge</h3>
-                    <div class="event-description">
-                        <p>Pre-event coding and tech workshops to gear up for the main fest.</p>
-                    </div>
+        <h2 class="section-title">Festival Events</h2>
+        <div class="events-grid">
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3 class="event-title">Hackathon</h3>
+                <p class="event-description">12-hour Hackathon focused on Creating AI Agents. This event challenges participants to develop innovative AI Agent solutions to real-world problems.</p>
             </div>
-            <div class="event-card">
-                <div class="event-content">
-                    <div class="event-type">TECHNICAL</div>
-                    <h3 class="event-title">Robotics Arena</h3>
-                    <div class="event-description">
-                        <p>Build, program, and compete with advanced robotic designs.</p>
-                    </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
+                <h3 class="event-title">Workshops</h3>
+                <p class="event-description">Hands-on workshops on AI Agents frameworks and no-code tools. Learn from industry experts and get practical experience with cutting-edge technologies.</p>
             </div>
-            <div class="event-card">
-                <div class="event-content">
-                    <div class="event-type">NON-TECHNICAL</div>
-                    <h3 class="event-title">Music Tech Fusion</h3>
-                    <div class="event-description">
-                        <p>Blend creativity with technology in innovative performances.</p>
-                    </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-microphone"></i>
                 </div>
+                <h3 class="event-title">Expert Talks</h3>
+                <p class="event-description">Inspirational talks from industry leaders on AI Agents, Generative AI, and the future of artificial intelligence in various industries.</p>
+            </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="event-title">Panels & Case Studies</h3>
+                <p class="event-description">Engaging panel discussions and real-world case studies by experts in the field of AI Agents and Generative AI.</p>
+            </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <h3 class="event-title">Coding Events</h3>
+                <p class="event-description">Coding events such as Vibe coding, debugging, etc.</p>
+            </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <h3 class="event-title">CTF</h3>
+                <p class="event-description">Capture the Flag: Cyber security event.</p>
+            </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3 class="event-title">E-Games & Hub</h3>
+                <p class="event-description">Games Hub with E-games Tournaments where participants can showcase their skills and compete with peers.</p>
+            </div>
+            
+            <div class="event-card animate-on-scroll">
+                <div class="event-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3 class="event-title">INCEPTA GALA</h3>
+                <p class="event-description">INCEPTA '26 Flagship Cultural event featuring performances, competitions, and an unforgettable celebration of technology and culture.</p>
             </div>
         </div>
     </section>
-
-    <section id="gallery" class="section">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 1">
+    
+    <!-- Statistics Section -->
+    <section id="stats" class="section">
+        <h2 class="section-title">Statistics</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 50px;">To whom we can reach</p>
+        <div class="stats-grid">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Batches of MCA Alumni from CET</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d8778a85c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 2">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">32</div>
+                <div class="stat-label">KTU MCA Colleges in Kerala (~3k students)</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581094792272-fd5200d4d087?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 3">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">5k+</div>
+                <div class="stat-label">Visual & Media Reach to CET Students</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 4">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">10k+</div>
+                <div class="stat-label">Footfall at Distinguished Fests</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d8778a85c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 5">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">5-10</div>
+                <div class="stat-label">Schools in Outreach Program</div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1581094792272-fd5200d4d087?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event Photo 6">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Students Covered in School Outreach</div>
             </div>
         </div>
     </section>
-
+    
+    <!-- Sponsorship Section -->
+    <section id="sponsorship" class="section">
+        <h2 class="section-title">Sponsorship Opportunities</h2>
+        <div class="sponsorship-tiers">
+            <div class="tier-card platinum animate-on-scroll">
+                <h3 class="tier-header">Platinum</h3>
+                <p class="tier-price">₹75,000</p>
+                <ul class="tier-benefits">
+                    <li><i class="fas fa-check"></i> <span class="highlight">Official Title Sponsor</span></li>
+                    <li><i class="fas fa-check"></i> Dominant Logo Co-branding</li>
+                    <li><i class="fas fa-check"></i> Primary Branding</li>
+                    <li><i class="fas fa-check"></i> Exclusive Video Playback</li>
+                    <li><i class="fas fa-check"></i> 5 VIP Access</li>
+                    <li><i class="fas fa-check"></i> Interaction Opportunities</li>
+                    <li><i class="fas fa-check"></i> Complimentary Stall</li>
+                    <li><i class="fas fa-check"></i> Event Title / Problem-Setting Rights</li>
+                    <li><i class="fas fa-check"></i> Judging Role / Title Sponsorship</li>
+                    <li><i class="fas fa-check"></i> Certificate Branding / Hosting Opportunity</li>
+                    <li><i class="fas fa-check"></i> Recruitment Access / Sanchari Band ft. Vidhu Prathap (Approx 2L)</li>
+                    <li><i class="fas fa-check"></i> Active Radio Band: Approx 2L</li>
+                </ul>
+                <button class="btn btn-primary">Become Platinum Sponsor</button>
+            </div>
+            
+            <div class="tier-card gold animate-on-scroll">
+                <h3 class="tier-header">Gold</h3>
+                <p class="tier-price">₹25,000</p>
+                <ul class="tier-benefits">
+                    <li><i class="fas fa-check"></i> <span class="highlight">Supporting Title Sponsor</span></li>
+                    <li><i class="fas fa-check"></i> Prime Logo Placement</li>
+                    <li><i class="fas fa-check"></i> Stage Mention</li>
+                    <li><i class="fas fa-check"></i> Promo Display</li>
+                    <li><i class="fas fa-check"></i> Social Media Spotlight</li>
+                    <li><i class="fas fa-check"></i> 3 VIP Passes</li>
+                    <li><i class="fas fa-check"></i> Complimentary Stall</li>
+                    <li><i class="fas fa-check"></i> Exclusive Giveaway Opportunity</li>
+                    <li><i class="fas fa-check"></i> Brand Mentions</li>
+                    <li><i class="fas fa-check"></i> Certificate Branding</li>
+                </ul>
+                <button class="btn btn-primary">Become Gold Sponsor</button>
+            </div>
+            
+            <div class="tier-card silver animate-on-scroll">
+                <h3 class="tier-header">Silver</h3>
+                <p class="tier-price">₹15,000</p>
+                <ul class="tier-benefits">
+                    <li><i class="fas fa-check"></i> <span class="highlight">Powered By Sponsor</span></li>
+                    <li><i class="fas fa-check"></i> Logo Display</li>
+                    <li><i class="fas fa-check"></i> On-Stage Mention</li>
+                    <li><i class="fas fa-check"></i> Social Media Mention</li>
+                    <li><i class="fas fa-check"></i> Campus Visibility</li>
+                    <li><i class="fas fa-check"></i> Small Stall at Discounted Rate</li>
+                    <li><i class="fas fa-check"></i> Audience Interaction</li>
+                    <li><i class="fas fa-check"></i> Recognition</li>
+                </ul>
+                <button class="btn btn-primary">Become Silver Sponsor</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stall Section -->
+    <section id="stall" class="section">
+        <h2 class="section-title">Stall Tariff</h2>
+        <div class="stall-grid">
+            <div class="stall-card animate-on-scroll">
+                <i class="fas fa-umbrella" style="font-size: 3rem; color: var(--pink); margin-bottom: 20px;"></i>
+                <h3>Patio Umbrellas Stalls</h3>
+                <p class="stall-price">₹5,000 / day</p>
+            </div>
+            <div class="stall-card animate-on-scroll">
+                <i class="fas fa-home" style="font-size: 3rem; color: var(--pink); margin-bottom: 20px;"></i>
+                <h3>10x10 feet Stalls</h3>
+                <p class="stall-price">₹7,500 / day</p>
+            </div>
+            <div class="stall-card animate-on-scroll">
+                <i class="fas fa-home" style="font-size: 3rem; color: var(--pink); margin-bottom: 20px;"></i>
+                <h3>20x20 feet Stalls</h3>
+                <p class="stall-price">₹10,000 / day</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-size: 1.2rem;">For Queries contact: Aiswarya: 7356160270</p>
+    </section>
+    
+    <!-- Contact Section -->
     <section id="contact" class="section">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-content">
-            <div>
-                <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;">Quick Links</h3>
-                <div class="quick-links">
-                    <a href="#">Home</a>
-                    <a href="#events">Events</a>
-                    <a href="#registration">Registration</a>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info animate-on-scroll">
+                <h3>Get In Touch</h3>
+                <p>The Association of Students of Computer Applications (ASCA) is the official student body of the Department of Computer Applications at College of Engineering Trivandrum (CET).</p>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>College of Engineering, Trivandrum, Kerala</p>
                 </div>
-                <div class="map-container" style="margin-top: 40px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.361!2d76.412!3d10.032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAxJzIyLjgiTiA3NMKwMjQnNDguMiJF!5e0!3m2!1sen!2sin!4v1630000000000" allowfullscreen="" loading="lazy"></iframe>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>ascacet@gmail.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Aiswarya: 7356160270</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-users"></i>
+                    <p>Student Association: Akhil K Babu (8078533607), Deepak H (8281990423), Aaron Gladston (9746680031), Farzan Saleem (7034498792), Afrake (8089326061)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-user-tie"></i>
+                    <p>Advisory Committee: Dr. Suresh K (Principal), Dr. Liji P I (Head of Department), Lubi E (Faculty Advisor)</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <p>incepta.cet</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <p>linkedin.com/in/asca-cet</p>
                 </div>
             </div>
-            <div class="contact-form">
-                <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;">Send Feedback</h3>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Feedback" required></textarea>
-                <button type="submit">Send Feedback</button>
+            
+            <div class="contact-form animate-on-scroll">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+                    <div id="formMessage" class="form-message"></div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
-
+    
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">ABK '25</div>
-            <div class="developed-by">Developed with ❤️ by Arun Ujwal, Abhishikth & Neehar</div>
+        <p>© 2026 INCEPTA. All rights reserved. Organized by ASCA, Department of Computer Applications, College of Engineering, Trivandrum.</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
         </div>
+        <p>INCEPTA 2026 - AI Agents & Generative AI</p>
     </footer>
-
+    
     <script>
+        // Create floating particles/orbs
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 20; // Reduced for performance, focused on orbs
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            const size = Math.random() * 40 + 20; // Larger for orb-like effect
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 70}%`; // Mostly upper area
+            
+            const duration = Math.random() * 12 + 6;
+            particle.style.animationDuration = `${duration}s`;
+            
+            particle.style.animationDelay = `${Math.random() * 8}s`;
+            
+            particle.style.opacity = Math.random() * 0.4 + 0.3;
+            
+            particlesContainer.appendChild(particle);
+        }
+        
         // Custom Cursor
         const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.pageX + 'px';
+                cursorFollower.style.top = e.pageY + 'px';
+            }, 100);
         });
-        document.querySelectorAll('a, button, .event-card, .gallery-item, .stat-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            el.addEventListener('mousedown', () => cursor.classList.add('click'));
-            el.addEventListener('mouseup', () => cursor.classList.remove('click'));
-        });
-
-        // Countdown Timer (Set to Oct 15, 2025 - but since date is Nov 18, 2025, it will show 00)
-        function updateCountdown() {
-            const eventDate = new Date('2025-10-15T00:00:00');
-            const now = new Date();
-            const diff = eventDate - now;
-            if (diff <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                return;
-            }
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        
+        // Interactive elements hover
+        const interactiveElements = document.querySelectorAll('a, button, .event-card, .tier-card, .stat-card, .stall-card');
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
             });
         });
-
-        // Intersection Observer for Animations
+        
+        // Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         });
-        document.querySelectorAll('.section').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(50px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        
+        document.querySelectorAll('.animate-on-scroll, .section').forEach(el => {
             observer.observe(el);
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.2)';
+            }
+        });
+        
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formMessage = document.getElementById('formMessage');
+            formMessage.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+            formMessage.className = 'form-message success';
+            this.reset();
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 3000);
         });
     </script>
 </body>
