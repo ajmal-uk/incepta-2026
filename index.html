@@ -939,10 +939,725 @@
                 padding: 80px 5%;
             }
         }
+
+        /* ==========================================
+           GALLERY STYLES (MATCHING gallery_code.html)
+           ========================================== */
+        #gallery {
+            padding: 60px 0;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(10px, 2vw, 20px);
+            transform: rotate(-3deg) scale(1.05);
+            width: 110%;
+            margin-left: -5%;
+        }
+
+        .gallery-row {
+            width: 100%;
+            position: relative;
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: clamp(10px, 2vw, 15px);
+            width: max-content;
+            animation: none !important;
+            scroll-snap-align: start;
+            padding: 0 10px;
+        }
+
+        .gallery-img {
+            width: clamp(200px, 35vw, 250px);
+            height: clamp(120px, 25vw, 160px);
+            border-radius: 12px;
+            object-fit: cover;
+            filter: grayscale(60%);
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            cursor: pointer;
+            scroll-snap-align: start;
+            min-width: clamp(200px, 35vw, 250px);
+            border: none;
+            /* Removing border from previous implementation to match */
+        }
+
+        .gallery-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05) rotate(3deg);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(232, 74, 143, 0.4);
+            /* border-color removed to match */
+        }
+
+        /* Desktop Animations */
+        @media (min-width: 769px) {
+            .gallery-row {
+                overflow: visible;
+            }
+
+            .gallery-track {
+                animation: scrollLeft 40s linear infinite !important;
+            }
+
+            .gallery-row.row-2 .gallery-track {
+                animation: scrollRight 35s linear infinite !important;
+            }
+
+            .gallery-img:hover {
+                transform: scale(1.15) rotate(5deg);
+            }
+        }
+
+        /* Mobile Auto-Scroll */
+        @media (max-width: 768px) {
+            .gallery-track {
+                animation: scrollLeftMobile 50s linear infinite !important;
+            }
+
+            .gallery-row.row-2 .gallery-track {
+                animation: scrollRightMobile 45s linear infinite !important;
+            }
+
+            @keyframes scrollLeftMobile {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            @keyframes scrollRightMobile {
+                0% {
+                    transform: translateX(-50%);
+                }
+
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            .gallery-row {
+                padding-bottom: 10px;
+            }
+
+            .gallery-img {
+                width: 250px;
+                height: 150px;
+                min-width: 250px;
+                flex: 0 0 250px;
+            }
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollRight {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* ==========================================
+           EVENT OVERLAY MODAL STYLES
+           ========================================== */
+        .event-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 5, 20, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .event-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .event-overlay-content {
+            min-height: 100vh;
+            padding: 80px 5% 60px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        .event-overlay.active .event-overlay-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .overlay-close-btn {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(198, 120, 255, 0.2) 0%, rgba(63, 40, 78, 0.4) 100%);
+            border: 1px solid rgba(198, 120, 255, 0.3);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .overlay-close-btn:hover {
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-magenta));
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 10px 30px rgba(198, 120, 255, 0.4);
+        }
+
+        .overlay-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .overlay-back-btn:hover {
+            color: var(--neon-purple);
+            transform: translateX(-5px);
+        }
+
+        .overlay-back-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .overlay-header {
+            margin-bottom: 50px;
+        }
+
+        .overlay-event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(198, 120, 255, 0.2) 0%, rgba(255, 106, 193, 0.15) 100%);
+            border: 1px solid rgba(198, 120, 255, 0.4);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--neon-purple);
+        }
+
+        .overlay-event-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, var(--neon-purple) 50%, var(--neon-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .overlay-event-tagline {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .overlay-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .overlay-detail-card {
+            background: linear-gradient(135deg, rgba(63, 40, 78, 0.4) 0%, rgba(20, 10, 27, 0.6) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(175, 132, 203, 0.2);
+            backdrop-filter: blur(15px);
+        }
+
+        .overlay-detail-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--neon-purple);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .overlay-detail-card p {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .overlay-description {
+            margin-bottom: 50px;
+        }
+
+        .overlay-description h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .overlay-description p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+
+        .overlay-description ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .overlay-description li {
+            color: rgba(255, 255, 255, 0.75);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.02rem;
+        }
+
+        .overlay-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
+
+        .overlay-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .overlay-register-btn {
+            background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-magenta) 100%);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(198, 120, 255, 0.35);
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .overlay-register-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(198, 120, 255, 0.5);
+        }
+
+        .overlay-register-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .overlay-secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(198, 120, 255, 0.5);
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+
+        .overlay-secondary-btn:hover {
+            border-color: var(--neon-purple);
+            background: rgba(198, 120, 255, 0.1);
+        }
+
+        /* Body scroll lock when overlay is open */
+        body.overlay-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .overlay-close-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .event-overlay-content {
+                padding: 70px 5% 40px;
+            }
+
+            .overlay-actions {
+                flex-direction: column;
+            }
+
+            .overlay-register-btn,
+            .overlay-secondary-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ==========================================
+           SIDEBAR STYLES (MATCHING gallery_code.html)
+           ========================================== */
+        /* --- Burger Menu --- */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            transition: transform 0.3s;
+        }
+
+        .burger-menu span {
+            width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+            transform-origin: center;
+        }
+
+        .burger-menu.active {
+            transform: rotate(90deg);
+        }
+
+        .burger-menu.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: none;
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 1;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: none;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(85vw, 320px);
+            height: 100vh;
+            max-height: 100vh;
+            overflow-y: auto;
+            background: rgba(13, 6, 16, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: clamp(60px, 10vh, 80px) 25px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            overscroll-behavior: contain;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-logo {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 800;
+            color: var(--neon-magenta);
+        }
+
+        .sidebar-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .sidebar-close:hover {
+            background: rgba(232, 74, 143, 0.2);
+            color: var(--neon-magenta);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            padding: 12px 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-nav a:hover {
+            background: rgba(232, 74, 143, 0.1);
+            color: var(--neon-magenta);
+            transform: translateX(5px) scale(1.02);
+        }
+
+        .sidebar-nav a svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .sidebar-nav a:hover svg {
+            transform: rotate(10deg);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .sidebar-footer p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 15px;
+        }
+
+        /* --- Overlay --- */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            touch-action: none;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                /* Hide default nav on mobile */
+            }
+
+            /* Responsive Spacing Improvements handled by general styles now */
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="loader-content">
+            <img src="assets/logo.png" alt="INCEPTA LOADER" class="loader-logo">
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+    <style>
+        /* Preloader Styles */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0514;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loader-logo {
+            width: 80px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(136, 93, 164, 0.3);
+            border-top: 4px solid var(--neon-magenta);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        .loaded #loader {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
     <!-- Animated Background Orbs -->
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
@@ -952,20 +1667,108 @@
 
     <div class="content">
         <header>
-            <a href="#" class="logo">INCEPTA 2026</a>
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="INCEPTA 2026"
+                    style="height: 40px; width: auto; vertical-align: middle;">
+            </a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#stats">Stats</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn">
+            <button class="burger-menu" id="burgerMenu" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+        </header>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar" role="navigation" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <img src="assets/logo.png" alt="INCEPTA 2026" style="height: 40px; width: auto;">
+                </div>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#about" onclick="closeSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="16" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    About
+                </a>
+                <a href="#events" onclick="closeSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Events
+                </a>
+                <a href="#gallery" onclick="closeSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    Gallery
+                </a>
+                <a href="#stats" onclick="closeSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <line x1="18" y1="20" x2="18" y2="10" />
+                        <line x1="12" y1="20" x2="12" y2="4" />
+                        <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                    Stats
+                </a>
+                <a href="#contact" onclick="closeSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    Contact
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Follow us on social media</p>
+                <div class="social-links" style="margin-top: 15px; gap: 10px; justify-content: center;">
+                    <a href="#" aria-label="Instagram" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
         </header>
 
         <section class="hero">
@@ -1054,46 +1857,20 @@
             <h2 class="section-title">Festival Events</h2>
             <p class="section-subtitle">Two days of innovation, competition, and unforgettable experiences</p>
             <div class="events-grid">
-                <div class="event-card">
+                <!-- Hackathon -->
+                <div class="event-card" data-event="hackathon">
                     <div class="event-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                            <path d="M7 11V7a5 5 0 0 1 9.9-1" />
-                            <circle cx="12" cy="16" r="1" />
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                     </div>
                     <h3 class="event-title">AI Agent Hackathon</h3>
                     <p class="event-description">12-hour challenge to build autonomous agents that solve real-world
-                        problems. Form teams of 4 and compete for prizes worth ₹50,000.</p>
+                        problems. Form teams of 4 and compete for prizes worth ₹25K+.</p>
                 </div>
-                <div class="event-card">
-                    <div class="event-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6" />
-                            <polyline points="8 6 2 12 8 18" />
-                        </svg>
-                    </div>
-                    <h3 class="event-title">GenAI Workshops</h3>
-                    <p class="event-description">Hands-on training with LLMs, RAG pipelines, and no-code agent
-                        frameworks. Learn from industry experts and build working prototypes.</p>
-                </div>
-                <div class="event-card">
-                    <div class="event-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                            <line x1="12" y1="19" x2="12" y2="23" />
-                            <line x1="8" y1="23" x2="16" y2="23" />
-                        </svg>
-                    </div>
-                    <h3 class="event-title">Tech Talks</h3>
-                    <p class="event-description">Industry leaders discuss the future of AGI and ethics in AI
-                        development. Keynote sessions from Google, Microsoft, and startup founders.</p>
-                </div>
-                <div class="event-card">
+                <!-- CTF -->
+                <div class="event-card" data-event="ctf">
                     <div class="event-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1102,26 +1879,90 @@
                         </svg>
                     </div>
                     <h3 class="event-title">Capture The Flag</h3>
-                    <p class="event-description">Cybersecurity challenges focused on AI vulnerabilities and prompt
-                        injection. Test your security skills in our red team challenges.</p>
+                    <p class="event-description">Jeopardy-style CTF with Web, Forensic, Crypto & Binary challenges.
+                        Test your security skills and win ₹15K+ in prizes.</p>
                 </div>
-                <div class="event-card">
+                <!-- CodeRush -->
+                <div class="event-card" data-event="coderush">
                     <div class="event-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="6" y1="11" x2="10" y2="11" />
-                            <line x1="8" y1="9" x2="8" y2="13" />
-                            <line x1="15" y1="12" x2="15.01" y2="12" />
-                            <line x1="18" y1="10" x2="18.01" y2="10" />
-                            <path
-                                d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z" />
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
                         </svg>
                     </div>
-                    <h3 class="event-title">E-Sports Hub</h3>
-                    <p class="event-description">Competitive gaming tournaments featuring Valorant, FIFA, and more. Win
-                        prizes and glory in our gaming arena.</p>
+                    <h3 class="event-title">CodeRush</h3>
+                    <p class="event-description">2.5-hour competitive coding challenge on HackerRank. Solve 20 problems
+                        to prove your algorithmic mastery.</p>
                 </div>
-                <div class="event-card">
+                <!-- Vibe Coding -->
+                <div class="event-card" data-event="vibecoding">
+                    <div class="event-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13" />
+                            <circle cx="6" cy="18" r="3" />
+                            <circle cx="18" cy="16" r="3" />
+                        </svg>
+                    </div>
+                    <h3 class="event-title">Vibe Coding</h3>
+                    <p class="event-description">Creative coding challenge where music meets code. Build visual
+                        experiences that respond to audio in unique ways.</p>
+                </div>
+                <!-- Prompt Crafting -->
+                <div class="event-card" data-event="promptcraft">
+                    <div class="event-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="event-title">Prompt Crafting</h3>
+                    <p class="event-description">Master the art of prompt engineering. Create effective prompts for
+                        LLMs and compete for prizes worth ₹3K+.</p>
+                </div>
+                <!-- GenAI Workshops -->
+                <div class="event-card" data-event="workshops">
+                    <div class="event-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                    </div>
+                    <h3 class="event-title">GenAI Workshops</h3>
+                    <p class="event-description">Hands-on training with LLMs, RAG pipelines, and no-code agent
+                        frameworks. Learn from industry experts.</p>
+                </div>
+                <!-- Project Presentation -->
+                <div class="event-card" data-event="projectpres">
+                    <div class="event-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                    </div>
+                    <h3 class="event-title">Project Presentation</h3>
+                    <p class="event-description">Showcase your AI projects to industry experts. Get valuable feedback
+                        and win recognition for your innovations.</p>
+                </div>
+                <!-- Treasure Hunt -->
+                <div class="event-card" data-event="treasurehunt">
+                    <div class="event-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="10" r="3" />
+                            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+                        </svg>
+                    </div>
+                    <h3 class="event-title">Treasure Hunt</h3>
+                    <p class="event-description">One Piece themed campus adventure! Teams of 5 race to solve riddles
+                        and find The One Piece treasure chest.</p>
+                </div>
+                <!-- Incepta Gala -->
+                <div class="event-card" data-event="gala">
                     <div class="event-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1130,8 +1971,26 @@
                         </svg>
                     </div>
                     <h3 class="event-title">INCEPTA GALA</h3>
-                    <p class="event-description">Our flagship cultural night with music, dance, and celebrity
-                        performances. End the fest with an unforgettable evening.</p>
+                    <p class="event-description">Two nights of music, dance, and live performances. Day 1: Student
+                        Talent Night. Day 2: Pro Show with bands.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+            <h2 class="section-title" id="gallery-title">Gallery</h2>
+            <p class="section-subtitle">Glimpses from previous editions of INCEPTA</p>
+            <div class="gallery-wrapper">
+                <div class="gallery-container">
+                    <div class="gallery-row row-1" aria-label="Gallery row 1">
+                        <div class="gallery-track" id="track1"></div>
+                    </div>
+                    <div class="gallery-row row-2" aria-label="Gallery row 2">
+                        <div class="gallery-track" id="track2"></div>
+                    </div>
+                    <div class="gallery-row row-3" aria-label="Gallery row 3">
+                        <div class="gallery-track" id="track3"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1293,6 +2152,350 @@
         </footer>
     </div>
 
+    <!-- Event Detail Overlay -->
+    <div class="event-overlay" id="eventOverlay">
+        <button class="overlay-close-btn" id="overlayClose">×</button>
+        <div class="event-overlay-content">
+            <button class="overlay-back-btn" id="overlayBack">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                </svg>
+                Back to Events
+            </button>
+            <div class="overlay-header">
+                <div class="overlay-event-badge" id="overlayBadge">Competition</div>
+                <h1 class="overlay-event-title" id="overlayTitle">Event Title</h1>
+                <p class="overlay-event-tagline" id="overlayTagline">Event tagline goes here</p>
+            </div>
+            <div class="overlay-details-grid" id="overlayDetails">
+                <!-- Dynamic content -->
+            </div>
+            <div class="overlay-description" id="overlayDescription">
+                <!-- Dynamic content -->
+            </div>
+            <div class="overlay-actions">
+                <a href="#" class="overlay-register-btn" id="overlayRegisterBtn">
+                    Register Now
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // REGISTRATION LINKS - Update these URLs
+        // ==========================================
+        const REGISTRATION_LINKS = {
+            hackathon: '#register-hackathon',
+            ctf: '#register-ctf',
+            coderush: '#register-coderush',
+            vibecoding: '#register-vibecoding',
+            promptcraft: '#register-promptcraft',
+            workshops: '#register-workshops',
+            projectpres: '#register-projectpres',
+            treasurehunt: '#register-treasurehunt',
+            gala: '#register-gala'
+        };
+
+        // ==========================================
+        // EVENT CONFIGURATION DATA
+        // ==========================================
+        const eventConfig = {
+            hackathon: {
+                title: 'AI Agent Hackathon',
+                badge: 'Competition',
+                tagline: 'Build the next generation of autonomous AI agents in this 12-hour coding marathon.',
+                details: [
+                    { label: 'Date', value: 'January 30, 2026' },
+                    { label: 'Time', value: '9:00 AM - 9:00 PM' },
+                    { label: 'Venue', value: 'MCA Department' },
+                    { label: 'Team Size', value: '4 Members' },
+                    { label: 'Prize Pool', value: '₹25,000+' },
+                    { label: 'Registration', value: 'Required' }
+                ],
+                description: 'Join the ultimate AI Agent Hackathon where innovation meets competition. Build autonomous agents that can solve real-world problems.',
+                highlights: [
+                    'Build agents using LangChain, AutoGPT, or custom frameworks',
+                    'Industry mentors available throughout the event',
+                    'Top 3 teams win cash prizes and certificates',
+                    'Chance to get offers from sponsoring companies',
+                    'Free meals and refreshments provided'
+                ],
+                buttonText: 'Register Your Team'
+            },
+            ctf: {
+                title: 'Capture The Flag',
+                badge: 'Competition',
+                tagline: 'Test your cybersecurity skills in this Jeopardy-style CTF competition.',
+                details: [
+                    { label: 'Date', value: 'January 29, 2026' },
+                    { label: 'Time', value: '10:00 AM - 5:00 PM' },
+                    { label: 'Venue', value: 'Software Lab' },
+                    { label: 'Team Size', value: '1-2 Members' },
+                    { label: 'Prize Pool', value: '₹15,000+' },
+                    { label: 'Platform', value: 'CTFd' }
+                ],
+                description: 'Dive into challenges across Web Security, Forensics, Cryptography, and Binary Exploitation. Compete for the top spot on the leaderboard.',
+                highlights: [
+                    'Categories: Web, Forensic, Crypto, Binary, OSINT',
+                    'Sponsored by PentesterLab - vouchers for winners',
+                    'Points based on challenge difficulty',
+                    'Real-time leaderboard display',
+                    'No brute forcing or flag sharing allowed'
+                ],
+                buttonText: 'Join the Hunt'
+            },
+            coderush: {
+                title: 'CodeRush',
+                badge: 'Competition',
+                tagline: 'Prove your algorithmic prowess in this intense 2.5-hour coding challenge.',
+                details: [
+                    { label: 'Date', value: 'January 30, 2026' },
+                    { label: 'Time', value: '2:00 PM - 4:30 PM' },
+                    { label: 'Venue', value: 'Software Lab' },
+                    { label: 'Format', value: 'Individual' },
+                    { label: 'Problems', value: '20 Questions' },
+                    { label: 'Platform', value: 'HackerRank' }
+                ],
+                description: 'Tackle 20 coding problems ranging from easy to medium difficulty. Your algorithmic skills and speed will be put to the test.',
+                highlights: [
+                    'Problems cover data structures and algorithms',
+                    'Multiple programming languages supported',
+                    'Ranked by HackerRank scoring system',
+                    'No AI or external tools allowed',
+                    'Top 3 coders receive prizes and certificates'
+                ],
+                buttonText: 'Start Coding'
+            },
+            vibecoding: {
+                title: 'Vibe Coding',
+                badge: 'Competition',
+                tagline: 'Where creativity meets code. Build something extraordinary.',
+                details: [
+                    { label: 'Date', value: 'January 29, 2026' },
+                    { label: 'Time', value: '11:00 AM - 2:00 PM' },
+                    { label: 'Venue', value: 'MCA Department' },
+                    { label: 'Format', value: 'Individual/Team' },
+                    { label: 'Prize Pool', value: '₹6,000+' },
+                    { label: 'Theme', value: 'Announced on spot' }
+                ],
+                description: 'Express yourself through code. Create visual experiences, generative art, or interactive applications that showcase your creative coding skills.',
+                highlights: [
+                    'Theme revealed at the start of competition',
+                    'Use any creative coding framework',
+                    'Judged on creativity, execution, and aesthetics',
+                    'Live demo of projects at the end',
+                    'Best projects featured in fest gallery'
+                ],
+                buttonText: 'Express Yourself'
+            },
+            promptcraft: {
+                title: 'Prompt Crafting',
+                badge: 'Competition',
+                tagline: 'Master the art of communicating with AI through effective prompts.',
+                details: [
+                    { label: 'Date', value: 'January 29, 2026' },
+                    { label: 'Time', value: '3:00 PM - 5:00 PM' },
+                    { label: 'Venue', value: 'Seminar Hall' },
+                    { label: 'Format', value: 'Individual' },
+                    { label: 'Prize Pool', value: '₹3,000+' },
+                    { label: 'Focus', value: 'GenAI Prompts' }
+                ],
+                description: 'Craft prompts that produce the best outputs from Large Language Models. Show your understanding of prompt engineering techniques.',
+                highlights: [
+                    'Multiple rounds with increasing difficulty',
+                    'Work with GPT, Claude, and other LLMs',
+                    'Judged on output quality and creativity',
+                    'Learn advanced prompting techniques',
+                    'Certificates for all participants'
+                ],
+                buttonText: 'Craft Your Prompt'
+            },
+            workshops: {
+                title: 'GenAI Workshops',
+                badge: 'Workshop',
+                tagline: 'Hands-on learning sessions with industry experts on cutting-edge AI technologies.',
+                details: [
+                    { label: 'Dates', value: 'Jan 29-30, 2026' },
+                    { label: 'Time', value: 'Various Slots' },
+                    { label: 'Venue', value: 'Seminar Hall' },
+                    { label: 'Format', value: 'Hands-on' },
+                    { label: 'Certificate', value: 'Provided' },
+                    { label: 'Laptop', value: 'Required' }
+                ],
+                description: 'Deep dive into the world of Generative AI with practical, hands-on workshops conducted by industry professionals.',
+                highlights: [
+                    'Build RAG pipelines from scratch',
+                    'Create AI agents with no-code tools',
+                    'Fine-tune open-source LLMs',
+                    'Industry guest speakers and mentors',
+                    'Take-home resources and code samples'
+                ],
+                buttonText: 'Book Your Seat'
+            },
+            projectpres: {
+                title: 'Project Presentation',
+                badge: 'Competition',
+                tagline: 'Showcase your AI innovations to industry experts and peers.',
+                details: [
+                    { label: 'Date', value: 'January 30, 2026' },
+                    { label: 'Time', value: '10:00 AM - 1:00 PM' },
+                    { label: 'Venue', value: 'Conference Room' },
+                    { label: 'Team Size', value: '1-4 Members' },
+                    { label: 'Duration', value: '10 min + Q&A' },
+                    { label: 'Focus', value: 'AI/ML Projects' }
+                ],
+                description: 'Present your AI projects to a panel of industry experts. Get valuable feedback and recognition for your innovative work.',
+                highlights: [
+                    'Projects must involve AI/ML technologies',
+                    'Live demo encouraged',
+                    'Expert panel with Q&A session',
+                    'Best projects receive awards',
+                    'Networking opportunity with professionals'
+                ],
+                buttonText: 'Submit Project'
+            },
+            treasurehunt: {
+                title: 'Treasure Hunt',
+                badge: 'Fun Event',
+                tagline: 'Embark on a One Piece themed adventure across the campus!',
+                details: [
+                    { label: 'Date', value: 'January 29, 2026' },
+                    { label: 'Time', value: '10:00 AM - 1:00 PM' },
+                    { label: 'Venue', value: 'CET Campus' },
+                    { label: 'Team Size', value: '5 Members' },
+                    { label: 'Format', value: 'Location-based' },
+                    { label: 'Theme', value: 'One Piece' }
+                ],
+                description: 'Form your pirate crew and race across campus solving riddles to find The One Piece treasure chest! A fun-filled adventure for all.',
+                highlights: [
+                    'Each team gets a volunteer "Marine" guide',
+                    'Solve One Piece themed riddles at each checkpoint',
+                    'Slowest teams eliminated each round',
+                    'Final treasure chest contains prizes',
+                    'Dress up as pirates for bonus points!'
+                ],
+                buttonText: 'Assemble Your Crew'
+            },
+            gala: {
+                title: 'INCEPTA GALA',
+                badge: 'Cultural Night',
+                tagline: 'Two nights of music, dance, and unforgettable performances.',
+                details: [
+                    { label: 'Day 1', value: 'January 29, 2026' },
+                    { label: 'Day 2', value: 'January 30, 2026' },
+                    { label: 'Time', value: '5:00 PM - 10:00 PM' },
+                    { label: 'Venue', value: 'Gazebo/DJ Hall' },
+                    { label: 'Entry', value: 'With Pass' },
+                    { label: 'Audience', value: '500+ Expected' }
+                ],
+                description: 'The grand cultural celebration of INCEPTA\'26! Two nights of entertainment, performances, and memories.',
+                highlights: [
+                    'Day 1: Student performances from all departments',
+                    'Day 2: Pro Show with professional bands',
+                    'Food stalls and informal art corners',
+                    'Interactive crowd games and prizes',
+                    'Entry via wristbands or QR passes'
+                ],
+                buttonText: 'Get Your Pass'
+            }
+        };
+
+        // ==========================================
+        // OVERLAY FUNCTIONALITY
+        // ==========================================
+        const overlay = document.getElementById('eventOverlay');
+        const overlayClose = document.getElementById('overlayClose');
+        const overlayBack = document.getElementById('overlayBack');
+        const overlayTitle = document.getElementById('overlayTitle');
+        const overlayBadge = document.getElementById('overlayBadge');
+        const overlayTagline = document.getElementById('overlayTagline');
+        const overlayDetails = document.getElementById('overlayDetails');
+        const overlayDescription = document.getElementById('overlayDescription');
+        const overlayRegisterBtn = document.getElementById('overlayRegisterBtn');
+
+        function openEventOverlay(eventId) {
+            const event = eventConfig[eventId];
+            if (!event) return;
+
+            // Populate overlay content
+            overlayTitle.textContent = event.title;
+            overlayBadge.textContent = event.badge;
+            overlayTagline.textContent = event.tagline;
+
+            // Build details grid
+            overlayDetails.innerHTML = event.details.map(detail => `
+                <div class="overlay-detail-card">
+                    <h4>${detail.label}</h4>
+                    <p>${detail.value}</p>
+                </div>
+            `).join('');
+
+            // Build description
+            overlayDescription.innerHTML = `
+                <h3>About This Event</h3>
+                <p>${event.description}</p>
+                <ul>
+                    ${event.highlights.map(h => `<li>${h}</li>`).join('')}
+                </ul>
+            `;
+
+            // Set register button
+            overlayRegisterBtn.href = REGISTRATION_LINKS[eventId];
+            overlayRegisterBtn.innerHTML = `
+                ${event.buttonText}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            `;
+
+            // Show overlay
+            overlay.classList.add('active');
+            document.body.classList.add('overlay-open');
+        }
+
+        function closeEventOverlay() {
+            overlay.classList.remove('active');
+            document.body.classList.remove('overlay-open');
+        }
+
+        // Event card click handlers
+        document.querySelectorAll('.event-card[data-event]').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const eventId = card.getAttribute('data-event');
+                openEventOverlay(eventId);
+            });
+        });
+
+        // Close button handlers
+        overlayClose.addEventListener('click', closeEventOverlay);
+        overlayBack.addEventListener('click', closeEventOverlay);
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                closeEventOverlay();
+            }
+        });
+
+        // Close when clicking outside content
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeEventOverlay();
+            }
+        });
+    </script>
+
     <script>
         // Three.js Scene Setup
         const scene = new THREE.Scene();
@@ -1410,6 +2613,81 @@
             e.target.reset();
         });
 
+        // ==========================================
+        // GALLERY LOGIC
+        // ==========================================
+        const images = [
+            'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&q=80',
+            'https://images.unsplash.com/photo-1517059224940-d4af9eec41b4?w=500&q=80',
+            'https://images.unsplash.com/photo-1504384308090-c54be3852f92?w=500&q=80',
+            'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=80',
+            'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80',
+            'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500&q=80'
+        ];
+
+        function populateTrack(trackId) {
+            const track = document.getElementById(trackId);
+            if (!track) return;
+            // Duplicate images to ensure seamless loop
+            const loopImages = [...images, ...images, ...images, ...images];
+            loopImages.forEach((url, index) => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.classList.add('gallery-img');
+                img.loading = "lazy";
+                img.alt = `INCEPTA Gallery Image ${index + 1}`;
+                img.addEventListener('click', () => {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                });
+                track.appendChild(img);
+            });
+        }
+
+        populateTrack('track1');
+        populateTrack('track2');
+        populateTrack('track3');
+
+        // Touch handling for gallery
+        document.querySelectorAll('.gallery-row').forEach(row => {
+            let startX;
+            let scrollLeft;
+            let isDown = false;
+
+            row.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - row.offsetLeft;
+                scrollLeft = row.scrollLeft;
+            });
+
+            row.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            row.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            row.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - row.offsetLeft;
+                const walk = (x - startX) * 2;
+                row.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch support
+            row.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX - row.offsetLeft;
+                scrollLeft = row.scrollLeft;
+            }, { passive: true });
+
+            row.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX - row.offsetLeft;
+                const walk = (x - startX) * 2;
+                row.scrollLeft = scrollLeft - walk;
+            }, { passive: true });
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1417,8 +2695,88 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    const nav = document.querySelector('nav');
+                    const btn = document.querySelector('.mobile-menu-btn');
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        btn.classList.remove('active');
+                        document.body.style.overflow = '';
+                        // Close sidebar if open
+                        if (sidebar && sidebar.classList.contains('active')) {
+                            closeSidebar();
+                        }
+                    }
                 }
             });
+        });
+
+        // Sidebar Logic
+        const burgerMenu = document.getElementById('burgerMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('overlay'); // Renamed to avoid conflict
+        const sidebarCloseBtn = document.getElementById('sidebarClose'); // Renamed to avoid conflict
+
+        function openSidebar() {
+            if (sidebar) {
+                sidebar.classList.add('active');
+                sidebar.setAttribute('aria-hidden', 'false');
+            }
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.add('active');
+            }
+            document.body.classList.add('sidebar-open');
+            if (burgerMenu) {
+                burgerMenu.classList.add('active');
+                burgerMenu.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeSidebar() {
+            if (sidebar) {
+                sidebar.classList.remove('active');
+                sidebar.setAttribute('aria-hidden', 'true');
+            }
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.remove('active');
+            }
+            document.body.classList.remove('sidebar-open');
+            if (burgerMenu) {
+                burgerMenu.classList.remove('active');
+                burgerMenu.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Sidebar event listeners
+        if (burgerMenu) {
+            burgerMenu.addEventListener('click', () => {
+                if (sidebar && sidebar.classList.contains('active')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            });
+        }
+
+        if (sidebarCloseBtn) {
+            sidebarCloseBtn.addEventListener('click', closeSidebar);
+        }
+
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        }
+
+        // Close sidebar when clicking a link
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        // Hide Loader on Load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 800); // Slight delay for smooth effect
         });
     </script>
 </body>
