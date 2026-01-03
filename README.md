@@ -58,4 +58,4 @@ This command builds the project (creating a `dist` folder) and pushes it to the 
 Visit the live site here: **[https://ajmal-uk.github.io/incepta-2026](https://ajmal-uk.github.io/incepta-2026)**
 
 ---
-*Designed with ♥ by the ASCA Tech Team*
+*Designed with ♥ by the ASCA Tech Team 2026*
