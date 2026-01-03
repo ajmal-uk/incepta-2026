@@ -110,7 +110,7 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Overlay */}
+            { }
             <div
                 className={`overlay ${sidebarOpen ? 'active' : ''}`}
                 onClick={() => setSidebarOpen(false)}
