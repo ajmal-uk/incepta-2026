@@ -14,7 +14,9 @@
     "dotenv": "^16.3.1",
     "razorpay": "^2.9.2",
     "nodemailer": "^6.9.7",
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "mongodb": "^6.3.0",
+    "googleapis": "^129.0.0"
   }
 }
 

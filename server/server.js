@@ -7,6 +7,8 @@ import fs from 'fs/promises';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import nodemailer from 'nodemailer';
+import { connectMongoDB, saveRegistrationToMongoDB, updateRegistrationInMongoDB } from './db/mongodb.js';
+import { initGoogleSheets, appendRegistrationToSheet, updateRegistrationInSheet } from './utils/googleSheets.js';
 
 dotenv.config();
 
@@ -58,10 +60,18 @@ async function getRegistrations(eventId) {
 }
 
 async function saveRegistration(eventId, registration) {
+  // Save to JSON file (backup)
   const registrations = await getRegistrations(eventId);
   registrations.push(registration);
   const filePath = getRegistrationsFile(eventId);
   await fs.writeFile(filePath, JSON.stringify(registrations, null, 2));
+
+  // Save to MongoDB
+  await saveRegistrationToMongoDB(registration);
+
+  // Save to Google Sheets
+  await appendRegistrationToSheet(registration);
+
   return registration;
 }
 
@@ -77,8 +87,25 @@ async function updateRegistrationStatus(eventId, orderId, status, paymentId = nu
     registration.status = status;
     registration.paymentId = paymentId || registration.paymentId;
     registration.updatedAt = new Date().toISOString();
+    
+    // Update JSON file (backup)
     const filePath = getRegistrationsFile(eventId);
     await fs.writeFile(filePath, JSON.stringify(registrations, null, 2));
+
+    // Update MongoDB
+    await updateRegistrationInMongoDB(eventId, orderId, {
+      status,
+      paymentId: paymentId || registration.paymentId,
+      updatedAt: registration.updatedAt,
+    });
+
+    // Update Google Sheets
+    await updateRegistrationInSheet(eventId, orderId, {
+      status,
+      paymentId: paymentId || registration.paymentId,
+      updatedAt: registration.updatedAt,
+    });
+
     return registration;
   }
   return null;
@@ -315,9 +342,15 @@ app.get('/api/registrations/:eventId/:orderId', async (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📧 Email configured: ${process.env.EMAIL_USER ? 'Yes' : 'No'}`);
   console.log(`💳 Razorpay configured: ${process.env.RAZORPAY_KEY_ID ? 'Yes' : 'No'}`);
+  
+  // Initialize MongoDB
+  await connectMongoDB();
+  
+  // Initialize Google Sheets
+  await initGoogleSheets();
 });
 
