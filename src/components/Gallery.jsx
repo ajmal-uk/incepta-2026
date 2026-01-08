@@ -1,11 +1,17 @@
 import { useEffect, useRef } from 'react';
 const galleryImages = [
-    'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&q=80',
-    'https://images.unsplash.com/photo-1517059224940-d4af9eec41b4?w=500&q=80',
-    'https://images.unsplash.com/photo-1504384308090-c54be3852f92?w=500&q=80',
-    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=80',
-    'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80',
-    'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500&q=80'
+    '/gallery/1.png',
+    '/gallery/2.png',
+    '/gallery/3.png',
+    '/gallery/4.png',
+    '/gallery/5.png',
+    '/gallery/6.png',
+    '/gallery/1.png',
+    '/gallery/2.png',
+    '/gallery/3.png',
+    '/gallery/4.png',
+    '/gallery/5.png',
+    '/gallery/6.png',
 ];
 
 export default function Gallery() {
@@ -17,10 +23,8 @@ export default function Gallery() {
         const populateTrack = (trackRef) => {
             if (!trackRef.current) return;
 
-            // Clear existing images
             trackRef.current.innerHTML = '';
 
-            // Duplicate images to ensure seamless loop
             const loopImages = [...galleryImages, ...galleryImages, ...galleryImages, ...galleryImages];
             loopImages.forEach((url, index) => {
                 const img = document.createElement('img');
@@ -39,7 +43,6 @@ export default function Gallery() {
         populateTrack(track2Ref);
         populateTrack(track3Ref);
 
-        // Touch/drag handling for gallery rows
         const rows = document.querySelectorAll('.gallery-row');
         rows.forEach(row => {
             let startX;
