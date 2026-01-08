@@ -1,21 +1,17 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Layers, Flag, Code, Music, MessageSquare, BookOpen } from 'lucide-react';
+import { ArrowLeft, LayoutDashboard, MapPin } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
 import EventOverlay from '../components/EventOverlay';
 
 const iconMap = {
-    layers: Layers,
-    flag: Flag,
-    code: Code,
-    music: Music,
-    messageSquare: MessageSquare,
-    bookOpen: BookOpen
+    layoutDashboard: LayoutDashboard,
+    mapPin: MapPin
 };
 
-export default function CompetitionsPage() {
+export default function EventsPage() {
     const [selectedEvent, setSelectedEvent] = useState(null);
-    const category = eventCategories.competitions;
+    const category = eventCategories.workshops;
     const categoryEvents = category.events.map(id => ({ id, ...eventsData[id] }));
 
     return (
@@ -31,7 +27,7 @@ export default function CompetitionsPage() {
             <section className="section">
                 <div className="events-grid">
                     {categoryEvents.map(event => {
-                        const Icon = iconMap[event.icon] || Layers;
+                        const Icon = iconMap[event.icon] || LayoutDashboard;
                         return (
                             <div
                                 className="event-card"

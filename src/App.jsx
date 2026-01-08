@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage';
 import CompetitionsPage from './pages/CompetitionsPage';
 import EventsPage from './pages/EventsPage';
 import GalaPage from './pages/GalaPage';
+import RegisterPage from './pages/RegisterPage';
+import RegisterSuccessPage from './pages/RegisterSuccessPage';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/competitions" element={<CompetitionsPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/gala" element={<GalaPage />} />
+          <Route path="/register/:eventId" element={<RegisterPage />} />
+          <Route path="/register-success/:eventId" element={<RegisterSuccessPage />} />
         </Routes>
         <Footer />
       </div>

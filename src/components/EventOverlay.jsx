@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { REGISTRATION_LINKS } from '../eventsData';
 
 export default function EventOverlay({ eventId, event, onClose }) {
     useEffect(() => {
@@ -56,10 +56,10 @@ export default function EventOverlay({ eventId, event, onClose }) {
                     </ul>
                 </div>
                 <div className="overlay-actions">
-                    <a href={REGISTRATION_LINKS[eventId]} className="overlay-register-btn">
+                    <Link to={`/register/${eventId}`} className="overlay-register-btn">
                         {event.buttonText}
                         <ArrowRight size={20} />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
