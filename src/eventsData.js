@@ -46,48 +46,27 @@ export const eventsData = {
     ],
 
     rulesAndGuidelines: {
-      teamFormation: [
-        "Teams can consist of 1–4 members",
-        "Inter-college teams are allowed unless stated otherwise",
+      generalGuidelines: [
+        "Teams can consist of 1–4 members. Inter-college teams are allowed unless stated otherwise.",
+        "Problem statement will be provided on the spot. Solutions must strictly align with the given topic and requirements.",
+        "The hackathon will run continuously for 12 hours. All submissions must be completed within the allotted time.",
       ],
 
-      problemStatement: [
-        "Problem statement will be provided on the spot",
-        "Solutions must strictly align with the given topic and requirements",
+      technicalAndSubmission: [
+        "Any programming language or framework may be used.",
+        "Use of agentic AI concepts is strongly encouraged.",
+        "External APIs or libraries are allowed if properly cited.",
+        "Each team must submit a working prototype.",
+        "A presentation explaining the solution is mandatory.",
+        "Supporting documents, diagrams, or demos may be included.",
       ],
 
-      duration: [
-        "The hackathon will run continuously for 12 hours",
-        "All submissions must be completed within the allotted time",
-      ],
-
-      submissionGuidelines: [
-        "Each team must submit a working prototype",
-        "A presentation explaining the solution is mandatory",
-        "Supporting documents, diagrams, or demos may be included",
-        "All code and designs must be original (no plagiarism)",
-      ],
-
-      toolsAndTechnology: [
-        "Any programming language or framework may be used",
-        "Use of agentic AI concepts is strongly encouraged",
-        "External APIs or libraries are allowed if properly cited",
-      ],
-
-      judging: [
-        "Evaluation will be based on innovation, feasibility, impact, and presentation",
-        "Judges’ decisions are final and binding",
-      ],
-
-      conductAndEthics: [
-        "Participants must maintain professional and respectful conduct",
-        "Sharing solutions with other teams or external parties is prohibited",
-      ],
-
-      disqualification: [
-        "Plagiarism or unethical behavior",
-        "Violation of competition rules",
-        "Any form of misconduct",
+      policiesAndEthics: [
+        "Evaluation will be based on innovation, feasibility, impact, and presentation.",
+        "Judges’ decisions are final and binding.",
+        "Participants must maintain professional and respectful conduct.",
+        "Sharing solutions with other teams or external parties is prohibited.",
+        "Plagiarism, unethical behavior, or violation of rules will lead to disqualification.",
       ],
     },
 
@@ -118,7 +97,7 @@ export const eventsData = {
     },
 
     buttonText: "Register Your Team",
-    icon: "layers",
+    icon: "brainCircuit",
   },
   ctf: {
     title: "INCEPTA Cyber Siege",
@@ -146,27 +125,20 @@ export const eventsData = {
     ],
 
     rulesAndGuidelines: {
-      fairPlay: [
-        "No brute forcing on remote infrastructure",
-        "No flag sharing with other teams or participants",
-        "No flag hoarding; flags must be submitted promptly",
-        "Only one account per participant is allowed",
-        "Each participant can play for only one team",
-        "No spamming challenge authors, players, or platform channels",
-        "Use of any LLM or AI tool for solving challenges will lead to disqualification",
+      gameplayRules: [
+        "No brute forcing on remote infrastructure.",
+        "No flag sharing with other teams or participants.",
+        "No flag hoarding; flags must be submitted promptly.",
+        "Only one account per participant is allowed. Each participant can play for only one team.",
+        "No spamming challenge authors, players, or platform channels.",
+        "Use of any LLM or AI tool for solving challenges will lead to disqualification.",
+        "Any attempt to attack, disrupt, or tamper with competition infrastructure will result in immediate disqualification.",
       ],
 
-      infrastructureAttacks: [
-        "Any attempt to attack, disrupt, or tamper with competition infrastructure will result in immediate disqualification",
-      ],
-
-      postCompetitionRequirement: [
-        "Winning teams must submit a short write-up of solved challenges",
-        "Failure to submit the write-up within the given time frame will result in disqualification",
-      ],
-
-      consequences: [
-        "Teams violating any rules will be disqualified from the competition",
+      submissionAndConsequences: [
+        "Winning teams must submit a short write-up of solved challenges.",
+        "Failure to submit the write-up within the given time frame will result in disqualification.",
+        "Teams violating any rules will be disqualified from the competition.",
       ],
     },
 
@@ -199,7 +171,7 @@ export const eventsData = {
     },
 
     buttonText: "Join the Hunt",
-    icon: "flag",
+    icon: "shieldCheck",
   },
   coderush: {
     title: "Code Rush",
@@ -226,33 +198,22 @@ export const eventsData = {
     ],
 
     rulesAndGuidelines: {
-      eligibilityAndTeamSize: [
-        "This is an individual (solo) competition",
-        "Participants must bring their own laptop",
-        "Open to all skill levels from beginner to advanced",
-        "A registered HackerRank account is mandatory",
-      ],
-
-      participationRules: [
-        "25 easy-level coding problems will be released simultaneously at the start of the event",
-        "Total contest duration is exactly 90 minutes",
-        "Most major programming languages are allowed (Python, Java, C++, JavaScript)",
-        "Compiler versions will be as per HackerRank platform settings",
-        "Primary scoring metric is the number of test cases passed across all problems",
+      competitionFormat: [
+        "This is an individual (solo) competition. Participants must bring their own laptop.",
+        "Open to all skill levels. A registered HackerRank account is mandatory.",
+        "25 easy-level coding problems will be released simultaneously.",
+        "Total contest duration is exactly 90 minutes.",
+        "Most major programming languages are allowed (Python, Java, C++, JavaScript).",
+        "Compiler versions will be as per HackerRank platform settings.",
+        "Primary scoring metric is the number of test cases passed across all problems.",
       ],
 
       codeOfConduct: [
-        "All code must be written from scratch during the contest window",
-        "Use of AI assistants such as ChatGPT, GitHub Copilot, or similar tools is strictly prohibited",
-        "Use of pre-written personal libraries or external code snippets is not allowed",
-        "Any form of communication between participants during the event is forbidden",
-      ],
-
-      disqualification: [
-        "Sharing solutions or hints during the contest window",
-        "Using multiple HackerRank accounts to gain unfair advantage",
-        "Attempting automated or bot-based submissions",
-        "Any form of harassment or interference with the competition platform",
+        "All code must be written from scratch during the contest window.",
+        "Use of AI assistants (ChatGPT, Copilot, etc.) is strictly prohibited.",
+        "Use of pre-written personal libraries or external code snippets is not allowed.",
+        "Any form of communication between participants is forbidden.",
+        "Sharing solutions, using multiple accounts, or attempting bot-based submissions will lead to disqualification.",
       ],
     },
 
@@ -279,7 +240,7 @@ export const eventsData = {
     },
 
     buttonText: "Start Coding",
-    icon: "code",
+    icon: "zap",
   },
   vibecoding: {
     title: "CodeLess",
@@ -306,46 +267,24 @@ export const eventsData = {
     ],
 
     rulesAndGuidelines: {
-      eligibilityAndTeamSize: [
-        "Teams must consist of 1–2 members",
-        "Only one laptop is allowed per team",
-        "No external assistance is permitted during the build phase",
+      participationAndFormat: [
+        "Teams must consist of 1–2 members. Only one laptop is allowed per team.",
+        "Problem statement and minimum functionalities will be provided on the spot.",
+        "Round 1: Code Build (3 Hours). Teams must build a full-stack web application (Frontend + Backend).",
+        "Round 2: Live Demo (5 mins/team). Explain application features and backend integration.",
       ],
 
-      participationRules: [
-        "Round 1: Code Build (3 Hours)",
-        "Problem statement and minimum functionalities will be provided on the spot",
-        "Teams must build a full-stack web application (Frontend + Backend)",
-        "AI tools such as ChatGPT, Gemini, Copilot, Claude are allowed",
-        "Use of tools like Cursor and Lovable is strictly prohibited",
-        "Project must run locally at the end of the build phase",
+      technicalGuidelines: [
+        "Frontend and Backend must be integrated with working UI and functional logic.",
+        "AI tools such as ChatGPT, Gemini, Copilot, Claude are allowed.",
+        "Use of tools like Cursor and Lovable is strictly prohibited.",
+        "Project must run locally at the end of the build phase.",
       ],
 
-      mandatoryTechnicalRequirements: [
-        "Frontend and Backend must be integrated",
-        "Working UI with proper navigation",
-        "Functional backend logic",
-      ],
-
-      demoRound: [
-        "Round 2: Live Demo",
-        "5 minutes per team",
-        "Explain application features and backend integration",
-      ],
-
-      codeOfConduct: [
-        "Using pre-built GitHub projects is prohibited",
-        "Using code written before the event is not allowed",
-        "Copying full applications from tutorials is forbidden",
-        "Sharing code between competing teams is strictly prohibited",
-      ],
-
-      disqualification: [
-        "Using pre-made code or copied GitHub projects",
-        "Receiving help from anyone outside the team",
-        "Sharing code with other teams",
-        "Misbehavior or violation of event etiquette",
-        "Submitting a project that does not run with no attempt to fix it",
+      ethicsAndDisqualification: [
+        "Using pre-built GitHub projects, code written before the event, or copying full tutorials is prohibited.",
+        "Sharing code between teams or receiving external help represents a violation.",
+        "Misbehavior or submitting a non-functional project with no attempt to fix it will lead to disqualification.",
       ],
     },
 
@@ -377,7 +316,7 @@ export const eventsData = {
     },
 
     buttonText: "Build with AI",
-    icon: "music",
+    icon: "sparkles",
   },
   promptcraft: {
     title: "PromptVision",
@@ -404,32 +343,17 @@ export const eventsData = {
     ],
 
     rulesAndGuidelines: {
-      eligibilityAndParticipation: [
-        "Individual participation only",
-        "Open to all students",
-        "Registration fee of ₹50 is mandatory",
-        "Participants may use mobile phones or laptops only for prompt submission",
-        "Submission must be done via the official Google Form",
-      ],
-
       competitionRules: [
-        "A single reference image will be displayed to all participants",
-        "Participants must write one detailed prompt in English",
-        "Only one submission per participant is allowed",
-        "A common AI image generation tool (announced before the event) will be used for evaluation",
+        "Individual participation only. Open to all students. Registration fee of ₹50 is mandatory.",
+        "A single reference image will be displayed. Participants must write one detailed prompt in English to recreate it.",
+        "Participants may use mobile phones or laptops only for prompt submission via the official Google Form.",
+        "Only one submission per participant is allowed.",
       ],
 
       codeOfConduct: [
-        "Prompts must be original and written during the event",
-        "Browsing, AI tools, or external assistance are strictly prohibited",
-        "Misuse of devices or communication during the event is not allowed",
-      ],
-
-      disqualification: [
-        "Plagiarism or copied prompts",
-        "Using devices for purposes other than form submission",
-        "Accessing AI tools or external help",
-        "Misbehavior during the event",
+        "Prompts must be original and written during the event.",
+        "Browsing, AI tools, or external assistance (other than the official generation tool) are strictly prohibited.",
+        "Plagiarism, using devices for other purposes, or misbehavior will lead to disqualification.",
       ],
     },
 
@@ -460,7 +384,7 @@ export const eventsData = {
     },
 
     buttonText: "Craft Your Prompt",
-    icon: "messageSquare",
+    icon: "image",
   },
   workshops: {
     title: "GenAI Workshops",
@@ -486,7 +410,7 @@ export const eventsData = {
       "Take-home resources and code samples",
     ],
     buttonText: "Book Your Seat",
-    icon: "layoutDashboard",
+    icon: "presentation",
   },
   workshop1: {
     title: "AI Agents 101",
@@ -507,7 +431,7 @@ export const eventsData = {
       "Connecting to external tools",
     ],
     buttonText: "Register Now",
-    icon: "cpu",
+    icon: "bot",
   },
   workshop2: {
     title: "Generative Art",
@@ -528,7 +452,7 @@ export const eventsData = {
       "Showcase of student work",
     ],
     buttonText: "Register Now",
-    icon: "image",
+    icon: "palette",
   },
   projectpres: {
     title: "Project Presentation",
@@ -553,7 +477,7 @@ export const eventsData = {
       "Networking opportunity with professionals",
     ],
     buttonText: "Submit Project",
-    icon: "bookOpen",
+    icon: "monitorPlay",
   },
   treasurehunt: {
     title: "Treasure Hunt",
@@ -578,7 +502,7 @@ export const eventsData = {
       "Dress up as pirates for bonus points!",
     ],
     buttonText: "Assemble Your Crew",
-    icon: "mapPin",
+    icon: "compass",
   },
   gala: {
     title: "INCEPTA GALA",
@@ -603,7 +527,7 @@ export const eventsData = {
       "Entry via wristbands or QR passes",
     ],
     buttonText: "Get Your Pass",
-    icon: "award",
+    icon: "music",
   },
 };
 

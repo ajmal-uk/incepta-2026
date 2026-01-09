@@ -1,12 +1,23 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, LayoutDashboard, MapPin } from 'lucide-react';
+import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
 import EventOverlay from '../components/EventOverlay';
 
 const iconMap = {
     layoutDashboard: LayoutDashboard,
-    mapPin: MapPin
+    mapPin: MapPin,
+    brainCircuit: BrainCircuit,
+    shieldCheck: ShieldCheck,
+    zap: Zap,
+    sparkles: Sparkles,
+    image: Image,
+    presentation: Presentation,
+    bot: Bot,
+    palette: Palette,
+    monitorPlay: MonitorPlay,
+    compass: Compass,
+    music: Music
 };
 
 export default function EventsPage() {

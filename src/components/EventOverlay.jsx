@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { REGISTRATION_LINKS } from '../eventsData';
 
 export default function EventOverlay({ eventId, event, onClose }) {
+    const [openSections, setOpenSections] = useState({});
+
     useEffect(() => {
         document.body.classList.add('overlay-open');
 
@@ -22,6 +24,13 @@ export default function EventOverlay({ eventId, event, onClose }) {
         if (e.target.classList.contains('event-overlay')) {
             onClose();
         }
+    };
+
+    const toggleSection = (sectionIndex) => {
+        setOpenSections(prev => ({
+            ...prev,
+            [sectionIndex]: !prev[sectionIndex]
+        }));
     };
 
     return (
@@ -64,33 +73,43 @@ export default function EventOverlay({ eventId, event, onClose }) {
                         </ul>
                     </div>
 
-                    {/* Rules & Guidelines */}
+                    {/* Rules & Guidelines (Accordion) */}
                     {event.rulesAndGuidelines &&
                         typeof event.rulesAndGuidelines === 'object' && (
                             <div className="overlay-description">
                                 <h3>Rules & Guidelines</h3>
 
-                                <div className="overlay-details-grid">
+                                <div className="accordion-container">
                                     {Object.entries(event.rulesAndGuidelines).map(
                                         ([sectionTitle, rules], index) => (
                                             <div
-                                                className="overlay-detail-card"
+                                                className={`accordion-item ${openSections[index] ? 'open' : ''}`}
                                                 key={index}
                                             >
-                                                <h4>
-                                                    {sectionTitle
-                                                        .replace(/([A-Z])/g, ' $1')
-                                                        .replace(/^./, str =>
-                                                            str.toUpperCase()
-                                                        )}
-                                                </h4>
+                                                <button
+                                                    className="accordion-header"
+                                                    onClick={() => toggleSection(index)}
+                                                >
+                                                    <h4>
+                                                        {sectionTitle
+                                                            .replace(/([A-Z])/g, ' $1')
+                                                            .replace(/^./, str =>
+                                                                str.toUpperCase()
+                                                            )}
+                                                    </h4>
+                                                    {openSections[index] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                </button>
 
-                                                <ul>
-                                                    {Array.isArray(rules) &&
-                                                        rules.map((rule, i) => (
-                                                            <li key={i}>{rule}</li>
-                                                        ))}
-                                                </ul>
+                                                <div className="accordion-content">
+                                                    <div className="accordion-inner">
+                                                        <ul>
+                                                            {Array.isArray(rules) &&
+                                                                rules.map((rule, i) => (
+                                                                    <li key={i}>{rule}</li>
+                                                                ))}
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         )
                                     )}
