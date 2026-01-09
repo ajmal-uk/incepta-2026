@@ -1604,7 +1604,8 @@ body.sidebar-open {
   }
 
   .hero {
-    padding: 80px 5% 40px;
+    padding: 60px 4% 30px;
+    /* Reduced padding */
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -2061,6 +2062,8 @@ body.sidebar-open {
 @media (max-width: 768px) {
   .categories-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
+    /* Tighter gap */
   }
 
   .category-card {
@@ -2076,9 +2079,9 @@ body.sidebar-open {
   }
 
   /* Mobile Optimizations */
-  /* Mobile Optimizations */
   .section {
-    padding: 60px 5%;
+    padding: 40px 4%;
+    /* Reduced padding */
     min-height: 100dvh;
     /* Force full height per section */
     display: flex;
@@ -2087,16 +2090,16 @@ body.sidebar-open {
   }
 
   .hero {
-    padding: 100px 5% 60px;
+    padding: 70px 4% 40px;
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .stats-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 12px;
   }
 
   .stat-card {
@@ -2109,7 +2112,20 @@ body.sidebar-open {
 
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 20px;
+  }
+
+  /* Performance Optimizations for Mobile */
+  .event-card,
+  .category-card,
+  .about-card,
+  .stat-card,
+  .info-card,
+  .register-form-wrapper {
+    backdrop-filter: blur(10px);
+    /* Reduce blur for performance */
+    box-shadow: none;
+    /* Remove heavy shadows */
   }
 
   .page-container {
