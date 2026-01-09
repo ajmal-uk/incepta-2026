@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { X } from 'lucide-react';
 
-const galleryImages = [
+const rawGalleryImages = [
     '/gallery/1.png',
     '/gallery/2.png',
     '/gallery/3.png',
@@ -51,6 +51,13 @@ const galleryImages = [
     '/gallery/23.png',
     '/gallery/24.png',
 ];
+
+const galleryImages = rawGalleryImages.map(src => {
+    // Ensure we don't end up with double slashes if BASE_URL ends with /
+    const baseUrl = import.meta.env.BASE_URL;
+    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+    return `${baseUrl}${cleanSrc}`;
+});
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array) => {
