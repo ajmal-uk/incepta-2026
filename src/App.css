@@ -1,0 +1,117 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Rules layout */
+.rules-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.rule-group {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+/* Mobile rules: no tiles */
+@media (max-width: 768px) {
+  .rules-container {
+    display: block;
+  }
+
+  .rule-group {
+    background: none;
+    padding: 0;
+    margin-bottom: 1.2rem;
+    border-radius: 0;
+  }
+
+  .rule-group ul {
+    padding-left: 1rem;
+  }
+}
+
+/* Desktop vs Mobile CTA */
+.desktop-only {
+  display: block;
+}
+
+.mobile-register-bar {
+  display: none;
+}
+
+/* Mobile sticky register */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-register-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0)
+    );
+    z-index: 999;
+  }
+
+  .mobile-register-bar .overlay-register-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .event-overlay-content {
+    padding-bottom: 5rem;
+  }
+}
+
+.margin-btm{
+  margin-bottom:2em;
+}
