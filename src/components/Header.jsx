@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Info, Calendar, Image, BarChart3, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
 
@@ -14,6 +14,8 @@ const navItems = [
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,11 +34,18 @@ export default function Header() {
     }, [sidebarOpen]);
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
         setSidebarOpen(false);
+
+        // Check if we're on the home page
+        if (location.pathname === '/' || location.pathname === '') {
+            // Already on home page, just scroll
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            navigate('/', { state: { scrollTo: id } });
+        }
     };
 
     return (

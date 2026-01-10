@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Trophy, Calendar, Music, ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -51,12 +52,24 @@ function CategoryCard({ category }) {
 }
 
 export default function HomePage() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+            setTimeout(() => {
+                const element = document.getElementById(location.state.scrollTo);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location.state]);
+
     return (
         <>
             <Hero />
             <About />
 
-            {/* Categories Section */}
             <section id="events" className="section">
                 <h2 className="section-title">Explore INCEPTA</h2>
                 <p className="section-subtitle">Choose your adventure - competitions, workshops, or cultural celebrations</p>

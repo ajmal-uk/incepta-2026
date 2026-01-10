@@ -39,7 +39,7 @@ export default function Hero() {
                 <Sun size={18} />
                 January 29-30, 2026
             </div>
-            <h1 className="hero-title">INCEPTA 2026</h1>
+            <h1 className="hero-title">INCEPTA 26</h1>
             <p className="hero-subtitle">
                 A premier technical festival focused on AI Agents & Generative AI at the College of Engineering, Trivandrum.
             </p>

@@ -10,7 +10,7 @@ export const eventCategories = {
     title: "Workshops & Events",
     description: "Learn from industry experts",
     color: "#61dafb",
-    events: ["workshops", "workshop1", "workshop2"],
+    events: ["keynote", "panel", "workshops"],
   },
   gala: {
     title: "INCEPTA Gala",
@@ -98,6 +98,7 @@ export const eventsData = {
 
     buttonText: "Register Your Team",
     icon: "brainCircuit",
+    registrationUrl: "#register-hackathon", // Add your MakeMyPass URL here
   },
   ctf: {
     title: "INCEPTA Cyber Siege",
@@ -172,6 +173,7 @@ export const eventsData = {
 
     buttonText: "Join the Hunt",
     icon: "shieldCheck",
+    registrationUrl: "#register-ctf", // Add your MakeMyPass URL here
   },
   coderush: {
     title: "Code Rush",
@@ -180,7 +182,7 @@ export const eventsData = {
     tagline: "Code Rush: Run the code before the clock runs you.",
 
     details: [
-      { label: "Date", value: "January 30, 2026" },
+      { label: "Date", value: "January 29, 2026" },
       { label: "Duration", value: "90 Minutes" },
       { label: "Venue", value: "Software Lab" },
       { label: "Platform", value: "HackerRank" },
@@ -241,9 +243,10 @@ export const eventsData = {
 
     buttonText: "Start Coding",
     icon: "zap",
+    registrationUrl: "#register-coderush", // Add your MakeMyPass URL here
   },
   vibecoding: {
-    title: "CodeLess",
+    title: "Lazy Coding",
     badge: "Vibe Coding",
     category: "competitions",
     tagline: "Don't write the code, manage the code",
@@ -317,6 +320,7 @@ export const eventsData = {
 
     buttonText: "Build with AI",
     icon: "sparkles",
+    registrationUrl: "#register-vibecoding", // Add your MakeMyPass URL here
   },
   promptcraft: {
     title: "PromptVision",
@@ -325,7 +329,7 @@ export const eventsData = {
     tagline: "See the image. Shape the prompt. Recreate the vision.",
 
     details: [
-      { label: "Date", value: "January 29, 2026" },
+      { label: "Date", value: "January 30, 2026" },
       { label: "Time", value: "3:00 PM – 5:00 PM" },
       { label: "Venue", value: "Seminar Hall" },
       { label: "Prize Pool", value: "₹2000 – ₹3000" },
@@ -385,6 +389,7 @@ export const eventsData = {
 
     buttonText: "Craft Your Prompt",
     icon: "image",
+    registrationUrl: "#register-promptcraft", // Add your MakeMyPass URL here
   },
   workshops: {
     title: "GenAI Workshops",
@@ -411,48 +416,49 @@ export const eventsData = {
     ],
     buttonText: "Book Your Seat",
     icon: "presentation",
+    registrationUrl: "#register-workshops", // Add your MakeMyPass URL here
   },
-  workshop1: {
-    title: "AI Agents 101",
-    badge: "Workshop",
+  keynote: {
+    title: "Keynote Session",
+    badge: "Keynote",
     category: "workshops",
-    tagline: "Build you first AI Agent using LangChain",
+    tagline: "Insights from Striver",
     details: [
-      { label: "Date", value: "Feb 15, 2026" },
-      { label: "Time", value: "10:00 AM - 1:00 PM" },
-      { label: "Venue", value: "Lab 2" },
-      { label: "Instructor", value: "Dr. Alan Grant" },
+      { label: "Date", value: "January 29, 2026" },
+      { label: "Venue", value: "CETAA Hall" },
+      { label: "Speaker", value: "Striver" },
     ],
-    description: "A comprehensive introduction to building autonomous AI agents. Learn the fundamentals of LangChain and how to create agents that can reason and act.",
+    description: "An exclusive keynote session by Striver, a renowned figure in the tech community. Gain valuable insights into competitive programming, career growth, and the future of tech.",
     highlights: [
-      "Introduction to Agentic workflows",
-      "Hands-on with LangChain",
-      "Building a research assistant",
-      "Connecting to external tools",
+      "Journey of Striver",
+      "Competitive Programming tips",
+      "Career guidance for students",
+      "Q&A Session",
     ],
     buttonText: "Register Now",
-    icon: "bot",
+    icon: "mic",
+    registrationUrl: "#register-keynote", // Add your MakeMyPass URL here
   },
-  workshop2: {
-    title: "Generative Art",
-    badge: "Workshop",
+  panel: {
+    title: "Panel Discussion",
+    badge: "Panel",
     category: "workshops",
-    tagline: "Mastering Stable Diffusion and Midjourney",
+    tagline: "AI in Education & Entrepreneurship",
     details: [
-      { label: "Date", value: "Feb 16, 2026" },
-      { label: "Time", value: "2:00 PM - 5:00 PM" },
-      { label: "Venue", value: "Design Studio" },
-      { label: "Instructor", value: "Sarah Connor" },
+      { label: "Date", value: "January 30, 2026" },
+      { label: "Venue", value: "CETAA Hall" },
+      { label: "Focus", value: "AI Impact" },
     ],
-    description: "Unlock your creativity with Generative Art. This workshop covers the latest tools and techniques for creating stunning visuals using AI.",
+    description: "A thought-provoking panel discussion on 'How AI Can Impact Education'. Industry leaders and educators discuss the benefits, challenges, and future of AI in academia and beyond.",
     highlights: [
-      "Prompt engineering techniques",
-      "Style transfer and control",
-      "Ethics of AI art",
-      "Showcase of student work",
+      "Panelist: Anwar Sadath (CEO, Kite)",
+      "Panelist: Sunil Raveendran",
+      "Impact on Students & Educators",
+      "Future of AI in the workforce",
     ],
     buttonText: "Register Now",
-    icon: "palette",
+    icon: "users",
+    registrationUrl: "#register-panel", // Add your MakeMyPass URL here
   },
   projectpres: {
     title: "Project Presentation",
@@ -478,6 +484,7 @@ export const eventsData = {
     ],
     buttonText: "Submit Project",
     icon: "monitorPlay",
+    registrationUrl: "#register-projectpres", // Add your MakeMyPass URL here
   },
   treasurehunt: {
     title: "Treasure Hunt",
@@ -503,6 +510,7 @@ export const eventsData = {
     ],
     buttonText: "Assemble Your Crew",
     icon: "compass",
+    registrationUrl: "#register-treasurehunt", // Add your MakeMyPass URL here
   },
   gala: {
     title: "INCEPTA GALA",
@@ -528,19 +536,6 @@ export const eventsData = {
     ],
     buttonText: "Get Your Pass",
     icon: "music",
+    registrationUrl: "#register-gala", // Add your MakeMyPass URL here
   },
-};
-
-export const REGISTRATION_LINKS = {
-  hackathon: "#register-hackathon",
-  ctf: "#register-ctf",
-  coderush: "#register-coderush",
-  vibecoding: "#register-vibecoding",
-  promptcraft: "#register-promptcraft",
-  workshops: "#register-workshops",
-  workshop1: "#register-workshop1",
-  workshop2: "#register-workshop2",
-  projectpres: "#register-projectpres",
-  treasurehunt: "#register-treasurehunt",
-  gala: "#register-gala",
 };
