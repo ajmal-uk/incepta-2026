@@ -459,32 +459,6 @@ export const eventsData = {
     icon: "users",
     registrationUrl: "#register-panel", // Add your MakeMyPass URL here
   },
-  projectpres: {
-    title: "Project Presentation",
-    badge: "Competition",
-    category: "competitions",
-    tagline: "Showcase your AI innovations to industry experts and peers.",
-    details: [
-      { label: "Date", value: "January 30, 2026" },
-      { label: "Time", value: "10:00 AM - 1:00 PM" },
-      { label: "Venue", value: "Conference Room" },
-      { label: "Team Size", value: "1-4 Members" },
-      { label: "Duration", value: "10 min + Q&A" },
-      { label: "Focus", value: "AI/ML Projects" },
-    ],
-    description:
-      "Present your AI projects to a panel of industry experts. Get valuable feedback and recognition for your innovative work.",
-    highlights: [
-      "Projects must involve AI/ML technologies",
-      "Live demo encouraged",
-      "Expert panel with Q&A session",
-      "Best projects receive awards",
-      "Networking opportunity with professionals",
-    ],
-    buttonText: "Submit Project",
-    icon: "monitorPlay",
-    registrationUrl: "#register-projectpres", // Add your MakeMyPass URL here
-  },
   treasurehunt: {
     title: "Treasure Hunt",
     badge: "One Piece Theme",

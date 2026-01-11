@@ -16,7 +16,7 @@ import RegisterSuccessPage from './pages/RegisterSuccessPage';
 
 function App() {
   return (
-    <Router basename="/incepta-2026">
+    <Router basename="/">
       <ScrollToTop />
       <Preloader />
       <BackgroundOrbs />
