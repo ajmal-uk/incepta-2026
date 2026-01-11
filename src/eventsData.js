@@ -98,7 +98,7 @@ export const eventsData = {
 
     buttonText: "Register Your Team",
     icon: "brainCircuit",
-    registrationUrl: "#register-hackathon", // Add your MakeMyPass URL here
+    registrationUrl: "https://app.makemypass.com/event/incepta-hackathon",
   },
   ctf: {
     title: "INCEPTA Cyber Siege",
@@ -173,7 +173,7 @@ export const eventsData = {
 
     buttonText: "Join the Hunt",
     icon: "shieldCheck",
-    registrationUrl: "#register-ctf", // Add your MakeMyPass URL here
+    registrationUrl: "https://app.makemypass.com/event/cyber-seige-capture-the-flag",
   },
   coderush: {
     title: "Code Rush",
@@ -243,13 +243,13 @@ export const eventsData = {
 
     buttonText: "Start Coding",
     icon: "zap",
-    registrationUrl: "#register-coderush", // Add your MakeMyPass URL here
+    registrationUrl: "https://app.makemypass.com/event/coderush-coding",
   },
   vibecoding: {
-    title: "Lazy Coding",
+    title: "CodeLess",
     badge: "Vibe Coding",
     category: "competitions",
-    tagline: "Don't write the code, manage the code",
+    tagline: "Vibe Coding: Don't write the code, manage the code",
 
     details: [
       { label: "Date", value: "January 29, 2026" },
@@ -292,16 +292,14 @@ export const eventsData = {
     },
 
     judgingCriteria: [
-      "Functionality – 30 Marks",
-      "Frontend UI/UX – 20 Marks",
-      "Backend Logic – 20 Marks",
-      "Prompt Engineering – 15 Marks",
-      "Innovation – 10 Marks",
-      "Presentation – 5 Marks",
-      "Total: 100 Marks",
+      "Alignment with problem statement",
+      "Quality of UI/UX design",
+      "Prompt quality (clarity, intent, structure)",
+      "Effective use of AI tools",
+      "Clarity of the 5-minute demo",
     ],
 
-    judges: ["Internal and External Judges (Total: 3)"],
+    judges: ["Internal and External Judges"],
 
     volunteers: ["To be announced"],
 
@@ -320,7 +318,7 @@ export const eventsData = {
 
     buttonText: "Build with AI",
     icon: "sparkles",
-    registrationUrl: "#register-vibecoding", // Add your MakeMyPass URL here
+    registrationUrl: "https://app.makemypass.com/event/codeless-vibe-coding",
   },
   promptcraft: {
     title: "PromptVision",
@@ -332,7 +330,8 @@ export const eventsData = {
       { label: "Date", value: "January 30, 2026" },
       { label: "Time", value: "3:00 PM – 5:00 PM" },
       { label: "Venue", value: "Seminar Hall" },
-      { label: "Prize Pool", value: "₹2000 – ₹3000" },
+      { label: "Prize Pool", value: "₹3,000" },
+      { label: "Reg Fee", value: "₹50" },
     ],
 
     description:
@@ -381,7 +380,7 @@ export const eventsData = {
           email: "safaabdulhameed2002@gmail.com",
         },
         {
-          name: "Aafthab KI",
+          name: "Afthab K L",
           phone: "8129232709",
         },
       ],
@@ -389,7 +388,7 @@ export const eventsData = {
 
     buttonText: "Craft Your Prompt",
     icon: "image",
-    registrationUrl: "#register-promptcraft", // Add your MakeMyPass URL here
+    registrationUrl: "https://app.makemypass.com/event/prompt-vision-prompt-crafting",
   },
   workshops: {
     title: "GenAI Workshops",
@@ -488,29 +487,172 @@ export const eventsData = {
   },
   treasurehunt: {
     title: "Treasure Hunt",
-    badge: "Fun Event",
+    badge: "One Piece Theme",
     category: "competitions",
     tagline: "Embark on a One Piece themed adventure across the campus!",
     details: [
       { label: "Date", value: "January 29, 2026" },
       { label: "Time", value: "10:00 AM - 1:00 PM" },
       { label: "Venue", value: "CET Campus" },
-      { label: "Team Size", value: "5 Members" },
+      { label: "Team Size", value: "5 Members + 1 Vol" },
       { label: "Format", value: "Location-based" },
       { label: "Theme", value: "One Piece" },
     ],
-    description:
-      "Form your pirate crew and race across campus solving riddles to find The One Piece treasure chest! A fun-filled adventure for all.",
+    description: "The One Piece Treasure Hunt is a college-wide adventure game where teams act as pirate crews racing to find the ultimate treasure — the One Piece! Each clue is hidden in the form of a photo and riddle, leading teams to the next location.",
     highlights: [
-      'Each team gets a volunteer "Marine" guide',
-      "Solve One Piece themed riddles at each checkpoint",
-      "Slowest teams eliminated each round",
-      "Final treasure chest contains prizes",
-      "Dress up as pirates for bonus points!",
+      "5-7 Locations across campus",
+      "One Piece themed riddles and clues",
+      "Elimination rounds (slowest teams eliminated)",
+      "Final treasure chest with prizes",
+      "Dedicated 'Marine' volunteer for each team",
     ],
-    buttonText: "Assemble Your Crew",
+    rulesAndGuidelines: {
+      gameFlow: [
+        "Teams act as pirate crews racing to find the One Piece.",
+        "Each clue is a photo/riddle hinting at the next location.",
+        "Teams must find the location and have their assigned volunteer verify it.",
+        "Slowest teams to reach checkpoints may be eliminated.",
+      ],
+      rules: [
+        "Each team must have exactly 5 members.",
+        "Teams must stay together at all times.",
+        "No outside help allowed.",
+        "Clues/props must not be moved or damaged.",
+        "Volunteers will accompany teams to ensure fair play.",
+      ],
+    },
+    judgingCriteria: [
+      "Speed: First team to finding the final treasure wins.",
+      "Fair Play: Adherence to all rules and volunteer instructions.",
+    ],
+    judges: ["Event Organizers"],
+    volunteers: ["1 Volunteer per Team (Marine/Guardian)"],
+    contact: {
+      coordinators: [
+        {
+          name: "Coordinator Name",
+          phone: "Contact Number",
+        },
+      ],
+    },
+    buttonText: "Assemble Crew",
     icon: "compass",
-    registrationUrl: "#register-treasurehunt", // Add your MakeMyPass URL here
+    registrationUrl: "#register-treasurehunt",
+  },
+  valorant: {
+    title: "Valorant",
+    badge: "PC FPS",
+    category: "egames",
+    tagline: "5v5 Tactical Shooter",
+    details: [
+      { label: "Mode", value: "5v5" },
+      { label: "Platform", value: "Online (PC)" },
+      { label: "Reg Fee", value: "₹120" },
+      { label: "Prize Pool", value: "₹2,000" },
+    ],
+    description: "Compete in the ultimate 5v5 tactical shooter. Show off your aim, strategy, and teamwork to dominate the lobby.",
+    highlights: ["Knockout Tournament", "Cash Prizes", "Live Streamed Finals"],
+    contact: {
+      coordinators: [
+        { name: "Aswin", phone: "8590463908" },
+        { name: "Aravind", phone: "8848060367" },
+      ],
+    },
+    buttonText: "Register Team",
+    icon: "crosshair",
+    registrationUrl: "https://app.makemypass.com/event/coliseum-valorant",
+  },
+  bgmi: {
+    title: "BGMI",
+    badge: "Mobile BR",
+    category: "egames",
+    tagline: "Battlegrounds Mobile India",
+    details: [
+      { label: "Mode", value: "Squad TPP" },
+      { label: "Platform", value: "Online (Mobile)" },
+      { label: "Reg Fee", value: "₹100" },
+      { label: "Prize Pool", value: "₹2,000" },
+    ],
+    description: "Drop into the battleground, loot up, and survive till the end. Only the best squad will secure the Chicken Dinner.",
+    highlights: ["Squad Matches", "Multiple Maps", "Points System"],
+    contact: {
+      coordinators: [
+        { name: "Abhin Dev", phone: "9846205075" },
+        { name: "Bharadwaj", phone: "7994265599" },
+      ],
+    },
+    buttonText: "Register Squad",
+    icon: "smartphone",
+    registrationUrl: "https://app.makemypass.com/event/coliseum-bgmi",
+  },
+  efootball: {
+    title: "eFootball",
+    badge: "Mobile Sports",
+    category: "egames",
+    tagline: "eFootball Online Championship",
+    details: [
+      { label: "Mode", value: "1v1" },
+      { label: "Platform", value: "Online (Mobile)" },
+      { label: "Reg Fee", value: "₹50" },
+      { label: "Prize Pool", value: "₹2,000" },
+    ],
+    description: "Showcase your football skills on the virtual pitch. Dribble, pass, and score your way to victory.",
+    highlights: ["1v1 Matches", "Knockout Format"],
+    contact: {
+      coordinators: [
+        { name: "Abhimanyu", phone: "7510884289" },
+        { name: "Abraham", phone: "9778527716" },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "trophy",
+    registrationUrl: "https://app.makemypass.com/event/coliseum-efootball",
+  },
+  minimilitia: {
+    title: "Mini Militia",
+    badge: "Mobile Action",
+    category: "egames",
+    tagline: "Mini Militia Online Championship",
+    details: [
+      { label: "Mode", value: "6 Player/Solo" },
+      { label: "Platform", value: "Offline/LAN" },
+      { label: "Reg Fee", value: "₹50" },
+      { label: "Prize Pool", value: "₹1,500" },
+    ],
+    description: "Chaotic 2D shooter action. Fly, shoot, and survive in intense battles.",
+    highlights: ["Offline Mode", "Fast-paced Action"],
+    contact: {
+      coordinators: [
+        { name: "William", phone: "9496299122" },
+        { name: "Nidal", phone: "8075543651" },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "zap",
+    registrationUrl: "https://app.makemypass.com/event/coliseum-mini-miltia",
+  },
+  fifa: {
+    title: "FC25",
+    badge: "Console",
+    category: "egames",
+    tagline: "FC25 Championship",
+    details: [
+      { label: "Mode", value: "1v1" },
+      { label: "Platform", value: "Console (Offline)" },
+      { label: "Reg Fee", value: "₹100" },
+      { label: "Prize Pool", value: "₹3,000" },
+    ],
+    description: "Experience realistic football on console. Compete offline in a high-stakes FC25 tournament.",
+    highlights: ["Played on PS5/Xbox", "Big Screen Experience"],
+    contact: {
+      coordinators: [
+        { name: "Abhimanyu", phone: "7510884289" },
+        { name: "Abraham", phone: "9778527716" },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "gamepad",
+    registrationUrl: "https://app.makemypass.com/event/coliseum-fc25",
   },
   gala: {
     title: "INCEPTA GALA",
@@ -539,3 +681,233 @@ export const eventsData = {
     registrationUrl: "#register-gala", // Add your MakeMyPass URL here
   },
 };
+
+// PlayFest & Board Games Data
+export const playFestData = [
+  // Live Activity & Game Stalls
+  {
+    id: "speed-typing",
+    title: "Speed Typing Challenge",
+    players: "Individual",
+    duration: "1–2 mins",
+    type: "Focus & Reaction",
+    description: "A fast-paced typing battle where participants race to type accurately at high speed.",
+    group: "Live Activity",
+  },
+  {
+    id: "escape-room",
+    title: "Escape Room Experience",
+    players: "3–6 players",
+    duration: "10–15 mins",
+    type: "Team Strategy",
+    description: "Teams solve clues and unlock the path to escape within the time limit.",
+    group: "Live Activity",
+  },
+  {
+    id: "dart-throw",
+    title: "Dart Throw",
+    players: "1–2 players",
+    duration: "1 min",
+    type: "Aim & Accuracy",
+    description: "A casual target game to challenge hand-eye coordination.",
+    group: "Live Activity",
+  },
+  {
+    id: "foam-archery",
+    title: "Foam Archery Zone",
+    players: "1–4 players",
+    duration: "Open play",
+    type: "Safe Sport",
+    description: "Soft foam-tipped archery that is safe and fun for all age groups.",
+    group: "Live Activity",
+  },
+  {
+    id: "cosplay",
+    title: "Cosplay Booth",
+    players: "Open",
+    duration: "Open",
+    type: "Creative",
+    description: "A free-spirited creative space encouraging self-expression and character representation.",
+    group: "Live Activity",
+  },
+  {
+    id: "nerf-battle",
+    title: "Nerf Battle Arena",
+    players: "Teams",
+    duration: "Round based",
+    type: "Action",
+    description: "An energetic soft-shooting activity encouraging team play and stress release.",
+    group: "Live Activity",
+  },
+  // Board & Card Games
+  {
+    id: "top-that",
+    title: "Top That!",
+    players: "4 players",
+    duration: "5 min",
+    type: "Strategy + Reaction",
+    description: "Fast stacking and matching challenge to test reflex and pattern reading.",
+  },
+  {
+    id: "chain-triangle",
+    title: "Chain Triangle",
+    players: "4 players",
+    duration: "10 min",
+    type: "Strategy",
+    description: "Players form patterns using triangle chains based on prompt cards.",
+  },
+  {
+    id: "happy-salmon",
+    title: "Happy Salmon",
+    players: "4 players",
+    duration: "90 secs",
+    type: "Social Game",
+    description: "Fast hand-action exchanges leading to loud laughter and instant bonding.",
+  },
+  {
+    id: "maki-stack",
+    title: "Maki Stack",
+    players: "2–4 players",
+    duration: "5 min",
+    type: "Team Building",
+    description: "Players stack sushi pieces using blindfolds or shared instructions.",
+  },
+  {
+    id: "dr-eureka",
+    title: "Dr. Eureka",
+    players: "2–8 players",
+    duration: "5 min",
+    type: "Coordination",
+    description: "Solve formula card patterns by transferring colored balls through tubes safely.",
+  },
+  {
+    id: "taco-cat",
+    title: "Taco Cat Goat Cheese Pizza",
+    players: "2–8 players",
+    duration: "3 min",
+    type: "Rhythm + Reaction",
+    description: "Call words in order, react fast—chaotic, funny, and addictive.",
+  },
+  {
+    id: "dobble",
+    title: "Spot It / Dobble",
+    players: "2–4 players",
+    duration: "3 min",
+    type: "Pattern Recognition",
+    description: "Match identical icons faster than your opponent.",
+  },
+  {
+    id: "face-change",
+    title: "Face Change Cube",
+    players: "2–4 players",
+    duration: "5 min",
+    type: "Pattern Recognition",
+    description: "Recreate face expressions using cube pieces.",
+  },
+  {
+    id: "sling-puck",
+    title: "Sling Puck",
+    players: "2 players",
+    duration: "3 min",
+    type: "Reaction Game",
+    description: "Push all pucks to opponent’s side — fast, exciting, loud.",
+  },
+  {
+    id: "pictureka",
+    title: "Pictureka",
+    players: "2–8 players",
+    duration: "10 min",
+    type: "Pattern Search",
+    description: "Players race to find pictures matching task prompts.",
+  },
+  {
+    id: "magnet-sizzle",
+    title: "Magnet / Sizzle",
+    players: "2–8 players",
+    duration: "3 min",
+    type: "Strategy + Reaction",
+    description: "Magnetic pieces create suspenseful chain reactions.",
+  },
+  {
+    id: "mikkaido",
+    title: "Mikkaido",
+    players: "2–8 players",
+    duration: "3 min",
+    type: "Hand-Eye Coordination",
+    description: "Carefully lift sticks without disturbing others.",
+  },
+  {
+    id: "yeti-spaghetti",
+    title: "Yeti in My Spaghetti",
+    players: "2–4 players",
+    duration: "15 min",
+    type: "Balance Game",
+    description: "Remove spaghetti sticks without letting the Yeti fall.",
+  },
+  {
+    id: "dead-mans-deck",
+    title: "Dead Man’s Deck",
+    players: "2–8 players",
+    duration: "15 min",
+    type: "Strategy / Memory",
+    description: "Pirate-themed card game with twists and risk-taking.",
+  },
+  {
+    id: "suspend",
+    title: "Suspend",
+    players: "2–8 players",
+    duration: "3 min",
+    type: "Balance + Precision",
+    description: "Build hanging structures without collapse.",
+  },
+  {
+    id: "connect-4",
+    title: "Connect 4",
+    players: "2 players",
+    duration: "5 min",
+    type: "Strategy",
+    description: "Form a straight line of 4 tokens before your opponent.",
+  },
+  {
+    id: "jenga",
+    title: "Jenga",
+    players: "2–4 players",
+    duration: "5 min",
+    type: "Balance + Suspense",
+    description: "Remove blocks without toppling the tower.",
+  },
+  {
+    id: "board-boats",
+    title: "Board & Boats",
+    players: "Open",
+    duration: "Relaxed",
+    type: "Casual",
+    description: "A cozy board-play zone for winding down.",
+    group: "Board Games",
+  },
+  {
+    id: "balloon-shooting",
+    title: "Balloon Shooting",
+    players: "Individual",
+    duration: "Varies",
+    type: "Skill",
+    description: "Fun burst-and-score shooting activity.",
+  },
+  {
+    id: "tower-hanoi",
+    title: "Tower of Hanoi",
+    players: "Individual",
+    duration: "Varies",
+    type: "Logic",
+    description: "Logic puzzle requiring planned moves and patience.",
+  },
+  {
+    id: "hot-wheels",
+    title: "Hot Wheels Track Race",
+    players: "Individual",
+    duration: "Varies",
+    type: "Racing",
+    description: "An exciting racing lane for car speed.",
+    group: "Skill Zones",
+  },
+];

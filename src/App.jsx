@@ -6,6 +6,7 @@ import BackgroundOrbs from './components/BackgroundOrbs';
 import ParticleBackground from './components/ParticleBackground';
 import HomePage from './pages/HomePage';
 import CompetitionsPage from './pages/CompetitionsPage';
+import EGamesPage from './pages/EGamesPage';
 import EventsPage from './pages/EventsPage';
 import GalaPage from './pages/GalaPage';
 import EventDetailPage from './pages/EventDetailPage';
@@ -26,6 +27,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/competitions" element={<CompetitionsPage />} />
           <Route path="/competitions/:eventId" element={<EventDetailPage />} />
+          <Route path="/competitions/egames" element={<EGamesPage />} />
+          <Route path="/competitions/egames/:eventId" element={<EventDetailPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/events/:eventId" element={<EventDetailPage />} />
           <Route path="/gala" element={<GalaPage />} />

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music } from 'lucide-react';
+import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Gamepad2 } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
 
 const iconMap = {
@@ -15,7 +15,8 @@ const iconMap = {
     palette: Palette,
     monitorPlay: MonitorPlay,
     compass: Compass,
-    music: Music
+    music: Music,
+    gamepad: Gamepad2
 };
 
 export default function CompetitionsPage() {
@@ -51,6 +52,18 @@ export default function CompetitionsPage() {
                             </Link>
                         );
                     })}
+                    {/* E-Games Hub Card */}
+                    <Link
+                        to="/competitions/egames"
+                        className="event-card"
+                    >
+                        <div className="event-icon">
+                            <Gamepad2 size={32} />
+                        </div>
+                        <h3 className="event-title">COLISEUM</h3>
+                        <p className="event-description">E-Sports & Gaming Arena</p>
+                        <div className="event-badge-small">E-Games</div>
+                    </Link>
                 </div>
             </section>
         </div>

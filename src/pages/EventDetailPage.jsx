@@ -29,6 +29,8 @@ function getBackLink(category) {
     switch (category) {
         case 'competitions':
             return { path: '/competitions', label: 'Competitions' };
+        case 'egames':
+            return { path: '/competitions/egames', label: 'E-Games' };
         case 'workshops':
             return { path: '/events', label: 'Events' };
         case 'gala':

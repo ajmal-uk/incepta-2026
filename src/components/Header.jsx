@@ -1,13 +1,12 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Info, Calendar, Image, BarChart3, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
+import { Info, Calendar, Image, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
 
 const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: Info },
     { id: 'events', label: 'Explore', icon: Calendar },
     { id: 'gallery', label: 'Gallery', icon: Image },
-    { id: 'stats', label: 'Stats', icon: BarChart3 },
     { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
