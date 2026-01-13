@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Gamepad2 } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Zap, Sparkles, Image, Compass, Palette, MonitorPlay, Music, Gamepad2, LayoutDashboard } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
+import SEO from '../components/SEO';
 
 const iconMap = {
-    layoutDashboard: LayoutDashboard,
-    mapPin: MapPin,
-    brainCircuit: BrainCircuit,
     shieldCheck: ShieldCheck,
     zap: Zap,
     sparkles: Sparkles,
     image: Image,
-    presentation: Presentation,
-    bot: Bot,
     palette: Palette,
     monitorPlay: MonitorPlay,
     compass: Compass,

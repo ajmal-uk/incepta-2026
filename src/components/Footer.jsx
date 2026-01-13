@@ -1,16 +1,14 @@
-import { Instagram, Linkedin, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Linkedin, Link } from 'lucide-react';
 const socialLinks = [
-    { name: 'Instagram', icon: 'instagram', href: '#' },
-    { name: 'LinkedIn', icon: 'linkedin', href: '#' },
-    { name: 'Facebook', icon: 'facebook', href: '#' },
-    { name: 'Twitter', icon: 'twitter', href: '#' }
+    { name: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/incepta.cet?igsh=MTNpZmNudWtnNW44' },
+    { name: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/asca-cet/' },
+    { name: 'Linktree', icon: 'linktree', href: 'https://linktr.ee/incepta26?utm_source=linktree_profile_share' }
 ];
 
 const iconMap = {
     instagram: Instagram,
     linkedin: Linkedin,
-    facebook: Facebook,
-    twitter: Twitter
+    linktree: Link
 };
 
 export default function Footer() {

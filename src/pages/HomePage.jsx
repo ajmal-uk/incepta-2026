@@ -4,6 +4,7 @@ import { Trophy, Calendar, Music, ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero';
 import Gallery from '../components/Gallery';
 import Contact from '../components/Contact';
+import SEO from '../components/SEO';
 
 const categories = [
     {
@@ -64,7 +65,8 @@ export default function HomePage() {
     }, [location.state]);
 
     return (
-        <>
+        <div className="page-container home-page">
+            <SEO title="Home" />
             <Hero />
 
             <section id="events" className="section">
@@ -80,6 +82,6 @@ export default function HomePage() {
             <Gallery />
 
             <Contact />
-        </>
+        </div>
     );
 }

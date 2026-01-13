@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
+import SEO from '../components/SEO';
 
 const iconMap = {
     layoutDashboard: LayoutDashboard,
@@ -24,6 +25,7 @@ export default function EventsPage() {
 
     return (
         <div className="page-container">
+            <SEO title="Workshops & Events" description="Join workshops, keynotes, and fun events at INCEPTA 2026. Learn from experts and participate in engaging activities." />
             <section className="page-hero" style={{ '--accent-color': category.color }}>
                 <Link to="/" className="back-link">
                     <ArrowLeft size={20} /> Back to Home

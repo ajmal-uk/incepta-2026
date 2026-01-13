@@ -1,4 +1,5 @@
 import { Calendar, Award, Sparkles, MapPin, Clock, Zap, Brain, Bot, Cpu, Users } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const aboutData = [
     {
@@ -68,6 +69,7 @@ const aiThemes = [
 export default function AboutPage() {
     return (
         <div className="about-page">
+            <SEO title="About Us" description="Learn about ASCA, CET, and the vision behind INCEPTA 2026 - Kerala's premier AI tech fest." />
             {/* Hero Section */}
             <section className="about-hero">
                 <div className="about-hero-content">

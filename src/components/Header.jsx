@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Info, Calendar, Image, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
+import { Info, Calendar, Image, Mail, X, Instagram, Linkedin, Home, Link as LinkIcon } from 'lucide-react';
 
 const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
@@ -122,11 +122,14 @@ export default function Header() {
                 <div className="sidebar-footer">
                     <p>Follow us on social media</p>
                     <div className="social-links" style={{ marginTop: '15px', gap: '10px', justifyContent: 'center' }}>
-                        <a href="#" aria-label="Instagram" className="social-link">
+                        <a href="https://www.instagram.com/incepta.cet?igsh=MTNpZmNudWtnNW44" aria-label="Instagram" className="social-link">
                             <Instagram size={20} />
                         </a>
-                        <a href="#" aria-label="LinkedIn" className="social-link">
+                        <a href="https://www.linkedin.com/company/asca-cet/" aria-label="LinkedIn" className="social-link">
                             <Linkedin size={20} />
+                        </a>
+                        <a href="https://linktr.ee/incepta26?utm_source=linktree_profile_share" aria-label="Linktree" className="social-link">
+                            <LinkIcon size={20} />
                         </a>
                     </div>
                 </div>
