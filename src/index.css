@@ -118,7 +118,7 @@ body {
 }
 
 header {
-  padding: 18px 5%;
+  padding: 12px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -199,7 +199,7 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 90px 20px 50px;
   position: relative;
 }
 
@@ -235,7 +235,7 @@ nav a:hover::after {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(3.5rem, 12vw, 7rem);
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #ffffff 0%, var(--neon-purple) 40%, var(--neon-magenta) 70%, var(--neon-blue) 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -272,7 +272,7 @@ nav a:hover::after {
 
 .hero-subtitle {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   max-width: 650px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
@@ -283,7 +283,7 @@ nav a:hover::after {
 .countdown {
   display: flex;
   gap: 16px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -382,15 +382,19 @@ nav a:hover::after {
   left: 100%;
 }
 
-/* Section */
 .section {
-  padding: 120px 5%;
-  min-height: 50vh;
+  padding: 60px 5%;
+  min-height: auto;
   position: relative;
 }
 
+.section:last-of-type {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .section2 {
-  min-height: 50vh;
+  min-height: auto;
   position: relative;
 }
 
@@ -408,7 +412,7 @@ nav a:hover::after {
   color: rgba(255, 255, 255, 0.6);
   font-size: 1.1rem;
   max-width: 600px;
-  margin: 0 auto 60px;
+  margin: 0 auto 30px;
   line-height: 1.7;
 }
 
@@ -416,7 +420,7 @@ nav a:hover::after {
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
+  gap: 15px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -511,7 +515,7 @@ nav a:hover::after {
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
+  gap: 15px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -580,7 +584,7 @@ nav a:hover::after {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  gap: 15px;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -658,7 +662,7 @@ nav a:hover::after {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -834,9 +838,9 @@ textarea.form-control {
 /* Footer */
 footer {
   background: linear-gradient(180deg, transparent 0%, rgba(10, 5, 20, 0.95) 100%);
-  padding: 30px 5% 40px;
+  padding: 0 5% 40px;
   text-align: center;
-  border-top: 1px solid rgba(175, 132, 203, 0.1);
+  border-top: none;
 }
 
 .footer-logo {
@@ -1869,7 +1873,7 @@ body.sidebar-open {
 }
 
 .page-hero {
-  padding: 20px 5% 30px;
+  padding: 20px 5% 15px;
   position: relative;
 }
 
@@ -1913,7 +1917,7 @@ body.sidebar-open {
 
 /* Reduce section padding in pages with hero */
 .page-container .section {
-  padding: 30px 5% 60px;
+  padding: 15px 5% 25px;
 }
 
 .event-badge-small {
@@ -2104,12 +2108,14 @@ body.sidebar-open {
     grid-template-columns: 1fr;
   }
 
+  .section:last-of-type {
+    padding-bottom: 0;
+  }
+
   /* Mobile Optimizations */
   .section {
-    padding: 40px 4%;
-    /* Reduced padding */
-    min-height: 100dvh;
-    /* Force full height per section */
+    padding: 25px 4%;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -3001,7 +3007,7 @@ body.sidebar-open {
 
 /* About Cards Full Section */
 .about-cards-section {
-  padding: 40px 5% 80px;
+  padding: 40px 5% 50px;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -3104,13 +3110,13 @@ body.sidebar-open {
 
 /* Theme Section */
 .theme-section {
-  padding: 80px 5%;
+  padding: 50px 5%;
   background: linear-gradient(180deg, transparent 0%, rgba(63, 40, 78, 0.1) 50%, transparent 100%);
 }
 
 .theme-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .theme-grid {
@@ -3164,7 +3170,7 @@ body.sidebar-open {
 
 /* Vision Section */
 .vision-section {
-  padding: 80px 5%;
+  padding: 50px 5%;
   display: flex;
   justify-content: center;
 }
@@ -3173,7 +3179,7 @@ body.sidebar-open {
   max-width: 800px;
   text-align: center;
   background: linear-gradient(135deg, rgba(63, 40, 78, 0.4) 0%, rgba(20, 10, 27, 0.6) 100%);
-  padding: 60px;
+  padding: 40px;
   border-radius: 30px;
   border: 1px solid rgba(175, 132, 203, 0.2);
   backdrop-filter: blur(20px);
@@ -3314,77 +3320,87 @@ body.sidebar-open {
     font-size: 0.85rem;
   }
 }
+
 /* ==========================================
    E-GAMES PAGE
    ========================================== */
 .playfest-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0;
 }
+
 .playfest-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    position: relative;
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
 }
+
 .playfest-card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
 }
+
 .playfest-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
 }
+
 .playfest-icon {
-    color: var(--accent-color, #ff0055);
+  color: var(--accent-color, #ff0055);
 }
+
 .playfest-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #fff;
 }
+
 .playfest-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.4;
-    flex-grow: 1;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+  flex-grow: 1;
 }
+
 .playfest-meta {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: auto;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 .meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
+
 .playfest-type {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(255, 0, 85, 0.2);
-    color: #ff0055;
-    font-size: 0.7rem;
-    padding: 0.25rem 0.75rem;
-    border-bottom-left-radius: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 0, 85, 0.2);
+  color: #ff0055;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.75rem;
+  border-bottom-left-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
