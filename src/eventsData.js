@@ -504,8 +504,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Coordinator Name",
-          phone: "Contact Number",
+          name: "Shivarama",
+          phone: "8086942328",
         },
       ],
     },
