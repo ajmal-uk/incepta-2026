@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Mic, Users, Award, Calendar, Clock } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
+import SEO from '../components/SEO';
 
 const iconMap = {
     layoutDashboard: LayoutDashboard,
@@ -55,6 +56,7 @@ export default function EventDetailPage() {
     if (!event) {
         return (
             <div className="page-container">
+                <SEO title="Event Not Found" />
                 <section className="page-hero" style={{ '--accent-color': '#ff6b6b' }}>
                     <Link to="/" className="back-link">
                         <ArrowLeft size={20} /> Back to Home
@@ -79,6 +81,11 @@ export default function EventDetailPage() {
 
     return (
         <div className="page-container event-detail-page">
+            <SEO
+                title={event.title}
+                description={event.description}
+                keywords={event.badge}
+            />
             <section className="page-hero" style={{ '--accent-color': categoryColor }}>
                 <div className="event-header-row">
                     <Link to={backInfo.path} className="back-link">

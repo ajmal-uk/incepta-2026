@@ -1,45 +1,47 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Preloader from './components/Preloader';
+import { Suspense, lazy } from 'react';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import BackgroundOrbs from './components/BackgroundOrbs';
 import ParticleBackground from './components/ParticleBackground';
-import HomePage from './pages/HomePage';
-import CompetitionsPage from './pages/CompetitionsPage';
-import EGamesPage from './pages/EGamesPage';
-import EventsPage from './pages/EventsPage';
-import GalaPage from './pages/GalaPage';
-import EventDetailPage from './pages/EventDetailPage';
-import AboutPage from './pages/AboutPage';
 import ScrollToTop from './components/ScrollToTop';
-import RegisterPage from './pages/RegisterPage';
-import RegisterSuccessPage from './pages/RegisterSuccessPage';
+import LoadingFallback from './components/LoadingFallback';
+
+// Lazy load pages
+const HomePage = lazy(() => import('./pages/HomePage'));
+const CompetitionsPage = lazy(() => import('./pages/CompetitionsPage'));
+const EGamesPage = lazy(() => import('./pages/EGamesPage'));
+const EventsPage = lazy(() => import('./pages/EventsPage'));
+const GalaPage = lazy(() => import('./pages/GalaPage'));
+const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 function App() {
   return (
     <Router basename="/">
       <ScrollToTop />
-      <Preloader />
+
       <BackgroundOrbs />
       <ParticleBackground />
       <div className="content">
         <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/competitions" element={<CompetitionsPage />} />
-          <Route path="/competitions/:eventId" element={<EventDetailPage />} />
-          <Route path="/competitions/egames" element={<EGamesPage />} />
-          <Route path="/competitions/egames/:eventId" element={<EventDetailPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/events/:eventId" element={<EventDetailPage />} />
-          <Route path="/gala" element={<GalaPage />} />
-          <Route path="/register/:eventId" element={<RegisterPage />} />
-          <Route path="/register-success/:eventId" element={<RegisterSuccessPage />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/competitions" element={<CompetitionsPage />} />
+            <Route path="/competitions/:eventId" element={<EventDetailPage />} />
+            <Route path="/competitions/egames" element={<EGamesPage />} />
+            <Route path="/competitions/egames/:eventId" element={<EventDetailPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/events/:eventId" element={<EventDetailPage />} />
+            <Route path="/gala" element={<GalaPage />} />
+          </Routes >
+        </Suspense >
         <Footer />
-      </div>
-    </Router>
+      </div >
+    </Router >
   );
 }
 

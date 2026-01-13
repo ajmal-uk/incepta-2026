@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Award, ArrowRight, Calendar, MapPin, Clock, Users } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
+import SEO from '../components/SEO';
 
 export default function GalaPage() {
     const category = eventCategories.gala;
@@ -9,6 +10,7 @@ export default function GalaPage() {
 
     return (
         <div className="page-container gala-page">
+            <SEO title="INCEPTA Gala" description="Experience the cultural highlight of INCEPTA 2026. Two nights of music, dance, and performances." />
             <section className="page-hero gala-hero" style={{ '--accent-color': category.color }}>
                 <Link to="/" className="back-link">
                     <ArrowLeft size={20} /> Back to Home

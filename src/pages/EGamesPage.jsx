@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Gamepad2, Smartphone, Crosshair, Trophy, Zap, Keyboard, Users, Target, Palette, Dna, Layers, RotateCcw, Box, Smile, Hash, Grip, Clock, HandMetal, Eye } from 'lucide-react';
 import { eventsData, playFestData } from '../eventsData';
+import SEO from '../components/SEO';
 
 const iconMap = {
     crosshair: Crosshair,
@@ -14,7 +15,7 @@ const playFestIcons = {
     'speed-typing': Keyboard,
     'escape-room': Users,
     'dart-throw': Target,
-    'foam-archery': Target, // Reusing Target
+    'foam-archery': Target,
     'cosplay': Palette,
     'nerf-battle': Crosshair,
     'top-that': Layers,
@@ -26,7 +27,7 @@ const playFestIcons = {
     'dobble': Eye,
     'face-change': Smile,
     'sling-puck': Zap,
-    'pictureka': Hash, // Using Hash as closest standard grid icon
+    'pictureka': Hash,
     'magnet-sizzle': Zap,
     'mikkaido': Grip,
     'yeti-spaghetti': Grip,
@@ -40,8 +41,6 @@ const playFestIcons = {
     'hot-wheels': Zap
 };
 
-
-
 export default function EGamesPage() {
     const preFestGames = ['valorant', 'bgmi', 'efootball', 'minimilitia'];
     const liveGames = ['fifa'];
@@ -51,6 +50,7 @@ export default function EGamesPage() {
 
     return (
         <div className="page-container">
+            <SEO title="E-Games Coliseum" description="Join the ultimate E-Sports arena at INCEPTA 2026. Valorant, BGMI, FIFA, and more." />
             {/* Hero Section */}
             <section className="page-hero" style={{ '--accent-color': '#ff0055' }}>
                 <Link to="/competitions" className="back-link">
@@ -179,79 +179,7 @@ export default function EGamesPage() {
                 </div>
             </section>
 
-            <style jsx>{`
-                .playfest-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                    gap: 1.5rem;
-                    padding: 1rem 0;
-                }
-                .playfest-card {
-                    background: rgba(255, 255, 255, 0.03);
-                    border: 1px solid rgba(255, 255, 255, 0.05);
-                    border-radius: 12px;
-                    padding: 1.5rem;
-                    transition: all 0.3s ease;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.75rem;
-                    position: relative;
-                    overflow: hidden;
-                }
-                .playfest-card:hover {
-                    background: rgba(255, 255, 255, 0.07);
-                    transform: translateY(-5px);
-                    border-color: rgba(255, 255, 255, 0.2);
-                }
-                .playfest-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.75rem;
-                    margin-bottom: 0.25rem;
-                }
-                .playfest-icon {
-                    color: var(--accent-color, #ff0055);
-                }
-                .playfest-title {
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                    margin: 0;
-                    color: #fff;
-                }
-                .playfest-desc {
-                    font-size: 0.9rem;
-                    color: rgba(255, 255, 255, 0.7);
-                    line-height: 1.4;
-                    flex-grow: 1;
-                }
-                .playfest-meta {
-                    display: flex;
-                    gap: 1rem;
-                    font-size: 0.8rem;
-                    color: rgba(255, 255, 255, 0.5);
-                    margin-top: auto;
-                    padding-top: 0.75rem;
-                    border-top: 1px solid rgba(255, 255, 255, 0.05);
-                }
-                .meta-item {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.25rem;
-                }
-                .playfest-type {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    background: rgba(255, 0, 85, 0.2);
-                    color: #ff0055;
-                    font-size: 0.7rem;
-                    padding: 0.25rem 0.75rem;
-                    border-bottom-left-radius: 8px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.5px;
-                }
-            `}</style>
+
         </div>
     );
 }
