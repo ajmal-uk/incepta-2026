@@ -109,7 +109,7 @@ export const eventsData = {
 
     details: [
       { label: "Date", value: "January 29, 2026" },
-      { label: "Duration", value: "10:00 AM – 5:00 PM" },
+      { label: "Duration", value: "9:00 AM – 4:00 PM" },
       { label: "Venue", value: "Software Lab" },
       { label: "Registration Fee", value: "₹350 / Team" },
     ],
