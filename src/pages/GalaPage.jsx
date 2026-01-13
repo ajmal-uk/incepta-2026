@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Award, ArrowRight, Calendar, MapPin, Clock, Users } from 'lucide-react';
-import { eventsData, eventCategories, REGISTRATION_LINKS } from '../eventsData';
+import { eventsData, eventCategories } from '../eventsData';
 
 export default function GalaPage() {
     const category = eventCategories.gala;
@@ -71,7 +71,7 @@ export default function GalaPage() {
                 </div>
 
                 <div className="gala-cta">
-                    <a href={REGISTRATION_LINKS.gala} className="cta-button gala-button">
+                    <a href={gala.registrationUrl} className="cta-button gala-button">
                         {gala.buttonText}
                         <ArrowRight size={20} />
                     </a>

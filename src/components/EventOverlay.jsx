@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { REGISTRATION_LINKS } from '../eventsData';
+
 
 export default function EventOverlay({ eventId, event, onClose }) {
     const [openSections, setOpenSections] = useState({});
@@ -139,7 +139,7 @@ export default function EventOverlay({ eventId, event, onClose }) {
             {/* CTA */}
             <div className="overlay-actions">
                 <a
-                    href={REGISTRATION_LINKS[eventId]}
+                    href={event.registrationUrl}
                     className="overlay-register-btn"
                 >
                     {event.buttonText}

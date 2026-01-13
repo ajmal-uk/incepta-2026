@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music } from 'lucide-react';
+import { ArrowLeft, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Gamepad2 } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
-import EventOverlay from '../components/EventOverlay';
 
 const iconMap = {
     layoutDashboard: LayoutDashboard,
@@ -17,13 +15,12 @@ const iconMap = {
     palette: Palette,
     monitorPlay: MonitorPlay,
     compass: Compass,
-    music: Music
+    music: Music,
+    gamepad: Gamepad2
 };
 
-export default function EventsPage() {
-    const [selectedEvent, setSelectedEvent] = useState(null);
+export default function CompetitionsPage() {
     const category = eventCategories.competitions;
-    console.log(category, "Comp")
     const categoryEvents = category.events.map(id => ({ id, ...eventsData[id] }));
 
     return (
@@ -41,10 +38,10 @@ export default function EventsPage() {
                     {categoryEvents.map(event => {
                         const Icon = iconMap[event.icon] || LayoutDashboard;
                         return (
-                            <div
+                            <Link
+                                to={`/competitions/${event.id}`}
                                 className="event-card"
                                 key={event.id}
-                                onClick={() => setSelectedEvent(event.id)}
                             >
                                 <div className="event-icon">
                                     <Icon size={32} />
@@ -52,19 +49,24 @@ export default function EventsPage() {
                                 <h3 className="event-title">{event.title}</h3>
                                 <p className="event-description">{event.tagline}</p>
                                 <div className="event-badge-small">{event.badge}</div>
-                            </div>
+                            </Link>
                         );
                     })}
+                    {/* E-Games Hub Card */}
+                    <Link
+                        to="/competitions/egames"
+                        className="event-card"
+                    >
+                        <div className="event-icon">
+                            <Gamepad2 size={32} />
+                        </div>
+                        <h3 className="event-title">COLISEUM</h3>
+                        <p className="event-description">E-Sports & Gaming Arena</p>
+                        <div className="event-badge-small">E-Games</div>
+                    </Link>
                 </div>
             </section>
-
-            {selectedEvent && (
-                <EventOverlay
-                    eventId={selectedEvent}
-                    event={eventsData[selectedEvent]}
-                    onClose={() => setSelectedEvent(null)}
-                />
-            )}
         </div>
     );
 }
+

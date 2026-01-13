@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { X } from 'lucide-react';
 
-const galleryImages = [
+const rawGalleryImages = [
     '/gallery/1.png',
     '/gallery/2.png',
     '/gallery/3.png',
@@ -52,7 +52,12 @@ const galleryImages = [
     '/gallery/24.png',
 ];
 
-// Fisher-Yates shuffle algorithm
+const galleryImages = rawGalleryImages.map(src => {
+    const baseUrl = import.meta.env.BASE_URL;
+    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+    return `${baseUrl}${cleanSrc}`;
+});
+
 const shuffleArray = (array) => {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -65,7 +70,6 @@ const shuffleArray = (array) => {
 export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState(null);
 
-    // Shuffle images independently for each row on mount
     const rows = useMemo(() => {
         return [
             [...shuffleArray(galleryImages), ...shuffleArray(galleryImages)], // Row 1

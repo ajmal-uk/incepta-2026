@@ -1,19 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Info, Calendar, Image, BarChart3, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
+import { Info, Calendar, Image, Mail, X, Instagram, Linkedin, Home } from 'lucide-react';
 
 const navItems = [
     { id: 'hero', label: 'Home', icon: Home },
-    { id: 'about', label: 'About', icon: Info },
+    { id: 'about', label: 'About', icon: Info, isPage: true, path: '/about' },
     { id: 'events', label: 'Explore', icon: Calendar },
     { id: 'gallery', label: 'Gallery', icon: Image },
-    { id: 'stats', label: 'Stats', icon: BarChart3 },
     { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,11 +33,18 @@ export default function Header() {
     }, [sidebarOpen]);
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
         setSidebarOpen(false);
+
+        // Check if we're on the home page
+        if (location.pathname === '/' || location.pathname === '') {
+            // Already on home page, just scroll
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            navigate('/', { state: { scrollTo: id } });
+        }
     };
 
     return (
@@ -49,9 +57,13 @@ export default function Header() {
                     <ul>
                         {navItems.map(item => (
                             <li key={item.id}>
-                                <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}>
-                                    {item.label}
-                                </a>
+                                {item.isPage ? (
+                                    <Link to={item.path}>{item.label}</Link>
+                                ) : (
+                                    <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}>
+                                        {item.label}
+                                    </a>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -86,7 +98,16 @@ export default function Header() {
                 <nav className="sidebar-nav">
                     {navItems.map(item => {
                         const Icon = item.icon;
-                        return (
+                        return item.isPage ? (
+                            <Link
+                                key={item.id}
+                                to={item.path}
+                                onClick={() => setSidebarOpen(false)}
+                            >
+                                <Icon size={20} />
+                                {item.label}
+                            </Link>
+                        ) : (
                             <a
                                 key={item.id}
                                 href={`#${item.id}`}

@@ -31,8 +31,8 @@ export default function ParticleBackground() {
 
         // Create animated particles
         const particlesGeometry = new THREE.BufferGeometry();
-        // Reduce particle count significantly on mobile (800 -> 350)
-        const particlesCount = isMobile ? 350 : 800;
+        // Reduce particle count significantly for better performance
+        const particlesCount = isMobile ? 100 : 200;
         const posArray = new Float32Array(particlesCount * 3);
 
         for (let i = 0; i < particlesCount * 3; i++) {
@@ -90,11 +90,19 @@ export default function ParticleBackground() {
         // Use passive listener for better scroll performance
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        // Animation loop
+        // Animation loop with frame limiting for performance
         const clock = new THREE.Clock();
+        let lastFrameTime = 0;
+        const targetFPS = 30;
+        const frameInterval = 1000 / targetFPS;
 
-        function animate() {
+        function animate(currentTime) {
             animationRef.current = requestAnimationFrame(animate);
+
+            // Frame limiting - skip frames to maintain target FPS
+            if (currentTime - lastFrameTime < frameInterval) return;
+            lastFrameTime = currentTime;
+
             const elapsedTime = clock.getElapsedTime();
 
             // Rotate particles - smoother and more consistent

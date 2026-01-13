@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, Loader2, CheckCircle, XCircle } from 'lucide-react';
+
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWX_hTEm7uPVonwqJTibMgrOATv-LOBdm0CY7ufkq-3NjbT6oNFuftoiga-y1bddaKUA/exec';
+
 const contactInfo = [
     {
         id: 'location',
@@ -37,11 +40,40 @@ export default function Contact() {
         subject: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
-    const handleSubmit = (e) => {
+    const showToast = (type, message) => {
+        setToast({ show: true, type, message });
+        setTimeout(() => setToast({ show: false, type: '', message: '' }), 4000);
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setIsSubmitting(true);
+
+        try {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    timestamp: new Date().toISOString()
+                })
+            });
+
+            // Since no-cors mode doesn't return response, we assume success
+            showToast('success', 'Message sent successfully! We\'ll get back to you soon.');
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        } catch (error) {
+            console.error('Error:', error);
+            showToast('error', 'Failed to send message. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -50,6 +82,12 @@ export default function Contact() {
 
     return (
         <section id="contact" className="section">
+            {/* Toast Notification */}
+            <div className={`toast ${toast.show ? 'toast-show' : ''} toast-${toast.type}`}>
+                {toast.type === 'success' ? <CheckCircle size={20} /> : <XCircle size={20} />}
+                <span>{toast.message}</span>
+            </div>
+
             <h2 className="section-title">Get in Touch</h2>
             <p className="section-subtitle">Have questions? We'd love to hear from you</p>
             <div className="contact-grid">
@@ -80,6 +118,7 @@ export default function Contact() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
                         <div className="form-group">
@@ -91,6 +130,7 @@ export default function Contact() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
                         <div className="form-group">
@@ -102,6 +142,7 @@ export default function Contact() {
                                 value={formData.subject}
                                 onChange={handleChange}
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
                         <div className="form-group">
@@ -112,9 +153,24 @@ export default function Contact() {
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
-                        <button type="submit" className="cta-button" style={{ width: '100%' }}>Send Message</button>
+                        <button
+                            type="submit"
+                            className={`cta-button submit-btn ${isSubmitting ? 'submitting' : ''}`}
+                            style={{ width: '100%' }}
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? (
+                                <>
+                                    <Loader2 className="spinner" size={20} />
+                                    <span>Sending...</span>
+                                </>
+                            ) : (
+                                'Send Message'
+                            )}
+                        </button>
                     </form>
                 </div>
             </div>
