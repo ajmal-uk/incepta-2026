@@ -232,18 +232,28 @@ nav a:hover::after {
 }
 
 .hero-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
   font-size: clamp(3.5rem, 12vw, 7rem);
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffffff 0%, var(--neon-purple) 40%, var(--neon-magenta) 70%, var(--neon-blue) 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg,
+      #ffffff 0%,
+      #e0e7ff 15%,
+      var(--neon-purple) 30%,
+      var(--neon-magenta) 50%,
+      #ff1493 65%,
+      var(--neon-blue) 85%,
+      #00f0ff 100%);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradient-shift 8s ease infinite, title-glow 3s ease-in-out infinite;
-  letter-spacing: -2px;
+  letter-spacing: 0.05em;
   line-height: 1.1;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 30px rgba(198, 120, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 106, 193, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  position: relative;
 }
 
 @keyframes gradient-shift {
@@ -1650,11 +1660,13 @@ body.sidebar-open {
   }
 
   .hero-title {
-    font-size: clamp(3.2rem, 16vw, 5rem);
+    font-size: clamp(2.5rem, 14vw, 4.5rem);
     margin-bottom: 20px;
-    letter-spacing: -3px;
-    line-height: 1;
-    white-space: nowrap;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+    text-align: center;
+    word-break: keep-all;
+    hyphens: none;
   }
 
   .hero-subtitle {
