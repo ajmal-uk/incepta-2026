@@ -589,7 +589,7 @@ export const eventsData = {
     tagline: "Mini Militia Online Championship",
     details: [
       { label: "Mode", value: "6 Player/Solo" },
-      { label: "Platform", value: "Online (Mobile)" },
+      { label: "Platform", value: "Offline (Mobile)" },
       { label: "Reg Fee", value: "₹50" },
       { label: "Prize Pool", value: "₹1,500" },
     ],

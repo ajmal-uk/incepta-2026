@@ -61,6 +61,7 @@ export default function Contact() {
                 },
                 body: JSON.stringify({
                     ...formData,
+                    recipientEmail: 'ascacet@gmail.com',
                     timestamp: new Date().toISOString()
                 })
             });
