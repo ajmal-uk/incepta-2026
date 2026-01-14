@@ -42,8 +42,8 @@ const playFestIcons = {
 };
 
 export default function EGamesPage() {
-    const preFestGames = ['valorant', 'bgmi', 'efootball', 'minimilitia'];
-    const liveGames = ['fifa'];
+    const preFestGames = ['valorant', 'bgmi', 'efootball'];
+    const liveGames = ['fifa', 'minimilitia'];
 
     const preFestEvents = preFestGames.map(id => ({ id, ...eventsData[id] }));
     const liveEvents = liveGames.map(id => ({ id, ...eventsData[id] }));
