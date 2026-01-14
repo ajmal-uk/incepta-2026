@@ -639,7 +639,6 @@ export const eventsData = {
       { label: "Time", value: "5:00 PM - 10:00 PM" },
       { label: "Venue", value: "Gazebo/DJ Hall" },
       { label: "Entry", value: "With Pass" },
-      { label: "Audience", value: "500+ Expected" },
     ],
     description:
       "The grand cultural celebration of INCEPTA'26! Two nights of entertainment, performances, and memories.",
