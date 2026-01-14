@@ -91,7 +91,7 @@ export default function Gallery() {
     return (
         <section id="gallery" className="gallery-section" aria-labelledby="gallery-title">
             <h2 className="section-title" id="gallery-title">Gallery</h2>
-            <p className="section-subtitle">Glimpses from previous editions of INCEPTA</p>
+            <p className="section-subtitle">Glimpses of Department Events and ASCA Initiatives</p>
 
             <div className={`gallery-wrapper ${selectedImage ? 'paused' : ''}`}>
                 <div className="gallery-container">
