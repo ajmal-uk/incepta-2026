@@ -589,12 +589,12 @@ export const eventsData = {
     tagline: "Mini Militia Online Championship",
     details: [
       { label: "Mode", value: "6 Player/Solo" },
-      { label: "Platform", value: "Offline/LAN" },
+      { label: "Platform", value: "Online (Mobile)" },
       { label: "Reg Fee", value: "₹50" },
       { label: "Prize Pool", value: "₹1,500" },
     ],
     description: "Chaotic 2D shooter action. Fly, shoot, and survive in intense battles.",
-    highlights: ["Offline Mode", "Fast-paced Action"],
+    highlights: ["Online Mode", "Fast-paced Action"],
     contact: {
       coordinators: [
         { name: "William", phone: "9496299122" },
