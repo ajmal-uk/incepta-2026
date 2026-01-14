@@ -274,7 +274,7 @@ nav a:hover::after {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   margin-bottom: 30px;
   max-width: 650px;
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   line-height: 1.7;
   font-weight: 400;
 }
@@ -658,7 +658,7 @@ nav a:hover::after {
 }
 
 .stat-label {
-  color: rgba(255, 255, 255, 0.6);
+  color: white;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -877,7 +877,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   text-decoration: none;
   transition: all 0.4s ease;
 }
@@ -891,7 +891,7 @@ footer {
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
   font-size: 0.95rem;
 }
 
@@ -1851,7 +1851,7 @@ body.sidebar-open {
 }
 
 .category-description {
-  color: rgba(255, 255, 255, 0.65);
+  color: white;
   line-height: 1.7;
   font-size: 1rem;
   margin-bottom: 25px;
@@ -1887,7 +1887,7 @@ body.sidebar-open {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   text-decoration: none;
   font-size: 0.95rem;
   margin-bottom: 20px;
@@ -1917,7 +1917,7 @@ body.sidebar-open {
 
 .page-subtitle {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: white;
   max-width: 600px;
 }
 
@@ -2136,7 +2136,7 @@ body.sidebar-open {
 
 .gala-main-tagline {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
   max-width: 550px;
   line-height: 1.7;
 }
@@ -2252,7 +2252,7 @@ body.sidebar-open {
 }
 
 .gala-section-card>p {
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
   font-size: 1.1rem;
   line-height: 1.8;
 }
@@ -2269,7 +2269,7 @@ body.sidebar-open {
   align-items: flex-start;
   gap: 12px;
   padding: 14px 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   font-size: 1.05rem;
   line-height: 1.6;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
