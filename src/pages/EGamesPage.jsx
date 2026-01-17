@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Gamepad2, Smartphone, Crosshair, Trophy, Zap, Keyboard, Users, Target, Palette, Dna, Layers, RotateCcw, Box, Smile, Hash, Grip, Clock, HandMetal, Eye } from 'lucide-react';
+import { ArrowLeft, Gamepad2, Smartphone, Crosshair, Trophy, Zap, Keyboard, Users, Target, Palette, Dna, Layers, RotateCcw, Box, Smile, Hash, Grip, Clock, HandMetal, Eye, Compass } from 'lucide-react';
 import { eventsData, playFestData } from '../eventsData';
 import SEO from '../components/SEO';
 
@@ -9,6 +9,7 @@ const iconMap = {
     trophy: Trophy,
     zap: Zap,
     gamepad: Gamepad2,
+    compass: Compass,
 };
 
 const playFestIcons = {
@@ -43,7 +44,7 @@ const playFestIcons = {
 
 export default function EGamesPage() {
     const preFestGames = ['valorant', 'bgmi', 'efootball'];
-    const liveGames = ['fifa', 'minimilitia'];
+    const liveGames = ['fifa', 'minimilitia', 'treasurehunt', 'obscura'];
 
     const preFestEvents = preFestGames.map(id => ({ id, ...eventsData[id] }));
     const liveEvents = liveGames.map(id => ({ id, ...eventsData[id] }));

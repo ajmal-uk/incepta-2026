@@ -4,7 +4,7 @@ export const eventCategories = {
     title: "Competitions",
     description: "Test your skills and compete for glory",
     color: "#c678ff",
-    events: ["hackathon", "ctf", "coderush", "vibecoding", "promptcraft", "treasurehunt"],
+    events: ["hackathon", "ctf", "coderush", "vibecoding", "promptcraft"],
   },
   workshops: {
     title: "Workshops & Events",
@@ -462,7 +462,7 @@ export const eventsData = {
   treasurehunt: {
     title: "Treasure Hunt",
     badge: "One Piece Theme",
-    category: "competitions",
+    category: "egames",
     tagline: "Embark on a One Piece themed adventure across the campus!",
     details: [
       { label: "Date", value: "January 29, 2026" },
@@ -481,18 +481,26 @@ export const eventsData = {
       "Dedicated 'Marine' volunteer for each team",
     ],
     rulesAndGuidelines: {
-      gameFlow: [
-        "Teams act as pirate crews racing to find the One Piece.",
-        "Each clue is a photo/riddle hinting at the next location.",
-        "Teams must find the location and have their assigned volunteer verify it.",
-        "Slowest teams to reach checkpoints may be eliminated.",
+      rulesAndRegulations: [
+        "Each team must consist of 3–4 members.",
+        "Team members must stay together throughout the event.",
+        "No substitution of team members is allowed after registration.",
+        "Each team will receive a unique set of clues.",
+        "Clues must be solved in the given sequence.",
+        "Each team will be assigned one volunteer to monitor progress and ensure fair play.",
+        "Participants must follow all safety and organizer instructions.",
+        "The event must be completed within the time limit set by the organizers.",
+        "The team that correctly completes all tasks and reaches the final destination first will be declared the winner.",
+        "The organizers' decision will be final and binding.",
       ],
-      rules: [
-        "Each team must have exactly 5 members.",
-        "Teams must stay together at all times.",
-        "No outside help allowed.",
-        "Clues/props must not be moved or damaged.",
-        "Volunteers will accompany teams to ensure fair play.",
+      disqualificationCriteria: [
+        "Sharing clues, answers, or any information with other teams.",
+        "Skipping clues, checkpoints, or solving tasks out of order.",
+        "Using mobile phones, smart devices, or any external assistance.",
+        "Tampering with, damaging, or removing clues or event materials.",
+        "Entering restricted or unsafe areas.",
+        "Misconduct, misbehavior, or failure to comply with organizer or volunteer instructions.",
+        "Any form of cheating or unfair practice.",
       ],
     },
     judgingCriteria: [
@@ -512,6 +520,63 @@ export const eventsData = {
     buttonText: "Assemble Crew",
     icon: "compass",
     registrationUrl: "#register-treasurehunt",
+  },
+  obscura: {
+    title: "OBSCURA",
+    badge: "Digital Treasure Hunt",
+    category: "egames",
+    tagline: "The Worthy Shall Conquer",
+    details: [
+      { label: "Mode", value: "Online" },
+      { label: "Participation", value: "Individual" },
+      { label: "Platform", value: "Event Website" },
+      { label: "Duration", value: "5 Days" },
+      { label: "Levels", value: "5 Levels" },
+      { label: "Powered by", value: "ASAP" },
+    ],
+    description: "Obscura is an online digital treasure hunt conducted as part of Incepta. Designed for students, the event challenges participants with logic-based puzzles spread across multiple days. It tests consistency, critical thinking, and speed, rewarding the sharpest minds who can conquer every level.",
+    highlights: [
+      "5 levels released over 5 consecutive days",
+      "Logic-based puzzles testing critical thinking",
+      "All participants receive simultaneous access to each level",
+      "Levels can be solved any time after unlock",
+      "First to complete all 5 levels wins",
+    ],
+    rulesAndGuidelines: {
+      eventFormat: [
+        "Obscura consists of five levels released over five consecutive days.",
+        "All participants receive access to each level at the same time.",
+        "Participants can solve levels any time after they are unlocked.",
+        "Missing a day does not disqualify a participant.",
+        "Levels must be completed in sequence.",
+        "The first participant to successfully complete all five levels will be declared the winner.",
+      ],
+      rulesAndGuidelines: [
+        "Participation is individual.",
+        "Use of the internet is allowed without restrictions.",
+        "Unfair practices may lead to disqualification.",
+        "Organizer decisions are final.",
+      ],
+      hintsAndUpdates: [
+        "Hints will not be provided on the website.",
+        "Any hints released will be shared through official social media handles.",
+      ],
+    },
+    prizes: [
+      "Winner: ₹2,000",
+      "Runner-Up: ₹1,000",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "ASAP Team",
+          phone: "To be announced",
+        },
+      ],
+    },
+    buttonText: "Conquer Levels",
+    icon: "trophy",
+    registrationUrl: "#register-obscura",
   },
   valorant: {
     title: "Valorant",
