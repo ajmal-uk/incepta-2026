@@ -8,6 +8,8 @@ import ParticleBackground from './components/ParticleBackground';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingFallback from './components/LoadingFallback';
 
+import { Navigate } from 'react-router-dom';
+
 // Lazy load pages
 const HomePage = lazy(() => import('./pages/HomePage'));
 const CompetitionsPage = lazy(() => import('./pages/CompetitionsPage'));
@@ -37,6 +39,9 @@ function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
             <Route path="/gala" element={<GalaPage />} />
+            <Route path="/gala" element={<GalaPage />} />
+            <Route path="/hackathon" element={<Navigate to="/competitions/hackathon" replace />} />
+            <Route path="/ctf" element={<Navigate to="/competitions/ctf" replace />} />
           </Routes >
         </Suspense >
         <Footer />
