@@ -39,10 +39,10 @@ export default function EventsPage() {
                     {categoryEvents.map(event => {
                         const Icon = iconMap[event.icon] || LayoutDashboard;
                         return (
-                            <Link
-                                to={`/events/${event.id}`}
-                                className="event-card"
+                            <div
+                                className="event-card disabled"
                                 key={event.id}
+                                style={{ opacity: 0.7, cursor: 'not-allowed' }}
                             >
                                 <div className="event-icon">
                                     <Icon size={32} />
@@ -50,7 +50,7 @@ export default function EventsPage() {
                                 <h3 className="event-title">{event.title}</h3>
                                 <p className="event-description">{event.tagline}</p>
                                 <div className="event-badge-small">{event.badge}</div>
-                            </Link>
+                            </div>
                         );
                     })}
                 </div>
