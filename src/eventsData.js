@@ -468,7 +468,7 @@ export const eventsData = {
       { label: "Date", value: "January 29, 2026" },
       { label: "Time", value: "10:00 AM - 1:00 PM" },
       { label: "Venue", value: "CET Campus" },
-      { label: "Team Size", value: "5 Members + 1 Vol" },
+      { label: "Team Size", value: "4 Members" },
       { label: "REG FEE", value: "₹100" },
       { label: "PRIZE POOL", value: "₹1000" },
     ],
