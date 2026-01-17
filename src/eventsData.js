@@ -569,8 +569,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "ASAP Team",
-          phone: "To be announced",
+          name: "Bhavana",
+          phone: "7356723856",
         },
       ],
     },
