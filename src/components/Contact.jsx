@@ -64,7 +64,7 @@ export default function Contact() {
                     recipientEmail: 'ascacet@gmail.com',
                     timestamp: new Date().toISOString()
                 })
-            });
+            });                                                                                                                                                                                                                                                                                                                                                             
 
             // Since no-cors mode doesn't return response, we assume success
             showToast('success', 'Message sent successfully! We\'ll get back to you soon.');
