@@ -468,9 +468,9 @@ export const eventsData = {
       { label: "Date", value: "January 29, 2026" },
       { label: "Time", value: "10:00 AM - 1:00 PM" },
       { label: "Venue", value: "CET Campus" },
-      { label: "Team Size", value: "5 Members + 1 Vol" },
-      { label: "Format", value: "Location-based" },
-      { label: "Theme", value: "One Piece" },
+      { label: "Team Size", value: "4 Members" },
+      { label: "REG FEE", value: "₹100" },
+      { label: "PRIZE POOL", value: "₹1000" },
     ],
     description: "The One Piece Treasure Hunt is a college-wide adventure game where teams act as pirate crews racing to find the ultimate treasure — the One Piece! Each clue is hidden in the form of a photo and riddle, leading teams to the next location.",
     highlights: [
@@ -519,7 +519,7 @@ export const eventsData = {
     },
     buttonText: "Assemble Crew",
     icon: "compass",
-    registrationUrl: "#register-treasurehunt",
+    registrationUrl: "https://app.makemypass.com/event/treasure-hunt-4",
   },
   obscura: {
     title: "OBSCURA",
@@ -569,8 +569,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "ASAP Team",
-          phone: "To be announced",
+          name: "Bhavana",
+          phone: "7356723856",
         },
       ],
     },
