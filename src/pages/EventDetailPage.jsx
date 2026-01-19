@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ObscuraRegistrationPage from './ObscuraRegistrationPage';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Mic, Users, Award, Calendar, Clock } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
@@ -201,17 +202,23 @@ export default function EventDetailPage() {
                 )}
             </section>
 
-            {/* Floating CTA Button */}
-            <div className="floating-cta">
-                <a
-                    href={event.registrationUrl}
-                    className="floating-register-btn"
-                    style={{ '--accent-color': categoryColor }}
-                >
-                    {event.buttonText}
-                    <ArrowRight size={20} />
-                </a>
-            </div>
+                        {/* Registration Form for OBSCURA */}
+                        {eventId === 'obscura' ? (
+                            <div style={{ marginTop: 40 }}>
+                                <ObscuraRegistrationPage />
+                            </div>
+                        ) : (
+                            <div className="floating-cta">
+                                <a
+                                    href={event.registrationUrl}
+                                    className="floating-register-btn"
+                                    style={{ '--accent-color': categoryColor }}
+                                >
+                                    {event.buttonText}
+                                    <ArrowRight size={20} />
+                                </a>
+                            </div>
+                        )}
         </div>
     );
 }

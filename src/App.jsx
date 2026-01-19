@@ -18,6 +18,8 @@ const EventsPage = lazy(() => import('./pages/EventsPage'));
 const GalaPage = lazy(() => import('./pages/GalaPage'));
 const EventDetailPage = lazy(() => import('./pages/EventDetailPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ObscuraRegistrationPage = lazy(() => import('./pages/ObscuraRegistrationPage'));
+const TreasureHuntOnlinePage = lazy(() => import('./pages/TreasureHuntOnlinePage'));
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/competitions" element={<CompetitionsPage />} />
+            <Route path="/competitions/treasurehuntonline" element={<TreasureHuntOnlinePage />} />
             <Route path="/competitions/:eventId" element={<EventDetailPage />} />
             <Route path="/competitions/egames" element={<EGamesPage />} />
             <Route path="/competitions/egames/:eventId" element={<EventDetailPage />} />
