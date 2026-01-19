@@ -182,7 +182,7 @@ export const eventsData = {
     tagline: "Code Rush: Run the code before the clock runs you.",
 
     details: [
-      { label: "Date", value: "January 29, 2026" },
+      { label: "Date", value: "January 30, 2026" },
       { label: "Duration", value: "90 Minutes" },
       { label: "Venue", value: "Software Lab" },
       { label: "Platform", value: "HackerRank" },
