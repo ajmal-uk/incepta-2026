@@ -87,6 +87,7 @@ export default function EventDetailPage() {
                 description={event.description}
                 keywords={event.badge}
             />
+
             <section className="page-hero" style={{ '--accent-color': categoryColor }}>
                 <div className="event-header-row">
                     <Link to={backInfo.path} className="back-link">
@@ -94,6 +95,7 @@ export default function EventDetailPage() {
                     </Link>
                     <div className="event-detail-badge">{event.badge}</div>
                 </div>
+                
                 <h1 className="page-title">{event.title}</h1>
                 <p className="page-subtitle">{event.tagline}</p>
             </section>
@@ -108,7 +110,12 @@ export default function EventDetailPage() {
                         </div>
                     ))}
                 </div>
-
+                            {/* Registration Form for OBSCURA at the top */}
+            {eventId === 'obscura' && (
+                <div style={{ margin: '40px 0' }}>
+                    <ObscuraRegistrationPage />
+                </div>
+            )}
                 {/* About Section */}
                 <div className="overlay-description">
                     <h3>About This Event</h3>
@@ -202,23 +209,19 @@ export default function EventDetailPage() {
                 )}
             </section>
 
-                        {/* Registration Form for OBSCURA */}
-                        {eventId === 'obscura' ? (
-                            <div style={{ marginTop: 40 }}>
-                                <ObscuraRegistrationPage />
-                            </div>
-                        ) : (
-                            <div className="floating-cta">
-                                <a
-                                    href={event.registrationUrl}
-                                    className="floating-register-btn"
-                                    style={{ '--accent-color': categoryColor }}
-                                >
-                                    {event.buttonText}
-                                    <ArrowRight size={20} />
-                                </a>
-                            </div>
-                        )}
+            {/* Registration Button for other events */}
+            {eventId !== 'obscura' && (
+                <div className="floating-cta">
+                    <a
+                        href={event.registrationUrl}
+                        className="floating-register-btn"
+                        style={{ '--accent-color': categoryColor }}
+                    >
+                        {event.buttonText}
+                        <ArrowRight size={20} />
+                    </a>
+                </div>
+            )}
         </div>
     );
 }
