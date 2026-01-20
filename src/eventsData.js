@@ -468,8 +468,8 @@ export const eventsData = {
       { label: "Date", value: "January 29, 2026" },
       { label: "Time", value: "10:00 AM - 1:00 PM" },
       { label: "Venue", value: "CET Campus" },
-      { label: "Team Size", value: "4 Members" },
-      { label: "REG FEE", value: "₹100" },
+      { label: "Team Size", value: "4 - 5 Members" },
+      { label: "REG FEE", value: "₹150" },
       { label: "PRIZE POOL", value: "₹1000" },
     ],
     description: "The One Piece Treasure Hunt is a college-wide adventure game where teams act as pirate crews racing to find the ultimate treasure — the One Piece! Each clue is hidden in the form of a photo and riddle, leading teams to the next location.",
@@ -482,7 +482,7 @@ export const eventsData = {
     ],
     rulesAndGuidelines: {
       rulesAndRegulations: [
-        "Each team must consist of 3–4 members.",
+        "Each team must consist of 4 to 5 members.",
         "Team members must stay together throughout the event.",
         "No substitution of team members is allowed after registration.",
         "Each team will receive a unique set of clues.",
