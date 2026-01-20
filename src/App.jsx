@@ -42,9 +42,9 @@ function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/:eventId" element={<EventDetailPage />} />
             <Route path="/gala" element={<GalaPage />} />
-            <Route path="/gala" element={<GalaPage />} />
             <Route path="/hackathon" element={<Navigate to="/competitions/hackathon" replace />} />
             <Route path="/ctf" element={<Navigate to="/competitions/ctf" replace />} />
+            <Route path="/digitalhunt" element={<Navigate to="/competitions/obscura" replace />} />
           </Routes >
         </Suspense >
         <Footer />
