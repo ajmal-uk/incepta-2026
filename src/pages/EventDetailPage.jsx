@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ObscuraRegistrationPage from './ObscuraRegistrationPage';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, LayoutDashboard, MapPin, BrainCircuit, ShieldCheck, Zap, Sparkles, Image, Presentation, Bot, Palette, MonitorPlay, Compass, Music, Mic, Users, Award, Calendar, Clock } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
@@ -86,6 +87,7 @@ export default function EventDetailPage() {
                 description={event.description}
                 keywords={event.badge}
             />
+
             <section className="page-hero" style={{ '--accent-color': categoryColor }}>
                 <div className="event-header-row">
                     <Link to={backInfo.path} className="back-link">
@@ -93,6 +95,7 @@ export default function EventDetailPage() {
                     </Link>
                     <div className="event-detail-badge">{event.badge}</div>
                 </div>
+                
                 <h1 className="page-title">{event.title}</h1>
                 <p className="page-subtitle">{event.tagline}</p>
             </section>
@@ -107,7 +110,12 @@ export default function EventDetailPage() {
                         </div>
                     ))}
                 </div>
-
+                            {/* Registration Form for OBSCURA at the top */}
+            {eventId === 'obscura' && (
+                <div style={{ margin: '40px 0' }}>
+                    <ObscuraRegistrationPage />
+                </div>
+            )}
                 {/* About Section */}
                 <div className="overlay-description">
                     <h3>About This Event</h3>
@@ -201,17 +209,19 @@ export default function EventDetailPage() {
                 )}
             </section>
 
-            {/* Floating CTA Button */}
-            <div className="floating-cta">
-                <a
-                    href={event.registrationUrl}
-                    className="floating-register-btn"
-                    style={{ '--accent-color': categoryColor }}
-                >
-                    {event.buttonText}
-                    <ArrowRight size={20} />
-                </a>
-            </div>
+            {/* Registration Button for other events */}
+            {eventId !== 'obscura' && (
+                <div className="floating-cta">
+                    <a
+                        href={event.registrationUrl}
+                        className="floating-register-btn"
+                        style={{ '--accent-color': categoryColor }}
+                    >
+                        {event.buttonText}
+                        <ArrowRight size={20} />
+                    </a>
+                </div>
+            )}
         </div>
     );
 }

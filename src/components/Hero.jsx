@@ -40,6 +40,9 @@ export default function Hero() {
                 January 29-30, 2026
             </div>
             <h1 className="hero-title">INCEPTA 26</h1>
+            <p className="hero-subtitle" style={{fontSize:"18px"}}>
+                "Beyond Algorithms. Into Imagination."
+            </p>
             <p className="hero-subtitle">
                 A premier technical festival focused on AI Agents & Generative AI at the College of Engineering, Trivandrum.
             </p>
