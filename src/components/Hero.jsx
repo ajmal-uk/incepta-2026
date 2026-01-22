@@ -37,7 +37,7 @@ export default function Hero() {
         <section id="hero" className="hero">
             <div className="hero-badge">
                 <Sun size={18} />
-                January 29-30, 2026
+                Coming soon
             </div>
             <h1 className="hero-title">INCEPTA 26</h1>
             <p className="hero-subtitle" style={{fontSize:"18px"}}>
@@ -46,7 +46,9 @@ export default function Hero() {
             <p className="hero-subtitle">
                 A premier technical festival focused on AI Agents & Generative AI at the College of Engineering, Trivandrum.
             </p>
-            <div className="countdown" id="countdown">
+            {/* 
+                Timer 
+                <div className="countdown" id="countdown">
                 <div className="countdown-item">
                     <span className="countdown-number">{countdown.days.toString().padStart(2, '0')}</span>
                     <span className="countdown-label">Days</span>
@@ -63,7 +65,7 @@ export default function Hero() {
                     <span className="countdown-number">{countdown.seconds.toString().padStart(2, '0')}</span>
                     <span className="countdown-label">Seconds</span>
                 </div>
-            </div>
+            </div> */}
             <button className="cta-button" onClick={scrollToEvents}>Register Now</button>
         </section>
     );
