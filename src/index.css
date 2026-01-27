@@ -57,64 +57,151 @@ body {
   z-index: 1;
 }
 
-/* Animated Background Gradient Orbs */
-.bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.25;
-  z-index: -1;
-  animation: float 30s linear infinite;
-  will-change: transform;
-  contain: layout style paint;
+/* --- Enhanced Multi-Layer Wave Background --- */
+.wave-background {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.8;
 }
 
-.bg-orb-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
-  top: -200px;
-  right: -200px;
-  animation-delay: 0s;
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-size: 50% 100%;
+    animation: waveAnimation 25s linear infinite;
+    opacity: 0.6;
 }
 
-.bg-orb-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, var(--neon-magenta) 0%, transparent 70%);
-  bottom: -100px;
-  left: -200px;
-  animation-delay: -10s;
+.wave:nth-child(1) {
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%233B2A45" fill-opacity="0.5" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    animation-duration: 25s;
+    height: 100%;
 }
 
-.bg-orb-3 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation-delay: -5s;
+.wave:nth-child(2) {
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%235B416C" fill-opacity="0.4" d="M0,160L48,170C96,180,192,200,288,200C384,200,480,200,576,186.7C672,173,768,147,864,133.3C960,120,1056,120,1152,133.3C1248,147,1344,173,1392,186.7L1440,200L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    animation-duration: 30s;
+    animation-direction: reverse;
+    height: 80%;
+    top: 20%;
+}
+
+.wave:nth-child(3) {
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23AF84CB" fill-opacity="0.3" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,202.7C960,181,1056,139,1152,133.3C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    animation-duration: 35s;
+    height: 60%;
+    top: 40%;
+}
+
+.wave:nth-child(4) {
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23D9ADE7" fill-opacity="0.2" d="M0,128L48,138.7C96,149,192,171,288,170.7C384,171,480,149,576,138.7C672,128,768,128,864,138.7C960,149,1056,171,1152,170.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    animation-duration: 40s;
+    height: 40%;
+    top: 60%;
+    opacity: 0.4;
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Enhanced Particles with More Interactivity */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, var(--pale-pinkish-lavender), transparent);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+    opacity: 0.2;
+    will-change: transform;
+    transition: opacity 0.3s ease;
+}
+
+.particle:hover {
+    opacity: 0.5;
+    transform: scale(1.2);
 }
 
 @keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.1;
+    }
 
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
+    50% {
+        transform: translateY(-80px) rotate(180deg);
+        opacity: 0.3;
+    }
 
-  25% {
-    transform: translate(30px, -30px) scale(1.05);
-  }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 0.1;
+    }
+}
 
-  50% {
-    transform: translate(-20px, 20px) scale(0.95);
-  }
+/* --- Custom Cursor with Enhanced Follower --- */
+@media (hover: hover) and (pointer: fine) {
 
-  75% {
-    transform: translate(-30px, -20px) scale(1.02);
-  }
+    .cursor,
+    .cursor-follower {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.05s ease-out, opacity 0.3s;
+        will-change: transform, left, top;
+    }
+
+    .cursor {
+        width: 8px;
+        height: 8px;
+        background: var(--accent-pink);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px var(--accent-pink);
+    }
+
+    .cursor-follower {
+        width: 24px;
+        height: 24px;
+        border: 1px solid var(--misty-lavender-glow);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translate(-50%, -50%);
+        transition: transform 0.12s ease-out, left 0.12s ease-out, top 0.12s ease-out, border-color 0.3s;
+    }
+
+    .cursor-hover {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    .cursor-follower-hover {
+        transform: translate(-50%, -50%) scale(1.8);
+        border-color: var(--accent-pink);
+        box-shadow: 0 0 20px var(--accent-pink);
+    }
 }
 
 header {
@@ -233,9 +320,17 @@ nav a:hover::after {
 
 .hero-title {
   font-family: 'Orbitron', 'Space Grotesk', sans-serif;
-  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 900;
   margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hero-title .letter {
+  display: inline-block;
   background: linear-gradient(135deg,
       #ffffff 0%,
       #e0e7ff 15%,
@@ -248,12 +343,24 @@ nav a:hover::after {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 8s ease infinite, title-glow 3s ease-in-out infinite;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-  text-transform: uppercase;
-  filter: drop-shadow(0 0 30px rgba(198, 120, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 106, 193, 0.3)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
-  position: relative;
+  animation: letterWave 3s ease-in-out infinite, gradient-shift 8s ease infinite;
+  animation-delay: calc(var(--i) * 0.1s), 0s;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 30px rgba(198, 120, 255, 0.4)) drop-shadow(0 0 60px rgba(255, 106, 193, 0.3));
+}
+
+@keyframes letterWave {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 10px rgba(198, 120, 255, 0));
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(198, 120, 255, 0.8));
+  }
 }
 
 @keyframes gradient-shift {
@@ -438,6 +545,49 @@ nav a:hover::after {
 @media (max-width: 768px) {
   .events-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Improved Mobile Hero */
+  .hero {
+    padding: 110px 20px 80px;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    padding: 0 5px;
+  }
+
+  .hero-badge {
+    margin-bottom: 25px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 260px;
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Adjust margins for other sections */
+  .section {
+    padding: 50px 5%;
+  }
+  
+  .section-title {
+    font-size: 2rem;
   }
 }
 
@@ -1540,30 +1690,69 @@ body.sidebar-open {
     grid-template-columns: 1fr;
   }
 
-  /* Horizontal Scroll for About Section */
+  /* Improved Mobile Grid Layouts */
   .about-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically for better readability */
     gap: 20px;
-    padding-bottom: 30px;
-    /* Space for potential scrollbar/swipe feel */
-    scrollbar-width: none;
-    /* Hide scrollbar for cleaner look */
-    margin: 0 -5%;
-    /* Negative margin to allow full-width swipe */
-    padding-left: 5%;
-    /* Restore padding for first item */
-    padding-right: 5%;
-    /* Restore padding for last item */
+    padding-bottom: 0;
+    overflow-x: visible;
   }
 
-  /* Events Grid Mobile Optimization - 2 items per row */
   .events-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller min-width */
+    gap: 20px;
+  }
+  
+  /* Footer Mobile */
+  footer {
+    padding: 40px 20px 30px;
+  }
+
+  .social-links {
+    margin: 25px 0;
     gap: 12px;
   }
 
+  .footer-logo {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  /* Force single column for very small screens */
+  .events-grid, 
+  .about-grid, 
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-card, .about-card, .stat-card {
+    padding: 25px 20px;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    padding: 25px 20px;
+  }
+}
+
+/* Additional Mobile Tweaks */
+@media (max-width: 768px) {
   .event-card {
     padding: 20px;
     border-radius: 16px;

@@ -3,8 +3,7 @@ import { Suspense, lazy } from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import BackgroundOrbs from './components/BackgroundOrbs';
-import ParticleBackground from './components/ParticleBackground';
+import WaveBackground from './components/WaveBackground';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingFallback from './components/LoadingFallback';
 
@@ -26,8 +25,7 @@ function App() {
     <Router basename="/">
       <ScrollToTop />
 
-      <BackgroundOrbs />
-      <ParticleBackground />
+      <WaveBackground />
       <div className="content">
         <Header />
         <Suspense fallback={<LoadingFallback />}>

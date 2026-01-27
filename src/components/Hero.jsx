@@ -39,8 +39,29 @@ export default function Hero() {
                 <Sun size={18} />
                 february 4 - 5 , 2026
             </div>
-            <h1 className="hero-title">INCEPTA 26</h1>
-            <p className="hero-subtitle" style={{ fontSize: "18px" }}>
+            <h1 className="hero-title">
+                {/* Wrap words to prevent breaking mid-word, but allow breaking between words */}
+                {["INCEPTA"].map((word, wordIndex) => (
+                    <span key={wordIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                        {word.split('').map((char, charIndex) => {
+                            const globalIndex = wordIndex === 0 ? charIndex : 7 + 1 + charIndex;
+
+                            return (
+                                <span
+                                    key={charIndex}
+                                    className="letter"
+                                    style={{ '--i': globalIndex }}
+                                >
+                                    {char}
+                                </span>
+                            );
+                        })}
+                        {/* Add space after first word */}
+                        {wordIndex === 0 && <span className="letter" style={{ '--i': 7 }}>&nbsp;</span>}
+                    </span>
+                ))}
+            </h1>
+            <p className="hero-subtitle">
                 "Beyond Algorithms. Into Imagination."
             </p>
             <p className="hero-subtitle">
