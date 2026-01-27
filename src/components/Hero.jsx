@@ -5,7 +5,7 @@ export default function Hero() {
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
-        const eventDate = new Date('2026-01-29T00:00:00').getTime();
+        const eventDate = new Date('2026-02-04T00:00:00').getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
@@ -37,10 +37,10 @@ export default function Hero() {
         <section id="hero" className="hero">
             <div className="hero-badge">
                 <Sun size={18} />
-                Coming soon
+                february 4 - 5 , 2026
             </div>
             <h1 className="hero-title">INCEPTA 26</h1>
-            <p className="hero-subtitle" style={{fontSize:"18px"}}>
+            <p className="hero-subtitle" style={{ fontSize: "18px" }}>
                 "Beyond Algorithms. Into Imagination."
             </p>
             <p className="hero-subtitle">

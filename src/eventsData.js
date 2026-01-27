@@ -10,13 +10,13 @@ export const eventCategories = {
     title: "Workshops & Events",
     description: "Learn from industry experts",
     color: "#61dafb",
-    events: ["keynote", "panel", "workshops"],
+    events: ["inauguration", "keynote", "panel", "workshops", "appliedai", "shapingai", "workflowautomation", "agenticaiworkshop"],
   },
   gala: {
     title: "INCEPTA Gala",
     description: "Cultural nights of music and performances",
     color: "#ff6ac1",
-    events: ["gala"],
+    events: ["gala", "flashmob"],
   },
 };
 
@@ -28,9 +28,9 @@ export const eventsData = {
     tagline: "Insight into Innovation",
 
     details: [
-      { label: "Date", value: "January 30, 2026" },
-      { label: "Duration", value: "12 Hours" },
-      { label: "Venue", value: "MCA Department" },
+      { label: "Date", value: "February 5, 2026" },
+      { label: "Time", value: "9:00 AM - 9:00 PM" },
+      { label: "Venue", value: "MCA Main LAB" },
       { label: "Focus", value: "Agentic AI" },
     ],
 
@@ -86,12 +86,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Jerardh Tom Jasper",
-          phone: "+91 75589 77917",
-        },
-        {
-          name: "Muhammed K B",
-          phone: "+91 96454 97235",
+          name: "Jerardh",
+          phone: "+91 755 897 7917",
         },
       ],
     },
@@ -108,9 +104,9 @@ export const eventsData = {
       "Dive into the digital abyss, crack the codes, and infiltrate the task force.",
 
     details: [
-      { label: "Date", value: "January 29, 2026" },
-      { label: "Duration", value: "9:00 AM – 4:00 PM" },
-      { label: "Venue", value: "Software Lab" },
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "9:00 AM – 4:00 PM" },
+      { label: "Venue", value: "MCA Main LAB" },
       { label: "Registration Fee", value: "₹350 / Team" },
     ],
 
@@ -164,9 +160,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Hari Sankar R S",
-          phone: "9946908599",
-          email: "To be announced",
+          name: "Harishankar",
+          phone: "99469 08599",
         },
       ],
     },
@@ -182,9 +177,9 @@ export const eventsData = {
     tagline: "Code Rush: Run the code before the clock runs you.",
 
     details: [
-      { label: "Date", value: "January 30, 2026" },
-      { label: "Duration", value: "90 Minutes" },
-      { label: "Venue", value: "Software Lab" },
+      { label: "Date", value: "February 5, 2026" },
+      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Venue", value: "MCA Project LAB" },
       { label: "Platform", value: "HackerRank" },
     ],
 
@@ -234,9 +229,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Subi Suresh",
-          phone: "8593978871",
-          email: "subisuresh69@gmail.com",
+          name: "Subi",
+          phone: "85939 78871",
         },
       ],
     },
@@ -252,9 +246,9 @@ export const eventsData = {
     tagline: "Vibe Coding: Don't write the code, manage the code",
 
     details: [
-      { label: "Date", value: "January 29, 2026" },
-      { label: "Duration", value: "3 Hours + Demo" },
-      { label: "Venue", value: "MCA Department" },
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Venue", value: "MCA Project LAB" },
       { label: "Format", value: "AI-assisted Full Stack" },
     ],
 
@@ -306,12 +300,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Muhammed K B",
+          name: "Muhammed",
           phone: "+91 96454 97235",
-        },
-        {
-          name: "John William Santhosh",
-          phone: "+91 94962 09122",
         },
       ],
     },
@@ -327,9 +317,9 @@ export const eventsData = {
     tagline: "See the image. Shape the prompt. Recreate the vision.",
 
     details: [
-      { label: "Date", value: "January 30, 2026" },
-      { label: "Time", value: "3:00 PM – 5:00 PM" },
-      { label: "Venue", value: "Seminar Hall" },
+      { label: "Date", value: "February 5, 2026" },
+      { label: "Time", value: "2:00 PM - 3:00 PM" },
+      { label: "Venue", value: "MCA Project LAB II" },
       { label: "Prize Pool", value: "₹3,000" },
       { label: "Reg Fee", value: "₹50" },
     ],
@@ -375,13 +365,8 @@ export const eventsData = {
     contact: {
       coordinators: [
         {
-          name: "Safa Abdul Hameed",
-          phone: "9061445705",
-          email: "safaabdulhameed2002@gmail.com",
-        },
-        {
-          name: "Afthab K L",
-          phone: "8129232709",
+          name: "Safa",
+          phone: "90614 45705",
         },
       ],
     },
@@ -397,9 +382,9 @@ export const eventsData = {
     tagline:
       "Hands-on learning sessions with industry experts on cutting-edge AI technologies.",
     details: [
-      { label: "Dates", value: "Jan 29-30, 2026" },
+      { label: "Dates", value: "Feb 4-5, 2026" },
       { label: "Time", value: "Various Slots" },
-      { label: "Venue", value: "Seminar Hall" },
+      { label: "Venue", value: "MCA Main LAB" },
       { label: "Format", value: "Hands-on" },
       { label: "Certificate", value: "Provided" },
       { label: "Laptop", value: "Required" },
@@ -421,11 +406,12 @@ export const eventsData = {
     title: "Keynote Session",
     badge: "Keynote",
     category: "workshops",
-    tagline: "Insights from industry professionals",
+    tagline: "Thinking for Ourselves in the Age of AI",
     details: [
-      { label: "Date", value: "January 29, 2026" },
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "11:00 AM - 12:00 PM" },
       { label: "Venue", value: "CETAA Hall" },
-      { label: "Speaker", value: "industry professionals" },
+      { label: "Speaker", value: "Sourav" },
     ],
     description: " keynote session",
     highlights: [
@@ -442,11 +428,12 @@ export const eventsData = {
     title: "Panel Discussion",
     badge: "Panel",
     category: "workshops",
-    tagline: "AI in Education & Entrepreneurship",
+    tagline: "From Code to Co-Creation",
     details: [
-      { label: "Date", value: "January 30, 2026" },
-      { label: "Venue", value: "CETAA Hall" },
-      { label: "Focus", value: "AI Impact" },
+      { label: "Date", value: "February 5, 2026" },
+      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Venue", value: "MCA Seminar Hall" },
+      { label: "Speaker", value: "Aaron" },
     ],
     description: "A thought-provoking panel discussion on 'How AI Can Impact Education'. Industry leaders and educators discuss the benefits, challenges, and future of AI in academia and beyond.",
     highlights: [
@@ -465,9 +452,9 @@ export const eventsData = {
     category: "egames",
     tagline: "Embark on a One Piece themed adventure across the campus!",
     details: [
-      { label: "Date", value: "January 29, 2026" },
-      { label: "Time", value: "10:00 AM - 1:00 PM" },
-      { label: "Venue", value: "CET Campus" },
+      { label: "Date", value: "February 3, 2026" },
+      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Venue", value: "Open Space" },
       { label: "Team Size", value: "4 - 5 Members" },
       { label: "REG FEE", value: "₹150" },
       { label: "PRIZE POOL", value: "₹1000" },
@@ -699,10 +686,11 @@ export const eventsData = {
     category: "gala",
     tagline: "Live with Bhavin and Sharan Appu",
     details: [
-      { label: "Date", value: "January 30, 2026" },
+      { label: "Date", value: "February 5, 2026" },
       { label: "Time", value: "6:00 PM - 8:00 PM" },
-      { label: "Venue", value: "Dhwani Stage" },
+      { label: "Venue", value: "Dhwani Stage Open Space" },
       { label: "Entry", value: "Free for All" },
+      { label: "Artist", value: "External artists" },
     ],
     description:
       "The grand cultural celebration of INCEPTA'26! Two nights of entertainment, performances, and memories.",
@@ -712,6 +700,185 @@ export const eventsData = {
     buttonText: "Get Your Pass",
     icon: "music",
     registrationUrl: "#register-gala", // Add your MakeMyPass URL here
+  },
+  inauguration: {
+    title: "Inauguration",
+    badge: "Opening Ceremony",
+    category: "workshops",
+    tagline: "Official Opening of INCEPTA'26",
+    details: [
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "10:00 AM - 11:00 PM" },
+      { label: "Venue", value: "CETAA Hall" },
+    ],
+    description:
+      "Join us for the official inauguration of INCEPTA'26, marking the beginning of our premier technical festival focused on AI Agents & Generative AI.",
+    highlights: [
+      "Official opening ceremony",
+      "Welcome address by dignitaries",
+      "Introduction to INCEPTA'26 events",
+      "Networking opportunity",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "Zuhri",
+          phone: "99951 88553",
+        },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "mic",
+    registrationUrl: "#register-inauguration",
+  },
+  appliedai: {
+    title: "Applied AI in CyberSecurity",
+    badge: "Workshop",
+    category: "workshops",
+    tagline: "Leverage AI for Enhanced Security",
+    details: [
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "1:00 PM - 5:00 PM" },
+      { label: "Venue", value: "MCA Seminar Hall" },
+    ],
+    description:
+      "Learn how to apply artificial intelligence techniques to cybersecurity challenges and threat detection. This hands-on workshop covers AI-powered security solutions and real-world applications.",
+    highlights: [
+      "AI-powered security solutions",
+      "Threat detection with machine learning",
+      "Hands-on exercises",
+      "Industry best practices",
+      "Certificate of participation",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "Abraham Peter",
+          phone: "97785 27716",
+        },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "shieldCheck",
+    registrationUrl: "#register-appliedai",
+  },
+  shapingai: {
+    title: "Shaping the AI Future",
+    badge: "Session",
+    category: "workshops",
+    tagline: "Envisioning Tomorrow's AI Landscape",
+    details: [
+      { label: "Date", value: "February 5, 2026" },
+      { label: "Time", value: "9:00 AM - 1:00 PM" },
+      { label: "Venue", value: "CETAA Hall" },
+    ],
+    description:
+      "Explore the future possibilities of AI and how we can shape it for a better tomorrow. Join industry experts and thought leaders in discussing the trajectory of AI development.",
+    highlights: [
+      "Future of AI technology",
+      "Ethical AI development",
+      "Industry perspectives",
+      "Interactive discussions",
+      "Q&A with experts",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "Tina",
+          phone: "70120 37297",
+        },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "lightbulb",
+    registrationUrl: "#register-shapingai",
+  },
+  flashmob: {
+    title: "FlashMob and Banner Release",
+    badge: "Cultural Event",
+    category: "gala",
+    tagline: "Surprise Performance and Grand Reveal",
+    details: [
+      { label: "Date", value: "February 2, 2026" },
+      { label: "Time", value: "4:00 PM - 5:00 PM" },
+      { label: "Venue", value: "Open Space" },
+      { label: "Entry", value: "Free for All" },
+    ],
+    description:
+      "Be part of an exciting flashmob performance and witness the official banner release of INCEPTA'26. A vibrant pre-event celebration to kick off the festival!",
+    highlights: [
+      "Surprise flashmob performance",
+      "Official banner release",
+      "Community gathering",
+      "Photo opportunities",
+    ],
+    buttonText: "Join Us",
+    icon: "party",
+    registrationUrl: "#register-flashmob",
+  },
+  workflowautomation: {
+    title: "WorkFlow Automation Workshop",
+    badge: "Workshop",
+    category: "workshops",
+    tagline: "Automate Your Workflow with AI",
+    details: [
+      { label: "Dates", value: "Feb 4-5, 2026" },
+      { label: "Venue", value: "MCA Main LAB" },
+      { label: "Format", value: "Hands-on" },
+      { label: "Certificate", value: "Provided" },
+    ],
+    description:
+      "Learn to build workflow automation solutions using cutting-edge AI tools and techniques. Transform repetitive tasks into automated processes.",
+    highlights: [
+      "AI workflow automation techniques",
+      "Practical hands-on exercises",
+      "Industry tools and frameworks",
+      "Certificate of completion",
+      "Take-home project templates",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "Zuhri Noor",
+          phone: "99951 88553",
+        },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "workflow",
+    registrationUrl: "#register-workflow",
+  },
+  agenticaiworkshop: {
+    title: "Agentic AI Workshop",
+    badge: "Workshop",
+    category: "workshops",
+    tagline: "Building Intelligent AI Agents",
+    details: [
+      { label: "Dates", value: "Feb 4-5, 2026" },
+      { label: "Venue", value: "MCA Main LAB" },
+      { label: "Format", value: "Hands-on" },
+      { label: "Certificate", value: "Provided" },
+    ],
+    description:
+      "Deep dive into building autonomous AI agents that can reason, plan, and take actions. Learn the fundamentals of agentic AI systems.",
+    highlights: [
+      "Agent architecture patterns",
+      "Tool use and function calling",
+      "Multi-agent systems",
+      "Practical implementations",
+      "Industry case studies",
+    ],
+    contact: {
+      coordinators: [
+        {
+          name: "Abhishek RS",
+          phone: "77364 87600",
+        },
+      ],
+    },
+    buttonText: "Register Now",
+    icon: "bot",
+    registrationUrl: "#register-agenticai",
   },
 };
 
