@@ -517,7 +517,7 @@ export const eventsData = {
     details: [
       { label: "Organized by", value: "Dept. of Computer Applications" },
       { label: "Mode", value: "Online" },
-      { label: "Duration", value: "5 Days (Starts 24 Jan 2026)" },
+      { label: "Duration", value: "5 Days" },
       { label: "Participation", value: "Individual" },
       { label: "Eligibility", value: "Open to all" },
       { label: "Platform", value: "Official Website" },
