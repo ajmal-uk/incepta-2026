@@ -1,7 +1,8 @@
 {
-  "name": "temp-vite",
+  "name": "incepta-2026",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "INCEPTA 2026 - A Premier Technical Festival focused on AI Agents & Generative AI",
   "type": "module",
   "homepage": "https://ajmal-uk.github.io/incepta-2026",
   "scripts": {
