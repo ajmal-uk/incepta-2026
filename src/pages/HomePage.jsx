@@ -35,22 +35,6 @@ const categories = [
 
 function CategoryCard({ category }) {
     const Icon = category.icon;
-    const isEvents = category.id === 'events';
-
-    if (isEvents) {
-        return (
-            <div className="category-card disabled" style={{ '--accent-color': category.color, opacity: 0.7, cursor: 'not-allowed' }}>
-                <div className="category-icon" style={{ background: `linear-gradient(135deg, ${category.color}33 0%, ${category.color}15 100%)`, borderColor: `${category.color}40` }}>
-                    <Icon size={36} style={{ color: category.color }} />
-                </div>
-                <h3 className="category-title">{category.title}</h3>
-                <p className="category-description">{category.description}</p>
-                <div className="category-cta" style={{ color: category.color }}>
-                    Coming Soon
-                </div>
-            </div>
-        );
-    }
 
     return (
         <Link to={category.link} className="category-card" style={{ '--accent-color': category.color }}>
