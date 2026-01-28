@@ -45,7 +45,7 @@ export default function ParticleBackground() {
             size: isMobile ? 0.05 : 0.03, // Slightly larger on mobile to compensate for lower count
             color: 0xAF84CB,
             transparent: true,
-            opacity: 0.8,
+            opacity: isMobile ? 1.0 : 0.8,
             blending: THREE.AdditiveBlending
         });
 

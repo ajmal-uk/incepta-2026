@@ -7,15 +7,17 @@ const WaveBackground = () => {
 
   useEffect(() => {
     // Particle Logic
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && particlesRef.current) {
+    if (particlesRef.current) {
+      const isMobile = window.innerWidth < 768;
       const container = particlesRef.current;
-      // Clear existing particles if any (though usually empty on mount)
       container.innerHTML = '';
-      
-      for (let i = 0; i < 30; i++) {
+
+      const particleCount = isMobile ? 15 : 30;
+
+      for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        const size = Math.random() * 20 + 8;
+        const size = Math.random() * (isMobile ? 12 : 20) + 8;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         particle.style.left = Math.random() * 100 + '%';
@@ -30,7 +32,7 @@ const WaveBackground = () => {
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
       const cursor = cursorRef.current;
       const follower = followerRef.current;
-      
+
       if (!cursor || !follower) return;
 
       let mouseX = 0, mouseY = 0;
@@ -41,8 +43,8 @@ const WaveBackground = () => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         if (cursor) {
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
+          cursor.style.left = mouseX + 'px';
+          cursor.style.top = mouseY + 'px';
         }
       };
 
@@ -51,10 +53,10 @@ const WaveBackground = () => {
         const dy = mouseY - followerY;
         followerX += dx * 0.15;
         followerY += dy * 0.15;
-        
+
         if (follower) {
-            follower.style.left = followerX + 'px';
-            follower.style.top = followerY + 'px';
+          follower.style.left = followerX + 'px';
+          follower.style.top = followerY + 'px';
         }
         animationFrameId = requestAnimationFrame(animateFollower);
       };
@@ -64,7 +66,7 @@ const WaveBackground = () => {
 
       // Interactive elements hover effect
       const interactiveElements = 'a, button, .event-card, .tier-card, .social-link, .gallery-img, .stat-card, .about-text, .contact-item, .about-card';
-      
+
       const handleMouseEnter = () => {
         cursor.classList.add('cursor-hover');
         follower.classList.add('cursor-follower-hover');
@@ -80,17 +82,17 @@ const WaveBackground = () => {
       // For simplicity, let's use delegation for now or just attach to body and check target?
       // No, let's use a mutation observer or just re-run this logic?
       // Actually, simple event delegation is best.
-      
+
       const handleMouseOver = (e) => {
         if (e.target.closest(interactiveElements)) {
-            handleMouseEnter();
+          handleMouseEnter();
         }
       };
-      
+
       const handleMouseOut = (e) => {
-         if (e.target.closest(interactiveElements)) {
-            handleMouseLeave();
-         }
+        if (e.target.closest(interactiveElements)) {
+          handleMouseLeave();
+        }
       };
 
       document.addEventListener('mouseover', handleMouseOver);

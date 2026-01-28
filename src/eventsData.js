@@ -98,7 +98,7 @@ export const eventsData = {
   },
   ctf: {
     title: "INCEPTA Cyber Siege",
-    badge: "CTF Competition",
+    badge: "CTF",
     category: "competitions",
     tagline:
       "Dive into the digital abyss, crack the codes, and infiltrate the task force.",
@@ -172,7 +172,7 @@ export const eventsData = {
   },
   coderush: {
     title: "Code Rush",
-    badge: "Coding Competition",
+    badge: "Coding",
     category: "competitions",
     tagline: "Code Rush: Run the code before the clock runs you.",
 
