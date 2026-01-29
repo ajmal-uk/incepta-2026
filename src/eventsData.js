@@ -104,7 +104,7 @@ export const eventsData = {
       "Dive into the digital abyss, crack the codes, and infiltrate the task force.",
 
     details: [
-      { label: "Date", value: "February 4, 2026" },
+      { label: "Date", value: "February 6, 2026" },
       { label: "Time", value: "9:00 AM – 4:00 PM" },
       { label: "Venue", value: "MCA Main LAB" },
       { label: "Registration Fee", value: "₹350 / Team" },
@@ -153,8 +153,11 @@ export const eventsData = {
     ],
 
     prizes: [
-      "Prize pool worth $400+ USD",
-      "PentesterLab vouchers for top 3 teams",
+      "Pentester lab vouchers:",
+      "  • 1st Place - 6 months",
+      "  • 2nd Place - 3 months",
+      "  • 3rd Place - 1 month",
+      "Cash Prize: Prize pool - 12K INR",
     ],
 
     contact: {
@@ -246,7 +249,7 @@ export const eventsData = {
     tagline: "Vibe Coding: Don't write the code, manage the code",
 
     details: [
-      { label: "Date", value: "February 4, 2026" },
+      { label: "Date", value: "February 6, 2026" },
       { label: "Time", value: "2:00 PM - 4:00 PM" },
       { label: "Venue", value: "MCA Project LAB" },
       { label: "Format", value: "AI-assisted Full Stack" },
@@ -382,7 +385,7 @@ export const eventsData = {
     tagline:
       "Hands-on learning sessions with industry experts on cutting-edge AI technologies.",
     details: [
-      { label: "Dates", value: "Feb 4-5, 2026" },
+      { label: "Dates", value: "Feb 5-6, 2026" },
       { label: "Time", value: "Various Slots" },
       { label: "Venue", value: "MCA Main LAB" },
       { label: "Format", value: "Hands-on" },
@@ -408,7 +411,7 @@ export const eventsData = {
     category: "workshops",
     tagline: "Thinking for Ourselves in the Age of AI",
     details: [
-      { label: "Date", value: "February 4, 2026" },
+      { label: "Date", value: "February 6, 2026" },
       { label: "Time", value: "11:00 AM - 12:00 PM" },
       { label: "Venue", value: "CETAA Hall" },
       { label: "Speaker", value: "Sourav" },
@@ -707,7 +710,7 @@ export const eventsData = {
     category: "workshops",
     tagline: "Official Opening of INCEPTA'26",
     details: [
-      { label: "Date", value: "February 4, 2026" },
+      { label: "Date", value: "February 6, 2026" },
       { label: "Time", value: "10:00 AM - 11:00 PM" },
       { label: "Venue", value: "CETAA Hall" },
     ],
@@ -737,7 +740,7 @@ export const eventsData = {
     category: "workshops",
     tagline: "Leverage AI for Enhanced Security",
     details: [
-      { label: "Date", value: "February 4, 2026" },
+      { label: "Date", value: "February 6, 2026" },
       { label: "Time", value: "1:00 PM - 5:00 PM" },
       { label: "Venue", value: "MCA Seminar Hall" },
     ],
@@ -822,7 +825,7 @@ export const eventsData = {
     category: "workshops",
     tagline: "Automate Your Workflow with AI",
     details: [
-      { label: "Dates", value: "Feb 4-5, 2026" },
+      { label: "Dates", value: "Feb 5-6, 2026" },
       { label: "Venue", value: "MCA Main LAB" },
       { label: "Format", value: "Hands-on" },
       { label: "Certificate", value: "Provided" },
@@ -854,7 +857,7 @@ export const eventsData = {
     category: "workshops",
     tagline: "Building Intelligent AI Agents",
     details: [
-      { label: "Dates", value: "Feb 4-5, 2026" },
+      { label: "Dates", value: "Feb 5-6, 2026" },
       { label: "Venue", value: "MCA Main LAB" },
       { label: "Format", value: "Hands-on" },
       { label: "Certificate", value: "Provided" },

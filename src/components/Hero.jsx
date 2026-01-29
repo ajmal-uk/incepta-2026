@@ -37,7 +37,7 @@ export default function Hero() {
         <section id="hero" className="hero">
             <div className="hero-badge">
                 <Sun size={18} />
-                february 4 - 5 , 2026
+                february 5 - 6, 2026
             </div>
             <h1 className="hero-title">
                 {/* Wrap words to prevent breaking mid-word, but allow breaking between words */}

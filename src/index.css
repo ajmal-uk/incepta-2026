@@ -1636,6 +1636,14 @@ footer {
   font-weight: bold;
 }
 
+.overlay-description li.sub-item {
+  padding-left: 50px;
+}
+
+.overlay-description li.sub-item::before {
+  content: none;
+}
+
 .overlay-actions {
   position: fixed;
   bottom: 0;

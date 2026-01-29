@@ -95,7 +95,7 @@ export default function EventDetailPage() {
                     </Link>
                     <div className="event-detail-badge">{event.badge}</div>
                 </div>
-                
+
                 <h1 className="page-title">{event.title}</h1>
                 <p className="page-subtitle">{event.tagline}</p>
             </section>
@@ -110,12 +110,12 @@ export default function EventDetailPage() {
                         </div>
                     ))}
                 </div>
-                            {/* Registration Form for OBSCURA at the top */}
-            {eventId === 'obscura' && (
-                <div style={{ margin: '40px 0' }}>
-                    <ObscuraRegistrationPage />
-                </div>
-            )}
+                {/* Registration Form for OBSCURA at the top */}
+                {eventId === 'obscura' && (
+                    <div style={{ margin: '40px 0' }}>
+                        <ObscuraRegistrationPage />
+                    </div>
+                )}
                 {/* About Section */}
                 <div className="overlay-description">
                     <h3>About This Event</h3>
@@ -186,9 +186,14 @@ export default function EventDetailPage() {
                     <div className="overlay-description">
                         <h3>Prizes</h3>
                         <ul>
-                            {event.prizes.map((prize, index) => (
-                                <li key={index}>{prize}</li>
-                            ))}
+                            {event.prizes.map((prize, index) => {
+                                const isSubItem = prize.trim().startsWith('•') || prize.startsWith('  ');
+                                return (
+                                    <li key={index} className={isSubItem ? 'sub-item' : ''}>
+                                        {prize}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 )}
