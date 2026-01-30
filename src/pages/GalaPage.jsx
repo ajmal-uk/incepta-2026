@@ -4,6 +4,8 @@ import { eventsData, eventCategories } from '../eventsData';
 import SEO from '../components/SEO';
 
 export default function GalaPage() {
+    // The Incepta Gala page is currently hidden as per user request.
+    /*
     const category = eventCategories.gala;
     const gala = eventsData.gala;
 
@@ -11,7 +13,6 @@ export default function GalaPage() {
         <div className="page-container gala-page">
             <SEO title="INCEPTA Gala" description="Experience the cultural highlight of INCEPTA 2026. Two nights of music, dance, and performances." />
 
-            {/* Celebration Particles Background */}
             <div className="gala-particles">
                 {[...Array(20)].map((_, i) => (
                     <div
@@ -27,7 +28,6 @@ export default function GalaPage() {
                 ))}
             </div>
 
-            {/* Hero Section */}
             <section className="gala-hero-section">
                 <div className="event-header-row">
                     <Link to="/" className="back-link">
@@ -46,7 +46,6 @@ export default function GalaPage() {
             </section>
 
             <section className="gala-content-section">
-                {/* Details Grid with Enhanced Cards */}
                 <div className="gala-details-grid">
                     {gala.details.map((detail, index) => (
                         <div className="gala-detail-card" key={index}>
@@ -57,7 +56,6 @@ export default function GalaPage() {
                     ))}
                 </div>
 
-                {/* About Section */}
                 <div className="gala-section-card">
                     <div className="section-header">
                         <Sparkles size={24} className="section-icon" />
@@ -66,7 +64,6 @@ export default function GalaPage() {
                     <p>{gala.description}</p>
                 </div>
 
-                {/* Highlights Section */}
                 <div className="gala-section-card">
                     <div className="section-header">
                         <Star size={24} className="section-icon" />
@@ -83,7 +80,6 @@ export default function GalaPage() {
                 </div>
             </section>
 
-            {/* Floating CTA */}
             <div className="floating-cta gala-cta-enhanced">
                 <a
                     href={gala.registrationUrl}
@@ -96,4 +92,6 @@ export default function GalaPage() {
             </div>
         </div>
     );
+    */
+    return null;
 }

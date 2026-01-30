@@ -705,6 +705,40 @@ nav a:hover::after {
   box-shadow: 0 10px 30px rgba(198, 120, 255, 0.3);
 }
 
+.free-glow {
+  font-size: clamp(0.6rem, 2vw, 0.7rem);
+  font-weight: 700;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 10px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 4px;
+  background: rgba(255, 215, 0, 0.15);
+  animation: freeGlowPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(255, 215, 255, 0.6);
+  white-space: nowrap;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes freeGlowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3), inset 0 0 5px rgba(255, 215, 0, 0.1);
+    transform: scale(1);
+    border-color: rgba(255, 215, 0, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7), inset 0 0 10px rgba(255, 215, 0, 0.3);
+    transform: scale(1.05);
+    border-color: rgba(255, 215, 0, 0.8);
+  }
+}
+
 .event-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.4rem;

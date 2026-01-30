@@ -12,12 +12,14 @@ export const eventCategories = {
     color: "#61dafb",
     events: ["inauguration", "keynote", "panel", "workshops", "appliedai", "shapingai", "workflowautomation", "agenticaiworkshop"],
   },
+  /*
   gala: {
     title: "INCEPTA Gala",
     description: "Cultural nights of music and performances",
     color: "#ff6ac1",
     events: ["gala", "flashmob"],
   },
+  */
 };
 
 export const eventsData = {
@@ -566,7 +568,7 @@ export const eventsData = {
         },
       ],
     },
-    registrationUrl: "/competitions/obscura",
+    registrationUrl: "https://obscura.cetmca.in",
     buttonText: "Register & Play",
   },
   valorant: {
@@ -684,6 +686,7 @@ export const eventsData = {
     icon: "gamepad",
     registrationUrl: "https://app.makemypass.com/event/coliseum-fc25",
   },
+  /*
   gala: {
     title: "INCEPTA GALA",
     badge: "ProShow",
@@ -705,6 +708,7 @@ export const eventsData = {
     icon: "music",
     registrationUrl: "#register-gala", // Add your MakeMyPass URL here
   },
+  */
   inauguration: {
     title: "Inauguration",
     badge: "Opening Ceremony",

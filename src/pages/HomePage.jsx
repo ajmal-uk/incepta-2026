@@ -23,6 +23,7 @@ const categories = [
         color: '#61dafb',
         link: '/events'
     },
+    /*
     {
         id: 'gala',
         title: 'INCEPTA Gala',
@@ -31,6 +32,7 @@ const categories = [
         color: '#ff6ac1',
         link: '/gala'
     }
+    */
 ];
 
 function CategoryCard({ category }) {

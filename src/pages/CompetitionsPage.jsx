@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ShieldCheck, Zap, Sparkles, Image, Compass, Palette, MonitorPlay, Music, Gamepad2, LayoutDashboard } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Zap, Sparkles, Image, Compass, Palette, MonitorPlay, Music, Gamepad2, LayoutDashboard, Trophy } from 'lucide-react';
 import { eventsData, eventCategories } from '../eventsData';
 import SEO from '../components/SEO';
 
@@ -12,7 +12,8 @@ const iconMap = {
     monitorPlay: MonitorPlay,
     compass: Compass,
     music: Music,
-    gamepad: Gamepad2
+    gamepad: Gamepad2,
+    trophy: Trophy
 };
 
 export default function CompetitionsPage() {
@@ -39,8 +40,11 @@ export default function CompetitionsPage() {
                                 className="event-card"
                                 key={event.id}
                             >
-                                <div className="event-icon">
+                                <div className="event-icon" style={{ display: 'flex', alignItems: 'center' }}>
                                     <Icon size={32} />
+                                    {event.id === 'obscura' && (
+                                        <span className="free-glow">Free Registration</span>
+                                    )}
                                 </div>
                                 <h3 className="event-title">{event.title}</h3>
                                 <p className="event-description">{event.tagline}</p>
