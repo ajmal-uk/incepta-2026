@@ -15,7 +15,7 @@ const iconMap = {
 
 export default function EGamesPage() {
     const preFestGames = ['valorant', 'bgmi', 'efootball'];
-    const liveGames = ['fifa', 'minimilitia', 'treasurehunt'];
+    const liveGames = ['fifa', 'minimilitia'];
 
     const preFestEvents = preFestGames.map(id => ({ id, ...eventsData[id] }));
     const liveEvents = liveGames.map(id => ({ id, ...eventsData[id] }));

@@ -4,7 +4,7 @@ export const eventCategories = {
     title: "Competitions",
     description: "Test your skills and compete for glory",
     color: "#c678ff",
-    events: ["hackathon", "ctf", "coderush", "vibecoding", "promptcraft", "obscura"],
+    events: ["hackathon", "ctf", "coderush", "vibecoding", "promptcraft", "obscura", "treasurehunt"],
   },
   workshops: {
     title: "Workshops & Events",
@@ -454,7 +454,7 @@ export const eventsData = {
   treasurehunt: {
     title: "Treasure Hunt",
     badge: "One Piece Theme",
-    category: "egames",
+    category: "competitions",
     tagline: "Embark on a One Piece themed adventure across the campus!",
     details: [
       { label: "Date", value: "February 3, 2026" },
