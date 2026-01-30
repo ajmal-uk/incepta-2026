@@ -40,12 +40,12 @@ export default function CompetitionsPage() {
                                 className="event-card"
                                 key={event.id}
                             >
-                                <div className="event-icon" style={{ display: 'flex', alignItems: 'center' }}>
+                                <div className="event-icon">
                                     <Icon size={32} />
-                                    {event.id === 'obscura' && (
-                                        <span className="free-glow">Free Registration</span>
-                                    )}
                                 </div>
+                                {event.id === 'obscura' && (
+                                    <span className="free-glow">Free Registration</span>
+                                )}
                                 <h3 className="event-title">{event.title}</h3>
                                 <p className="event-description">{event.tagline}</p>
                                 <div className="event-badge-small">{event.badge}</div>

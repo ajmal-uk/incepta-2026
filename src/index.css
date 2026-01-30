@@ -711,7 +711,8 @@ nav a:hover::after {
   color: #ffd700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-left: 10px;
+  margin-top: -10px;
+  margin-bottom: 15px;
   padding: 2px 6px;
   border: 1px solid rgba(255, 215, 0, 0.4);
   border-radius: 4px;
@@ -721,6 +722,7 @@ nav a:hover::after {
   white-space: nowrap;
   display: inline-block;
   backdrop-filter: blur(4px);
+  align-self: flex-start;
 }
 
 @keyframes freeGlowPulse {
