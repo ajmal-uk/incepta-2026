@@ -460,7 +460,7 @@ export const eventsData = {
       { label: "Venue", value: "Open Space" },
       { label: "Team Size", value: "4 - 5 Members" },
       { label: "REG FEE", value: "₹150" },
-      { label: "PRIZE POOL", value: "₹1000" },
+      { label: "PRIZE POOL", value: "₹2000" },
     ],
     description: "The One Piece Treasure Hunt is a college-wide adventure game where teams act as pirate crews racing to find the ultimate treasure — the One Piece! Each clue is hidden in the form of a photo and riddle, leading teams to the next location.",
     highlights: [
@@ -515,7 +515,7 @@ export const eventsData = {
     title: "OBSCURA – Digital Treasure Hunt",
     badge: "Digital Treasure Hunt",
     category: "competitions",
-    tagline: "Decode mysteries hidden in plain sight!",
+    tagline: "The Worthy Shall Conquer",
     icon: "trophy",
     details: [
       { label: "Organized by", value: "Dept. of Computer Applications" },
@@ -524,6 +524,7 @@ export const eventsData = {
       { label: "Participation", value: "Individual" },
       { label: "Eligibility", value: "Open to all" },
       { label: "Platform", value: "Official Website" },
+      { label: "Registration Fee", value: "₹0" },
       { label: "Contact", value: "Bhavana – +91 73567 23856" },
     ],
     description:
@@ -537,7 +538,7 @@ export const eventsData = {
     ],
     rulesAndGuidelines: {
       generalGuidelines: [
-        "Event runs from 24 January 2026 for 5 days.",
+        "Event runs from 1 February 2026 to 5 February 2026.",
         "You can join and participate at any time during the event period.",
         "Each day, new clues and rounds will be released on the website.",
         "Difficulty increases with each round.",
