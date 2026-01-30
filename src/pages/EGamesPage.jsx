@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Gamepad2, Smartphone, Crosshair, Trophy, Zap, Keyboard, Users, Target, Palette, Dna, Layers, RotateCcw, Box, Smile, Hash, Grip, Clock, HandMetal, Eye, Compass } from 'lucide-react';
-import { eventsData, playFestData } from '../eventsData';
+import { ArrowLeft, Gamepad2, Smartphone, Crosshair, Trophy, Zap, Compass } from 'lucide-react';
+import { eventsData } from '../eventsData';
 import SEO from '../components/SEO';
 
 const iconMap = {
@@ -12,35 +12,6 @@ const iconMap = {
     compass: Compass,
 };
 
-const playFestIcons = {
-    'speed-typing': Keyboard,
-    'escape-room': Users,
-    'dart-throw': Target,
-    'foam-archery': Target,
-    'cosplay': Palette,
-    'nerf-battle': Crosshair,
-    'top-that': Layers,
-    'chain-triangle': Dna,
-    'happy-salmon': HandMetal,
-    'maki-stack': Layers,
-    'dr-eureka': Dna,
-    'taco-cat': RotateCcw,
-    'dobble': Eye,
-    'face-change': Smile,
-    'sling-puck': Zap,
-    'pictureka': Hash,
-    'magnet-sizzle': Zap,
-    'mikkaido': Grip,
-    'yeti-spaghetti': Grip,
-    'dead-mans-deck': Box,
-    'suspend': Layers,
-    'connect-4': Grip,
-    'jenga': Layers,
-    'board-boats': Box,
-    'balloon-shooting': Target,
-    'tower-hanoi': Layers,
-    'hot-wheels': Zap
-};
 
 export default function EGamesPage() {
     const preFestGames = ['valorant', 'bgmi', 'efootball'];
@@ -109,76 +80,6 @@ export default function EGamesPage() {
                 </div>
             </section>
 
-            {/* PlayFest Live Activities */}
-            <section className="section">
-                <h2 className="section-title">PlayFest - Live Activities</h2>
-                <div className="playfest-grid">
-                    {playFestData.filter(g => g.group === 'Live Activity').map(game => {
-                        const Icon = playFestIcons[game.id] || Gamepad2;
-                        return (
-                            <div className="playfest-card" key={game.id}>
-                                <div className="playfest-header">
-                                    <Icon className="playfest-icon" size={24} />
-                                    <h3 className="playfest-title">{game.title}</h3>
-                                </div>
-                                <p className="playfest-desc">{game.description}</p>
-                                <div className="playfest-meta">
-                                    <span className="meta-item"><Users size={14} /> {game.players}</span>
-                                    <span className="meta-item"><Clock size={14} /> {game.duration}</span>
-                                </div>
-                                <div className="playfest-type">{game.type}</div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
-
-            {/* Board & Card Games */}
-            <section className="section">
-                <h2 className="section-title">Board & Card Games</h2>
-                <div className="playfest-grid">
-                    {playFestData.filter(g => !g.group || g.group === 'Board Games').map(game => { // Default to Board Games if undefined to catch middle items
-                        const Icon = playFestIcons[game.id] || Gamepad2;
-                        return (
-                            <div className="playfest-card" key={game.id}>
-                                <div className="playfest-header">
-                                    <Icon className="playfest-icon" size={24} />
-                                    <h3 className="playfest-title">{game.title}</h3>
-                                </div>
-                                <p className="playfest-desc">{game.description}</p>
-                                <div className="playfest-meta">
-                                    <span className="meta-item"><Users size={14} /> {game.players}</span>
-                                    <span className="meta-item"><Clock size={14} /> {game.duration}</span>
-                                </div>
-                                <div className="playfest-type">{game.type}</div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
-
-            <section className="section">
-                <h2 className="section-title">Skill Zones</h2>
-                <div className="playfest-grid">
-                    {playFestData.filter(g => g.group === 'Skill Zones').map(game => {
-                        const Icon = playFestIcons[game.id] || Gamepad2;
-                        return (
-                            <div className="playfest-card" key={game.id}>
-                                <div className="playfest-header">
-                                    <Icon className="playfest-icon" size={24} />
-                                    <h3 className="playfest-title">{game.title}</h3>
-                                </div>
-                                <p className="playfest-desc">{game.description}</p>
-                                <div className="playfest-meta">
-                                    <span className="meta-item"><Users size={14} /> {game.players}</span>
-                                    <span className="meta-item"><Clock size={14} /> {game.duration}</span>
-                                </div>
-                                <div className="playfest-type">{game.type}</div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </section>
 
 
         </div>

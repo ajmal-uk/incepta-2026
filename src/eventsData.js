@@ -890,6 +890,7 @@ export const eventsData = {
   },
 };
 
+/*
 // PlayFest & Board Games Data
 export const playFestData = [
   // Live Activity & Game Stalls
@@ -998,6 +999,7 @@ export const playFestData = [
   },
   {
     id: "dobble",
+    id: "dobble",
     title: "Spot It / Dobble",
     players: "2–4 players",
     duration: "3 min",
@@ -1045,6 +1047,7 @@ export const playFestData = [
     description: "Carefully lift sticks without disturbing others.",
   },
   {
+    id: "yeti-spaghetti",
     id: "yeti-spaghetti",
     title: "Yeti in My Spaghetti",
     players: "2–4 players",
@@ -1119,3 +1122,4 @@ export const playFestData = [
     group: "Skill Zones",
   },
 ];
+*/
