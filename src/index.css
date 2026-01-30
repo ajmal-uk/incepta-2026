@@ -170,8 +170,12 @@ body {
   }
 }
 
-/* --- Custom Cursor with Enhanced Follower --- */
+/* --- Custom Cursor with Enhanced Follower ---
+remove the pointer cursor from the website */
 @media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 
   .cursor,
   .cursor-follower {
