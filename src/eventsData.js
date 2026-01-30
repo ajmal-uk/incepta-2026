@@ -466,7 +466,7 @@ export const eventsData = {
     ],
     description: "The One Piece Treasure Hunt is a college-wide adventure game where teams act as pirate crews racing to find the ultimate treasure — the One Piece! Each clue is hidden in the form of a photo and riddle, leading teams to the next location.",
     highlights: [
-      "5-7 Locations across campus",
+      "8 Locations across campus",
       "One Piece themed riddles and clues",
       "Elimination rounds (slowest teams eliminated)",
       "Final treasure chest with prizes",
