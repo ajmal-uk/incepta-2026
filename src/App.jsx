@@ -43,6 +43,8 @@ function App() {
             <Route path="/hackathon" element={<Navigate to="/competitions/hackathon" replace />} />
             <Route path="/ctf" element={<Navigate to="/competitions/ctf" replace />} />
             <Route path="/digitalhunt" element={<Navigate to="/competitions/obscura" replace />} />
+            <Route path="/obscura" element={<Navigate to="/competitions/obscura" replace />} />
+            <Route path="/treasurehunt" element={<Navigate to="/competitions/egames/treasurehunt" replace />} />
           </Routes >
         </Suspense >
         <Footer />
