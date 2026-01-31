@@ -10,7 +10,7 @@ export const eventCategories = {
     title: "Workshops & Events",
     description: "Learn from industry experts",
     color: "#61dafb",
-    events: ["inauguration", "keynote", "panel", "workshops", "appliedai", "shapingai", "workflowautomation", "agenticaiworkshop"],
+    events: ["inauguration", "keynote", "panel", "appliedai", "shapingai", "agenticaiworkshop"],
   },
   /*
   gala: {
