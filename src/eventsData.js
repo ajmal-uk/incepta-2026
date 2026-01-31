@@ -828,7 +828,7 @@ export const eventsData = {
     },
     buttonText: "Register Now",
     icon: "bot",
-    registrationUrl: "#register-agenticai",
+    registrationUrl: "https://makemypass.com/event/agentic-ai-workshop-2",
   },
 };
 
