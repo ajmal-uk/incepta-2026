@@ -33,7 +33,7 @@ export const eventsData = {
       { label: "Date", value: "February 5, 2026" },
       { label: "Time", value: "9:00 AM - 9:00 PM" },
       { label: "Venue", value: "MCA Main LAB" },
-      { label: "Focus", value: "Agentic AI" },
+      { label: "Focus", value: "AI Applications" },
     ],
 
     description:
