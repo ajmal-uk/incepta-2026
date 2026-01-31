@@ -48,6 +48,7 @@ function App() {
             <Route path="/codeless" element={<Navigate to="/competitions/vibecoding" replace />} />
             <Route path="/coderush" element={<Navigate to="/competitions/coderush" replace />} />
             <Route path="/promptvision" element={<Navigate to="/competitions/promptcraft" replace />} />
+            <Route path="/gnosis" element={<Navigate to="/competitions/hackathon" replace />} />
             
           </Routes >
         </Suspense >
