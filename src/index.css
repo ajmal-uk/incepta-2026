@@ -3987,6 +3987,7 @@ body.sidebar-open {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 /* --- Inauguration Section --- */
 .inauguration-section {
   padding: 6rem 2rem;
@@ -4081,14 +4082,14 @@ body.sidebar-open {
   position: relative;
   aspect-ratio: 3/4;
   transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Removed transition to keep photo static */
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .speaker-image-wrapper:hover .speaker-frame {
-  transform: rotateY(180deg) scale(1.05);
-  box-shadow: 0 30px 60px rgba(198, 120, 255, 0.2);
+  /* Removed hover transform to keep photo static */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card-face {
@@ -4121,7 +4122,7 @@ body.sidebar-open {
 .image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
   z-index: 10;
 }
 
@@ -4192,9 +4193,17 @@ body.sidebar-open {
   font-weight: 600;
 }
 
-.pill-blue { color: var(--neon-blue); }
-.pill-purple { color: var(--neon-purple); }
-.pill-pink { color: var(--neon-magenta); }
+.pill-blue {
+  color: var(--neon-blue);
+}
+
+.pill-purple {
+  color: var(--neon-purple);
+}
+
+.pill-pink {
+  color: var(--neon-magenta);
+}
 
 .talk-title {
   font-size: 2.5rem;
@@ -4243,11 +4252,11 @@ body.sidebar-open {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .speaker-image-wrapper {
     max-width: 320px;
   }
-  
+
   .talk-title {
     font-size: 2rem;
   }
@@ -4257,11 +4266,11 @@ body.sidebar-open {
   .glass-card {
     padding: 1.5rem;
   }
-  
+
   .talk-title {
     font-size: 1.75rem;
   }
-  
+
   .speaker-name {
     font-size: 1.4rem;
   }
