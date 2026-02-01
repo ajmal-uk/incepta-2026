@@ -43,6 +43,13 @@ function App() {
             <Route path="/hackathon" element={<Navigate to="/competitions/hackathon" replace />} />
             <Route path="/ctf" element={<Navigate to="/competitions/ctf" replace />} />
             <Route path="/digitalhunt" element={<Navigate to="/competitions/obscura" replace />} />
+            <Route path="/obscura" element={<Navigate to="/competitions/obscura" replace />} />
+            <Route path="/treasurehunt" element={<Navigate to="/competitions/egames/treasurehunt" replace />} />
+            <Route path="/codeless" element={<Navigate to="/competitions/vibecoding" replace />} />
+            <Route path="/coderush" element={<Navigate to="/competitions/coderush" replace />} />
+            <Route path="/promptvision" element={<Navigate to="/competitions/promptcraft" replace />} />
+            <Route path="/gnosis" element={<Navigate to="/competitions/hackathon" replace />} />
+            
           </Routes >
         </Suspense >
         <Footer />

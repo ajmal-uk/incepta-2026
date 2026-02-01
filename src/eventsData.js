@@ -10,7 +10,7 @@ export const eventCategories = {
     title: "Workshops & Events",
     description: "Learn from industry experts",
     color: "#61dafb",
-    events: ["inauguration", "keynote", "panel", "workshops", "appliedai", "shapingai", "workflowautomation", "agenticaiworkshop"],
+    events: ["inauguration", "keynote", "panel", "appliedai", "shapingai", "agenticaiworkshop"],
   },
   /*
   gala: {
@@ -33,7 +33,7 @@ export const eventsData = {
       { label: "Date", value: "February 5, 2026" },
       { label: "Time", value: "9:00 AM - 9:00 PM" },
       { label: "Venue", value: "MCA Main LAB" },
-      { label: "Focus", value: "Agentic AI" },
+      { label: "Focus", value: "AI Applications" },
     ],
 
     description:
@@ -81,7 +81,7 @@ export const eventsData = {
       "Presentation & Communication",
     ],
 
-    judges: ["Industry experts from ABC Company"],
+    judges: ["Industry experts from Different Companies"],
 
     volunteers: ["Jerardh Tom Jasper", "Muhammed K B"],
 
@@ -183,7 +183,7 @@ export const eventsData = {
 
     details: [
       { label: "Date", value: "February 5, 2026" },
-      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Time", value: "1:00 PM - 3:00 PM" },
       { label: "Venue", value: "MCA Project LAB" },
       { label: "Platform", value: "HackerRank" },
     ],
@@ -252,7 +252,7 @@ export const eventsData = {
 
     details: [
       { label: "Date", value: "February 6, 2026" },
-      { label: "Time", value: "2:00 PM - 4:00 PM" },
+      { label: "Time", value: "1:00 PM - 4:00 PM" },
       { label: "Venue", value: "MCA Project LAB" },
       { label: "Format", value: "AI-assisted Full Stack" },
     ],
@@ -323,7 +323,7 @@ export const eventsData = {
 
     details: [
       { label: "Date", value: "February 5, 2026" },
-      { label: "Time", value: "2:00 PM - 3:00 PM" },
+      { label: "Time", value: "3:00 PM - 4:00 PM" },
       { label: "Venue", value: "MCA Project LAB II" },
       { label: "Prize Pool", value: "₹3,000" },
       { label: "Reg Fee", value: "₹50" },
@@ -380,33 +380,6 @@ export const eventsData = {
     icon: "image",
     registrationUrl: "https://app.makemypass.com/event/prompt-vision-prompt-crafting",
   },
-  workshops: {
-    title: "GenAI Workshops",
-    badge: "Workshop",
-    category: "workshops",
-    tagline:
-      "Hands-on learning sessions with industry experts on cutting-edge AI technologies.",
-    details: [
-      { label: "Dates", value: "Feb 5-6, 2026" },
-      { label: "Time", value: "Various Slots" },
-      { label: "Venue", value: "MCA Main LAB" },
-      { label: "Format", value: "Hands-on" },
-      { label: "Certificate", value: "Provided" },
-      { label: "Laptop", value: "Required" },
-    ],
-    description:
-      "Deep dive into the world of Generative AI with practical, hands-on workshops conducted by industry professionals.",
-    highlights: [
-      "Build RAG pipelines from scratch",
-      "Create AI agents with no-code tools",
-      "Fine-tune open-source LLMs",
-      "Industry guest speakers and mentors",
-      "Take-home resources and code samples",
-    ],
-    buttonText: "Book Your Seat",
-    icon: "presentation",
-    registrationUrl: "#register-workshops", // Add your MakeMyPass URL here
-  },
   keynote: {
     title: "Keynote Session",
     badge: "Keynote",
@@ -457,7 +430,7 @@ export const eventsData = {
     category: "competitions",
     tagline: "Embark on a One Piece themed adventure across the campus!",
     details: [
-      { label: "Date", value: "February 3, 2026" },
+      { label: "Date", value: "February 4, 2026" },
       { label: "Time", value: "2:00 PM - 4:00 PM" },
       { label: "Venue", value: "Open Space" },
       { label: "Team Size", value: "4 - 5 Members" },
@@ -745,8 +718,8 @@ export const eventsData = {
     category: "workshops",
     tagline: "Leverage AI for Enhanced Security",
     details: [
-      { label: "Date", value: "February 6, 2026" },
-      { label: "Time", value: "1:00 PM - 5:00 PM" },
+      { label: "Date", value: "February 4, 2026" },
+      { label: "Time", value: "9:00 AM - 1:00 PM" },
       { label: "Venue", value: "MCA Seminar Hall" },
     ],
     description:
@@ -824,45 +797,14 @@ export const eventsData = {
     icon: "party",
     registrationUrl: "#register-flashmob",
   },
-  workflowautomation: {
-    title: "WorkFlow Automation Workshop",
-    badge: "Workshop",
-    category: "workshops",
-    tagline: "Automate Your Workflow with AI",
-    details: [
-      { label: "Dates", value: "Feb 5-6, 2026" },
-      { label: "Venue", value: "MCA Main LAB" },
-      { label: "Format", value: "Hands-on" },
-      { label: "Certificate", value: "Provided" },
-    ],
-    description:
-      "Learn to build workflow automation solutions using cutting-edge AI tools and techniques. Transform repetitive tasks into automated processes.",
-    highlights: [
-      "AI workflow automation techniques",
-      "Practical hands-on exercises",
-      "Industry tools and frameworks",
-      "Certificate of completion",
-      "Take-home project templates",
-    ],
-    contact: {
-      coordinators: [
-        {
-          name: "Zuhri Noor",
-          phone: "99951 88553",
-        },
-      ],
-    },
-    buttonText: "Register Now",
-    icon: "workflow",
-    registrationUrl: "#register-workflow",
-  },
   agenticaiworkshop: {
     title: "Agentic AI Workshop",
     badge: "Workshop",
     category: "workshops",
     tagline: "Building Intelligent AI Agents",
     details: [
-      { label: "Dates", value: "Feb 5-6, 2026" },
+      { label: "Dates", value: "Feb 7, 2026" },
+      { label: "Time", value: "9:00 AM - 4:00 PM" },
       { label: "Venue", value: "MCA Main LAB" },
       { label: "Format", value: "Hands-on" },
       { label: "Certificate", value: "Provided" },
@@ -886,7 +828,7 @@ export const eventsData = {
     },
     buttonText: "Register Now",
     icon: "bot",
-    registrationUrl: "#register-agenticai",
+    registrationUrl: "https://makemypass.com/event/agentic-ai-workshop-2",
   },
 };
 

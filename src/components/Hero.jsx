@@ -57,7 +57,6 @@ export default function Hero() {
                             );
                         })}
                         {/* Add space after first word */}
-                        {wordIndex === 0 && <span className="letter" style={{ '--i': 7 }}>&nbsp;</span>}
                     </span>
                 ))}
             </h1>
