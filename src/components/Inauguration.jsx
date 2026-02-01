@@ -6,7 +6,7 @@ export default function Inauguration() {
   return (
     <section className="inauguration-section" id="inauguration">
       <div className="inauguration-container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -23,42 +23,22 @@ export default function Inauguration() {
           <div className="inauguration-grid">
             {/* Image Section */}
             <div className="speaker-image-wrapper">
-              <div className="speaker-frame">
-                {/* Front Face */}
-                <div className="card-face card-front">
-                  <img 
-                    src="/1.png" 
-                    alt="Anantharaman Front" 
-                    className="speaker-img"
-                    onError={(e) => {
-                      e.target.src = 'https://ui-avatars.com/api/?name=Anantharaman&background=0D8ABC&color=fff&size=400';
-                    }}
-                  />
-                  <div className="image-overlay"></div>
-                  <div className="speaker-info-overlay">
-                    <h3 className="speaker-name">ANANTHARAMAN</h3>
-                    <p className="speaker-role">Influencer, Free thinker, Actor, Youtuber</p>
-                  </div>
-                </div>
-
-                {/* Back Face */}
-                <div className="card-face card-back">
-                  <img 
-                    src="/2.png" 
-                    alt="Anantharaman Back" 
-                    className="speaker-img"
-                    onError={(e) => {
-                      e.target.src = 'https://ui-avatars.com/api/?name=Anantharaman&background=0D8ABC&color=fff&size=400';
-                    }}
-                  />
-                  <div className="image-overlay"></div>
-                  <div className="speaker-info-overlay">
-                    <h3 className="speaker-name">ANANTHARAMAN</h3>
-                    <p className="speaker-role">Influencer, Free thinker, Actor, Youtuber</p>
-                  </div>
+              <div className="speaker-frame static">
+                <img
+                  src="/2.png"
+                  alt="Anantharaman"
+                  className="speaker-img"
+                  onError={(e) => {
+                    e.target.src = 'https://ui-avatars.com/api/?name=Anantharaman&background=0D8ABC&color=fff&size=400';
+                  }}
+                />
+                <div className="image-overlay"></div>
+                <div className="speaker-info-overlay">
+                  <h3 className="speaker-name">ANANTHARAMAN</h3>
+                  <p className="speaker-role">Influencer, Free thinker, Actor, Youtuber</p>
                 </div>
               </div>
-              
+
               <div className="floating-badge">
                 <Mic size={16} />Speaker
               </div>
@@ -89,10 +69,10 @@ export default function Inauguration() {
               </h4>
 
               <div className="description-text">
-                <p>
+                {/* <p>
                   <span className="highlight"></span> Gen AI creates new content like text, images, or code by learning patterns from data. AI Agents combine this ability with reasoning and tools to make decisions and perform tasks autonomously.
-                </p>
-                
+                </p> */}
+
                 <div className="quote-box">
                   <p>
                     "As AI increasingly shapes how we learn, work, and decide, critical thinking matters more than ever. This session explores scientific temper, human judgment, and independent thinking, encouraging reflection beyond simply using AI tools."
