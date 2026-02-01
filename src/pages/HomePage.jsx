@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Trophy, Calendar, Music, ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero';
+import Inauguration from '../components/Inauguration';
 import Gallery from '../components/Gallery';
 import Contact from '../components/Contact';
 import SEO from '../components/SEO';
@@ -70,6 +71,8 @@ export default function HomePage() {
         <div className="page-container home-page">
             <SEO title="Home" />
             <Hero />
+            
+            <Inauguration />
 
             <section id="events" className="section">
                 <h2 className="section-title">Explore INCEPTA</h2>

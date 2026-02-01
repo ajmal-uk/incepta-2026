@@ -3987,3 +3987,282 @@ body.sidebar-open {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+/* --- Inauguration Section --- */
+.inauguration-section {
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.inauguration-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inauguration-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #fff 0%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-magenta));
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.bg-decoration-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: rgba(198, 120, 255, 0.15);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.bg-decoration-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: rgba(97, 218, 251, 0.15);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.inauguration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Image Section */
+.speaker-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  perspective: 1500px;
+}
+
+.speaker-frame {
+  position: relative;
+  aspect-ratio: 3/4;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.speaker-image-wrapper:hover .speaker-frame {
+  transform: rotateY(180deg) scale(1.05);
+  box-shadow: 0 30px 60px rgba(198, 120, 255, 0.2);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #1a0f24;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.speaker-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  z-index: 10;
+}
+
+.speaker-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  z-index: 20;
+}
+
+.speaker-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.speaker-role {
+  color: var(--neon-blue);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.floating-badge {
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-magenta));
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transform: rotate(3deg);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Content Section */
+.content-wrapper {
+  color: white;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pill-blue { color: var(--neon-blue); }
+.pill-purple { color: var(--neon-purple); }
+.pill-pink { color: var(--neon-magenta); }
+
+.talk-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #fff, #e2e8f0);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.talk-subtitle {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.description-text {
+  color: #cbd5e1;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: var(--neon-purple);
+  font-weight: 600;
+}
+
+.quote-box {
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--neon-purple);
+  padding: 1.2rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #e2e8f0;
+}
+
+@media (max-width: 968px) {
+  .inauguration-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .speaker-image-wrapper {
+    max-width: 320px;
+  }
+  
+  .talk-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 1.5rem;
+  }
+  
+  .talk-title {
+    font-size: 1.75rem;
+  }
+  
+  .speaker-name {
+    font-size: 1.4rem;
+  }
+}
