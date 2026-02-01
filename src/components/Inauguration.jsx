@@ -12,7 +12,7 @@ export default function Inauguration() {
           viewport={{ once: true }}
           className="inauguration-header"
         >
-          <h2 className="section-title">Inauguration & Keynote</h2>
+          <h2 className="section-title">The Dialogue: Live at CET</h2>
           <div className="title-underline"></div>
         </motion.div>
 
@@ -60,7 +60,7 @@ export default function Inauguration() {
               </div>
               
               <div className="floating-badge">
-                <Mic size={16} /> Keynote Speaker
+                <Mic size={16} />Speaker
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export default function Inauguration() {
 
               <div className="description-text">
                 <p>
-                  <span className="highlight">Gen AI & AI Agents:</span> Gen AI creates new content like text, images, or code by learning patterns from data. AI Agents combine this ability with reasoning and tools to make decisions and perform tasks autonomously.
+                  <span className="highlight"></span> Gen AI creates new content like text, images, or code by learning patterns from data. AI Agents combine this ability with reasoning and tools to make decisions and perform tasks autonomously.
                 </p>
                 
                 <div className="quote-box">
